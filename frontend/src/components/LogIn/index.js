@@ -73,6 +73,7 @@ class LogInFormBase extends Component {
                   type="text"
                   placeholder="Email Address"
                   className='form-control'
+                  id='username'
                 />
               </span>
               
@@ -85,14 +86,15 @@ class LogInFormBase extends Component {
                   type="password"
                   placeholder="Password"
                   className='form-control'
+                  id='password'
                 />
               </span>
                 
-              <button disabled={isInvalid} type="submit" className='btn btn-primary'>
-                Sign In
+              <button disabled={isInvalid} type="submit" className='btn btn-primary' id='login-button'>
+                Log In
               </button>
 
-              {error && <div className='form-text'>{error.message}</div>}
+              {error && <div className='form-text' id='error-message'>{error.message}</div>}
               </div>
             </form>
           </div>
