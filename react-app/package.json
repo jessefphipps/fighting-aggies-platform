@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "axios": "^1.1.2",
+    "babel-plugin-transform-remove-strict-mode": "0.0.2",
+    "babel-preset-react": "^6.24.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react_ujs": "^2.6.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}
