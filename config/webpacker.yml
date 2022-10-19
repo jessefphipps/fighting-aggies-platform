@@ -56,8 +56,8 @@ development:
   dev_server:
     https: false
     host: localhost
-    port: 3035
-    public: localhost:3035
+    port: 8082
+    public: https://f0ab0606648b43769bddc0f4b5d734f3.vfs.cloud9.us-east-2.amazonaws.com:8082
     hmr: false
     # Inline should be set to true if using HMR
     inline: true
