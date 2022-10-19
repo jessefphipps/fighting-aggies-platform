@@ -2,7 +2,7 @@ import axios from 'axios';
  
 import React,{Component} from 'react';
  
-class App extends Component {
+class FileUploader extends Component {
   
     state = {
  
@@ -98,4 +98,4 @@ class App extends Component {
     }
   }
  
-  export default App;
+  export default FileUploader;
