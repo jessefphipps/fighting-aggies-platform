@@ -1,6 +1,8 @@
 import axios from 'axios';
  
 import React,{Component} from 'react';
+
+import Button from '@mui/material/Button';
  
 class FileUploader extends Component {
   
@@ -52,9 +54,8 @@ class FileUploader extends Component {
             <h2>File Details:</h2>
              
 <p>File Name: {this.state.selectedFile.name}</p>
- 
-             
-<p>File Type: {this.state.selectedFile.type}</p>
+
+<p>File Size: {this.state.selectedFile.size} Bytes</p>
  
              
 <p>
