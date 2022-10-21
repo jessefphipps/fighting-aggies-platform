@@ -54,7 +54,7 @@ class FileUploader extends Component {
 <p>File Name: {this.state.selectedFile.name}</p>
  
              
-<p>File Type: {this.state.selectedFile.type}</p>
+<p>Uploaded File Type: {this.state.selectedFile.type}</p>
  
              
 <p>
