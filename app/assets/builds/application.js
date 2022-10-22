@@ -50447,9 +50447,21 @@ Please use another name.` : formatMuiErrorMessage(18));
 
   // app/javascript/components/Results/Results.jsx
   var import_react12 = __toESM(require_react());
+  var Results = class extends import_react12.Component {
+    render() {
+      return /* @__PURE__ */ import_react12.default.createElement("div", null, "Results Pane");
+    }
+  };
+  var Results_default = Results;
 
   // app/javascript/components/Export/Export.jsx
   var import_react13 = __toESM(require_react());
+  var Export = class extends import_react13.Component {
+    render() {
+      return /* @__PURE__ */ import_react13.default.createElement("div", null, "Export Pane");
+    }
+  };
+  var Export_default = Export;
 
   // app/javascript/pages/home/Home.jsx
   var import_react14 = __toESM(require_react());
@@ -50476,7 +50488,15 @@ Please use another name.` : formatMuiErrorMessage(18));
       padding: theme.spacing(1),
       textAlign: "center",
       color: theme.palette.text.secondary,
-      height: "40vh"
+      height: "60vh"
+    }));
+    const ExportTile = styled_default(Paper_default)(({ theme }) => ({
+      backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+      ...theme.typography.body2,
+      padding: theme.spacing(1),
+      textAlign: "center",
+      color: theme.palette.text.secondary,
+      height: "30vh"
     }));
     return /* @__PURE__ */ import_react14.default.createElement(Box_default, {
       sx: { flexGrow: 1 }
@@ -50498,10 +50518,16 @@ Please use another name.` : formatMuiErrorMessage(18));
     }, /* @__PURE__ */ import_react14.default.createElement(ReportSettings_default, null)))), /* @__PURE__ */ import_react14.default.createElement(Grid_default, {
       item: true,
       xs: 8
+    }, /* @__PURE__ */ import_react14.default.createElement(Stack_default, {
+      direction: "column",
+      spacing: 2
     }, /* @__PURE__ */ import_react14.default.createElement(ReportTile, {
       variant: "elevation",
       elevation: 8
-    }, "xs=4"))));
+    }, /* @__PURE__ */ import_react14.default.createElement(Results_default, null)), /* @__PURE__ */ import_react14.default.createElement(ExportTile, {
+      variant: "elevation",
+      elevation: 8
+    }, /* @__PURE__ */ import_react14.default.createElement(Export_default, null))))));
   };
   var Home_default = Home;
 
