@@ -10,8 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema[7.0].define(version: 2022_10_22_013502) do
+  create_table "videos", force: :cascade do |t|
+    t.string "video_path"
+    t.string "thumbnail_path"
+    t.string "resolution"
+    t.integer "size"
+    t.integer "duration"
+    t.float "frame_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
