@@ -3,7 +3,7 @@ import ReportSettings from "../../components/ReportSettings/ReportSettings"
 import Results from "../../components/Results/Results"
 import Export from "../../components/Export/Export"
 import React from "react"
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import App from "../../components/App"
 import { Box, createTheme, Stack, ThemeProvider, Grid, Paper} from "@mui/material";
 import { styled } from '@mui/material/styles';
@@ -48,14 +48,21 @@ const Home = () => {
     height: "30vh"
   }));
   
-  
+  const user = sessionStorage.getItem('user');
+  if(!user) return <Redirect to='/' />
   return (
-
   <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Stack direction="column" spacing={2}>
             <UploaderTile variant="elevation" elevation={8}>
+              {user && 
+                <div>
+                  <span> {user} </span>
+                  <button id='logout-button'>
+                          Log Out
+                  </button>
+                </div>} 
               <FileUploader />
             </UploaderTile>
             <SettingsTile variant="elevation" elevation={8}>
