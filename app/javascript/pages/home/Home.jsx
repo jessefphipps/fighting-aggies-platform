@@ -36,7 +36,16 @@ const Home = () => {
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: "40vh"
+    height: "60vh"
+  }));
+  
+  const ExportTile = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    height: "30vh"
   }));
   
   
@@ -55,7 +64,14 @@ const Home = () => {
           </Stack>
         </Grid>
         <Grid item xs={8}>
-          <ReportTile variant="elevation" elevation={8}>xs=4</ReportTile>
+          <Stack direction="column" spacing={2}>
+            <ReportTile variant="elevation" elevation={8}>
+              <Results/>
+            </ReportTile>
+            <ExportTile variant="elevation" elevation={8}>
+              <Export/>
+            </ExportTile>
+          </Stack>
         </Grid>
       </Grid>
     </Box>
