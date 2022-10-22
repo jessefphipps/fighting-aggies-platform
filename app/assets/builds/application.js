@@ -1286,7 +1286,7 @@
             }
             return children;
           }
-          function createContext3(defaultValue) {
+          function createContext4(defaultValue) {
             var context2 = {
               $$typeof: REACT_CONTEXT_TYPE,
               _currentValue: defaultValue,
@@ -1463,7 +1463,7 @@
             }
             return lazyType;
           }
-          function forwardRef7(render) {
+          function forwardRef9(render) {
             {
               if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
                 error2("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -1558,7 +1558,7 @@
             }
             return dispatcher;
           }
-          function useContext4(Context2) {
+          function useContext5(Context2) {
             var dispatcher = resolveDispatcher();
             {
               if (Context2._context !== void 0) {
@@ -1608,7 +1608,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useImperativeHandle(ref, create, deps);
           }
-          function useDebugValue2(value, formatterFn) {
+          function useDebugValue3(value, formatterFn) {
             {
               var dispatcher = resolveDispatcher();
               return dispatcher.useDebugValue(value, formatterFn);
@@ -2350,19 +2350,19 @@
           exports.Suspense = REACT_SUSPENSE_TYPE;
           exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
           exports.cloneElement = cloneElement$1;
-          exports.createContext = createContext3;
+          exports.createContext = createContext4;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
           exports.createRef = createRef;
-          exports.forwardRef = forwardRef7;
+          exports.forwardRef = forwardRef9;
           exports.isValidElement = isValidElement2;
           exports.lazy = lazy;
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
           exports.useCallback = useCallback4;
-          exports.useContext = useContext4;
-          exports.useDebugValue = useDebugValue2;
+          exports.useContext = useContext5;
+          exports.useDebugValue = useDebugValue3;
           exports.useDeferredValue = useDeferredValue;
           exports.useEffect = useEffect5;
           exports.useId = useId;
@@ -2868,9 +2868,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React28 = require_react();
+          var React32 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React28.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React32.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -4391,7 +4391,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React28.Children.forEach(props.children, function(child) {
+                  React32.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12552,7 +12552,7 @@
             }
           }
           var fakeInternalInstance = {};
-          var emptyRefsObject = new React28.Component().refs;
+          var emptyRefsObject = new React32.Component().refs;
           var didWarnAboutStateAssignmentForComponent;
           var didWarnAboutUninitializedState;
           var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24447,7 +24447,7 @@
       if (true) {
         (function() {
           "use strict";
-          var React28 = require_react();
+          var React32 = require_react();
           var REACT_ELEMENT_TYPE = Symbol.for("react.element");
           var REACT_PORTAL_TYPE = Symbol.for("react.portal");
           var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -24473,7 +24473,7 @@
             }
             return null;
           }
-          var ReactSharedInternals = React28.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React32.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error2(format) {
             {
               {
@@ -27028,7 +27028,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/use-insertion-effect-with-fallbacks/dist/emotion-use-insertion-effect-with-fallbacks.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React28 = require_react();
+      var React32 = require_react();
       function _interopNamespace(e) {
         if (e && e.__esModule)
           return e;
@@ -27049,14 +27049,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         n["default"] = e;
         return Object.freeze(n);
       }
-      var React__namespace = /* @__PURE__ */ _interopNamespace(React28);
+      var React__namespace = /* @__PURE__ */ _interopNamespace(React32);
       var isBrowser2 = typeof document !== "undefined";
       var syncFallback = function syncFallback2(create) {
         return create();
       };
       var useInsertionEffect = React__namespace["useInsertionEffect"] ? React__namespace["useInsertionEffect"] : false;
       var useInsertionEffectAlwaysWithSyncFallback = !isBrowser2 ? syncFallback : useInsertionEffect || syncFallback;
-      var useInsertionEffectWithLayoutFallback = useInsertionEffect || React28.useLayoutEffect;
+      var useInsertionEffectWithLayoutFallback = useInsertionEffect || React32.useLayoutEffect;
       exports.useInsertionEffectAlwaysWithSyncFallback = useInsertionEffectAlwaysWithSyncFallback;
       exports.useInsertionEffectWithLayoutFallback = useInsertionEffectWithLayoutFallback;
     }
@@ -27078,7 +27078,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   var require_emotion_element_b63ca7c6_cjs_dev = __commonJS({
     "node_modules/@emotion/react/dist/emotion-element-b63ca7c6.cjs.dev.js"(exports) {
       "use strict";
-      var React28 = require_react();
+      var React32 = require_react();
       var createCache = require_emotion_cache_cjs();
       var _extends2 = require_extends();
       var weakMemoize = require_emotion_weak_memoize_cjs();
@@ -27093,7 +27093,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var weakMemoize__default = /* @__PURE__ */ _interopDefault(weakMemoize);
       var isBrowser2 = typeof document !== "undefined";
       var hasOwnProperty2 = {}.hasOwnProperty;
-      var EmotionCacheContext = /* @__PURE__ */ React28.createContext(
+      var EmotionCacheContext = /* @__PURE__ */ React32.createContext(
         typeof HTMLElement !== "undefined" ? /* @__PURE__ */ createCache__default["default"]({
           key: "css"
         }) : null
@@ -27103,23 +27103,23 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       }
       var CacheProvider = EmotionCacheContext.Provider;
       var __unsafe_useEmotionCache = function useEmotionCache() {
-        return React28.useContext(EmotionCacheContext);
+        return React32.useContext(EmotionCacheContext);
       };
       exports.withEmotionCache = function withEmotionCache(func) {
-        return /* @__PURE__ */ React28.forwardRef(function(props, ref) {
-          var cache3 = React28.useContext(EmotionCacheContext);
+        return /* @__PURE__ */ React32.forwardRef(function(props, ref) {
+          var cache3 = React32.useContext(EmotionCacheContext);
           return func(props, cache3, ref);
         });
       };
       if (!isBrowser2) {
         exports.withEmotionCache = function withEmotionCache(func) {
           return function(props) {
-            var cache3 = React28.useContext(EmotionCacheContext);
+            var cache3 = React32.useContext(EmotionCacheContext);
             if (cache3 === null) {
               cache3 = createCache__default["default"]({
                 key: "css"
               });
-              return /* @__PURE__ */ React28.createElement(EmotionCacheContext.Provider, {
+              return /* @__PURE__ */ React32.createElement(EmotionCacheContext.Provider, {
                 value: cache3
               }, func(props, cache3));
             } else {
@@ -27128,12 +27128,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           };
         };
       }
-      var ThemeContext3 = /* @__PURE__ */ React28.createContext({});
+      var ThemeContext3 = /* @__PURE__ */ React32.createContext({});
       if (true) {
         ThemeContext3.displayName = "EmotionThemeContext";
       }
-      var useTheme4 = function useTheme5() {
-        return React28.useContext(ThemeContext3);
+      var useTheme5 = function useTheme6() {
+        return React32.useContext(ThemeContext3);
       };
       var getTheme = function getTheme2(outerTheme, theme) {
         if (typeof theme === "function") {
@@ -27154,24 +27154,24 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
       });
       var ThemeProvider = function ThemeProvider2(props) {
-        var theme = React28.useContext(ThemeContext3);
+        var theme = React32.useContext(ThemeContext3);
         if (props.theme !== theme) {
           theme = createCacheWithTheme(theme)(props.theme);
         }
-        return /* @__PURE__ */ React28.createElement(ThemeContext3.Provider, {
+        return /* @__PURE__ */ React32.createElement(ThemeContext3.Provider, {
           value: theme
         }, props.children);
       };
       function withTheme(Component8) {
         var componentName = Component8.displayName || Component8.name || "Component";
         var render = function render2(props, ref) {
-          var theme = React28.useContext(ThemeContext3);
-          return /* @__PURE__ */ React28.createElement(Component8, _extends2({
+          var theme = React32.useContext(ThemeContext3);
+          return /* @__PURE__ */ React32.createElement(Component8, _extends2({
             theme,
             ref
           }, props));
         };
-        var WithTheme = /* @__PURE__ */ React28.forwardRef(render);
+        var WithTheme = /* @__PURE__ */ React32.forwardRef(render);
         WithTheme.displayName = "WithTheme(" + componentName + ")";
         return _isolatedHnrs_dist_emotionReact_isolatedHnrs["default"](WithTheme, Component8);
       }
@@ -27241,7 +27241,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React28.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache3.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React32.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache3.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache3.sheet.nonce, _ref2));
         }
@@ -27260,7 +27260,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         } else if (props.className != null) {
           className = props.className + " ";
         }
-        var serialized = serialize.serializeStyles(registeredStyles, void 0, React28.useContext(ThemeContext3));
+        var serialized = serialize.serializeStyles(registeredStyles, void 0, React32.useContext(ThemeContext3));
         if (serialized.name.indexOf("-") === -1) {
           var labelFromStack = props[labelPropName];
           if (labelFromStack) {
@@ -27276,11 +27276,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         }
         newProps.ref = ref;
         newProps.className = className;
-        return /* @__PURE__ */ React28.createElement(React28.Fragment, null, /* @__PURE__ */ React28.createElement(Insertion, {
+        return /* @__PURE__ */ React32.createElement(React32.Fragment, null, /* @__PURE__ */ React32.createElement(Insertion, {
           cache: cache3,
           serialized,
           isStringTag: typeof WrappedComponent === "string"
-        }), /* @__PURE__ */ React28.createElement(WrappedComponent, newProps));
+        }), /* @__PURE__ */ React32.createElement(WrappedComponent, newProps));
       });
       if (true) {
         Emotion.displayName = "EmotionCssPropInternal";
@@ -27293,7 +27293,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       exports.createEmotionProps = createEmotionProps;
       exports.hasOwnProperty = hasOwnProperty2;
       exports.isBrowser = isBrowser2;
-      exports.useTheme = useTheme4;
+      exports.useTheme = useTheme5;
       exports.withTheme = withTheme;
     }
   });
@@ -27303,7 +27303,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     "node_modules/@emotion/react/dist/emotion-react.cjs.dev.js"(exports) {
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
-      var React28 = require_react();
+      var React32 = require_react();
       require_emotion_cache_cjs();
       var emotionElement = require_emotion_element_b63ca7c6_cjs_dev();
       require_extends();
@@ -27438,7 +27438,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       var jsx = function jsx2(type, props) {
         var args = arguments;
         if (props == null || !emotionElement.hasOwnProperty.call(props, "css")) {
-          return React28.createElement.apply(void 0, args);
+          return React32.createElement.apply(void 0, args);
         }
         var argsLength = args.length;
         var createElementArgArray = new Array(argsLength);
@@ -27447,7 +27447,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         for (var i = 2; i < argsLength; i++) {
           createElementArgArray[i] = args[i];
         }
-        return React28.createElement.apply(null, createElementArgArray);
+        return React32.createElement.apply(null, createElementArgArray);
       };
       var warnedAboutCssPropForGlobal = false;
       var Global = /* @__PURE__ */ emotionElement.withEmotionCache(function(props, cache3) {
@@ -27456,7 +27456,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           warnedAboutCssPropForGlobal = true;
         }
         var styles = props.styles;
-        var serialized = serialize.serializeStyles([styles], void 0, React28.useContext(emotionElement.ThemeContext));
+        var serialized = serialize.serializeStyles([styles], void 0, React32.useContext(emotionElement.ThemeContext));
         if (!emotionElement.isBrowser) {
           var _ref;
           var serializedNames = serialized.name;
@@ -27475,11 +27475,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           if (shouldCache) {
             return null;
           }
-          return /* @__PURE__ */ React28.createElement("style", (_ref = {}, _ref["data-emotion"] = cache3.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React32.createElement("style", (_ref = {}, _ref["data-emotion"] = cache3.key + "-global " + serializedNames, _ref.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref.nonce = cache3.sheet.nonce, _ref));
         }
-        var sheetRef = React28.useRef();
+        var sheetRef = React32.useRef();
         useInsertionEffectWithFallbacks.useInsertionEffectWithLayoutFallback(function() {
           var key = cache3.key + "-global";
           var sheet = new cache3.sheet.constructor({
@@ -27607,7 +27607,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         });
         if (!emotionElement.isBrowser && rules.length !== 0) {
           var _ref2;
-          return /* @__PURE__ */ React28.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache3.key + " " + serializedArr.map(function(serialized) {
+          return /* @__PURE__ */ React32.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache3.key + " " + serializedArr.map(function(serialized) {
             return serialized.name;
           }).join(" "), _ref2.dangerouslySetInnerHTML = {
             __html: rules
@@ -27642,11 +27642,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
         var content = {
           css: css3,
           cx,
-          theme: React28.useContext(emotionElement.ThemeContext)
+          theme: React32.useContext(emotionElement.ThemeContext)
         };
         var ele = props.children(content);
         hasRendered = true;
-        return /* @__PURE__ */ React28.createElement(React28.Fragment, null, /* @__PURE__ */ React28.createElement(Insertion, {
+        return /* @__PURE__ */ React32.createElement(React32.Fragment, null, /* @__PURE__ */ React32.createElement(Insertion, {
           cache: cache3,
           serializedArr
         }), ele);
@@ -27709,7 +27709,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       "use strict";
       Object.defineProperty(exports, "__esModule", { value: true });
       var _extends2 = require_extends();
-      var React28 = require_react();
+      var React32 = require_react();
       var isPropValid = require_emotion_is_prop_valid_cjs();
       var react = require_emotion_react_cjs();
       var utils = require_emotion_utils_cjs();
@@ -27758,7 +27758,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             serializedNames += " " + next.name;
             next = next.next;
           }
-          return /* @__PURE__ */ React28.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache3.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
+          return /* @__PURE__ */ React32.createElement("style", (_ref2 = {}, _ref2["data-emotion"] = cache3.key + " " + serializedNames, _ref2.dangerouslySetInnerHTML = {
             __html: rules
           }, _ref2.nonce = cache3.sheet.nonce, _ref2));
         }
@@ -27813,7 +27813,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
               for (var key in props) {
                 mergedProps[key] = props[key];
               }
-              mergedProps.theme = React28.useContext(react.ThemeContext);
+              mergedProps.theme = React32.useContext(react.ThemeContext);
             }
             if (typeof props.className === "string") {
               className = utils.getRegisteredStyles(cache3.registered, classInterpolations, props.className);
@@ -27836,11 +27836,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
             }
             newProps.className = className;
             newProps.ref = ref;
-            return /* @__PURE__ */ React28.createElement(React28.Fragment, null, /* @__PURE__ */ React28.createElement(Insertion, {
+            return /* @__PURE__ */ React32.createElement(React32.Fragment, null, /* @__PURE__ */ React32.createElement(Insertion, {
               cache: cache3,
               serialized,
               isStringTag: typeof FinalTag === "string"
-            }), /* @__PURE__ */ React28.createElement(FinalTag, newProps));
+            }), /* @__PURE__ */ React32.createElement(FinalTag, newProps));
           });
           Styled.displayName = identifierName !== void 0 ? identifierName : "Styled(" + (typeof baseTag === "string" ? baseTag : baseTag.displayName || baseTag.name || "Component") + ")";
           Styled.defaultProps = tag.defaultProps;
@@ -35929,17 +35929,17 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
   // node_modules/axios/lib/helpers/validator.js
   var validators = {};
   ["object", "boolean", "number", "function", "string", "symbol"].forEach((type, i) => {
-    validators[type] = function validator(thing) {
+    validators[type] = function validator2(thing) {
       return typeof thing === type || "a" + (i < 1 ? "n " : " ") + type;
     };
   });
   var deprecatedWarnings = {};
-  validators.transitional = function transitional(validator, version6, message) {
+  validators.transitional = function transitional(validator2, version6, message) {
     function formatMessage(opt, desc) {
       return "[Axios v" + VERSION + "] Transitional option '" + opt + "'" + desc + (message ? ". " + message : "");
     }
     return (value, opt, opts) => {
-      if (validator === false) {
+      if (validator2 === false) {
         throw new AxiosError_default(
           formatMessage(opt, " has been removed" + (version6 ? " in " + version6 : "")),
           AxiosError_default.ERR_DEPRECATED
@@ -35954,7 +35954,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
           )
         );
       }
-      return validator ? validator(value, opt, opts) : true;
+      return validator2 ? validator2(value, opt, opts) : true;
     };
   };
   function assertOptions(options, schema, allowUnknown) {
@@ -35965,10 +35965,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     let i = keys.length;
     while (i-- > 0) {
       const opt = keys[i];
-      const validator = schema[opt];
-      if (validator) {
+      const validator2 = schema[opt];
+      if (validator2) {
         const value = options[opt];
-        const result = value === void 0 || validator(value, opt, options);
+        const result = value === void 0 || validator2(value, opt, options);
         if (result !== true) {
           throw new AxiosError_default("option " + opt + " must be " + result, AxiosError_default.ERR_BAD_OPTION_VALUE);
         }
@@ -36417,6 +36417,29 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  // node_modules/@mui/utils/esm/requirePropFactory.js
+  function requirePropFactory(componentNameInError, Component8) {
+    if (false) {
+      return () => null;
+    }
+    const prevPropTypes = Component8 ? _extends({}, Component8.propTypes) : null;
+    const requireProp = (requiredProp) => (props, propName, componentName, location2, propFullName, ...args) => {
+      const propFullNameSafe = propFullName || propName;
+      const defaultTypeChecker = prevPropTypes == null ? void 0 : prevPropTypes[propFullNameSafe];
+      if (defaultTypeChecker) {
+        const typeCheckerResult = defaultTypeChecker(props, propName, componentName, location2, propFullName, ...args);
+        if (typeCheckerResult) {
+          return typeCheckerResult;
+        }
+      }
+      if (typeof props[propName] !== "undefined" && !props[requiredProp]) {
+        return new Error(`The prop \`${propFullNameSafe}\` of \`${componentNameInError}\` can only be used together with the \`${requiredProp}\` prop.`);
+      }
+      return null;
+    };
+    return requireProp;
+  }
+
   // node_modules/@mui/utils/esm/setRef.js
   function setRef(ref, value) {
     if (typeof ref === "function") {
@@ -36558,6 +36581,56 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_liter
       ref
     };
   }
+
+  // node_modules/@mui/utils/esm/integerPropType.js
+  function getTypeByValue(value) {
+    const valueType = typeof value;
+    switch (valueType) {
+      case "number":
+        if (Number.isNaN(value)) {
+          return "NaN";
+        }
+        if (!Number.isFinite(value)) {
+          return "Infinity";
+        }
+        if (value !== Math.floor(value)) {
+          return "float";
+        }
+        return "number";
+      case "object":
+        if (value === null) {
+          return "null";
+        }
+        return value.constructor.name;
+      default:
+        return valueType;
+    }
+  }
+  function ponyfillIsInteger(x) {
+    return typeof x === "number" && isFinite(x) && Math.floor(x) === x;
+  }
+  var isInteger = Number.isInteger || ponyfillIsInteger;
+  function requiredInteger(props, propName, componentName, location2) {
+    const propValue = props[propName];
+    if (propValue == null || !isInteger(propValue)) {
+      const propType = getTypeByValue(propValue);
+      return new RangeError(`Invalid ${location2} \`${propName}\` of type \`${propType}\` supplied to \`${componentName}\`, expected \`integer\`.`);
+    }
+    return null;
+  }
+  function validator(props, propName, ...other) {
+    const propValue = props[propName];
+    if (propValue === void 0) {
+      return null;
+    }
+    return requiredInteger(props, propName, ...other);
+  }
+  function validatorNoop() {
+    return null;
+  }
+  validator.isRequired = requiredInteger;
+  validatorNoop.isRequired = validatorNoop;
+  var integerPropType_default = false ? validatorNoop : validator;
 
   // node_modules/@mui/utils/esm/resolveProps.js
   function resolveProps(defaultProps2, props) {
@@ -39954,6 +40027,712 @@ Please use another name.` : formatMuiErrorMessage(18));
   } : void 0;
   var Button_default = Button;
 
+  // node_modules/@mui/material/esm/styles/useTheme.js
+  var React15 = __toESM(require_react());
+  function useTheme4() {
+    const theme = useTheme_default(defaultTheme_default);
+    if (true) {
+      React15.useDebugValue(theme);
+    }
+    return theme;
+  }
+
+  // node_modules/@mui/material/esm/Paper/Paper.js
+  var React16 = __toESM(require_react());
+  var import_prop_types9 = __toESM(require_prop_types());
+
+  // node_modules/@mui/material/esm/Paper/paperClasses.js
+  function getPaperUtilityClass(slot) {
+    return generateUtilityClass("MuiPaper", slot);
+  }
+  var paperClasses = generateUtilityClasses("MuiPaper", ["root", "rounded", "outlined", "elevation", "elevation0", "elevation1", "elevation2", "elevation3", "elevation4", "elevation5", "elevation6", "elevation7", "elevation8", "elevation9", "elevation10", "elevation11", "elevation12", "elevation13", "elevation14", "elevation15", "elevation16", "elevation17", "elevation18", "elevation19", "elevation20", "elevation21", "elevation22", "elevation23", "elevation24"]);
+
+  // node_modules/@mui/material/esm/Paper/Paper.js
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime());
+  var _excluded14 = ["className", "component", "elevation", "square", "variant"];
+  var getOverlayAlpha = (elevation) => {
+    let alphaValue;
+    if (elevation < 1) {
+      alphaValue = 5.11916 * elevation ** 2;
+    } else {
+      alphaValue = 4.5 * Math.log(elevation + 1) + 2;
+    }
+    return (alphaValue / 100).toFixed(2);
+  };
+  var useUtilityClasses3 = (ownerState) => {
+    const {
+      square,
+      elevation,
+      variant,
+      classes
+    } = ownerState;
+    const slots = {
+      root: ["root", variant, !square && "rounded", variant === "elevation" && `elevation${elevation}`]
+    };
+    return composeClasses(slots, getPaperUtilityClass, classes);
+  };
+  var PaperRoot = styled_default("div", {
+    name: "MuiPaper",
+    slot: "Root",
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      return [styles.root, styles[ownerState.variant], !ownerState.square && styles.rounded, ownerState.variant === "elevation" && styles[`elevation${ownerState.elevation}`]];
+    }
+  })(({
+    theme,
+    ownerState
+  }) => {
+    var _theme$vars$overlays;
+    return _extends({
+      backgroundColor: (theme.vars || theme).palette.background.paper,
+      color: (theme.vars || theme).palette.text.primary,
+      transition: theme.transitions.create("box-shadow")
+    }, !ownerState.square && {
+      borderRadius: theme.shape.borderRadius
+    }, ownerState.variant === "outlined" && {
+      border: `1px solid ${(theme.vars || theme).palette.divider}`
+    }, ownerState.variant === "elevation" && _extends({
+      boxShadow: (theme.vars || theme).shadows[ownerState.elevation]
+    }, !theme.vars && theme.palette.mode === "dark" && {
+      backgroundImage: `linear-gradient(${alpha("#fff", getOverlayAlpha(ownerState.elevation))}, ${alpha("#fff", getOverlayAlpha(ownerState.elevation))})`
+    }, theme.vars && {
+      backgroundImage: (_theme$vars$overlays = theme.vars.overlays) == null ? void 0 : _theme$vars$overlays[ownerState.elevation]
+    }));
+  });
+  var Paper = /* @__PURE__ */ React16.forwardRef(function Paper2(inProps, ref) {
+    const props = useThemeProps2({
+      props: inProps,
+      name: "MuiPaper"
+    });
+    const {
+      className,
+      component = "div",
+      elevation = 1,
+      square = false,
+      variant = "elevation"
+    } = props, other = _objectWithoutPropertiesLoose(props, _excluded14);
+    const ownerState = _extends({}, props, {
+      component,
+      elevation,
+      square,
+      variant
+    });
+    const classes = useUtilityClasses3(ownerState);
+    if (true) {
+      const theme = useTheme4();
+      if (theme.shadows[elevation] === void 0) {
+        console.error([`MUI: The elevation provided <Paper elevation={${elevation}}> is not available in the theme.`, `Please make sure that \`theme.shadows[${elevation}]\` is defined.`].join("\n"));
+      }
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(PaperRoot, _extends({
+      as: component,
+      ownerState,
+      className: clsx_m_default(classes.root, className),
+      ref
+    }, other));
+  });
+  true ? Paper.propTypes = {
+    children: import_prop_types9.default.node,
+    classes: import_prop_types9.default.object,
+    className: import_prop_types9.default.string,
+    component: import_prop_types9.default.elementType,
+    elevation: chainPropTypes(integerPropType_default, (props) => {
+      const {
+        elevation,
+        variant
+      } = props;
+      if (elevation > 0 && variant === "outlined") {
+        return new Error(`MUI: Combining \`elevation={${elevation}}\` with \`variant="${variant}"\` has no effect. Either use \`elevation={0}\` or use a different \`variant\`.`);
+      }
+      return null;
+    }),
+    square: import_prop_types9.default.bool,
+    sx: import_prop_types9.default.oneOfType([import_prop_types9.default.arrayOf(import_prop_types9.default.oneOfType([import_prop_types9.default.func, import_prop_types9.default.object, import_prop_types9.default.bool])), import_prop_types9.default.func, import_prop_types9.default.object]),
+    variant: import_prop_types9.default.oneOfType([import_prop_types9.default.oneOf(["elevation", "outlined"]), import_prop_types9.default.string])
+  } : void 0;
+  var Paper_default = Paper;
+
+  // node_modules/@mui/material/esm/utils/requirePropFactory.js
+  var requirePropFactory_default = requirePropFactory;
+
+  // node_modules/@mui/material/esm/Box/Box.js
+  var import_prop_types10 = __toESM(require_prop_types());
+  var defaultTheme2 = createTheme_default2();
+  var Box = createBox({
+    defaultTheme: defaultTheme2,
+    defaultClassName: "MuiBox-root",
+    generateClassName: ClassNameGenerator_default.generate
+  });
+  true ? Box.propTypes = {
+    children: import_prop_types10.default.node,
+    component: import_prop_types10.default.elementType,
+    sx: import_prop_types10.default.oneOfType([import_prop_types10.default.arrayOf(import_prop_types10.default.oneOfType([import_prop_types10.default.func, import_prop_types10.default.object, import_prop_types10.default.bool])), import_prop_types10.default.func, import_prop_types10.default.object])
+  } : void 0;
+  var Box_default = Box;
+
+  // node_modules/@mui/material/esm/Grid/Grid.js
+  var React18 = __toESM(require_react());
+  var import_prop_types11 = __toESM(require_prop_types());
+
+  // node_modules/@mui/material/esm/Grid/GridContext.js
+  var React17 = __toESM(require_react());
+  var GridContext = /* @__PURE__ */ React17.createContext();
+  if (true) {
+    GridContext.displayName = "GridContext";
+  }
+  var GridContext_default = GridContext;
+
+  // node_modules/@mui/material/esm/Grid/gridClasses.js
+  function getGridUtilityClass(slot) {
+    return generateUtilityClass("MuiGrid", slot);
+  }
+  var SPACINGS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var DIRECTIONS = ["column-reverse", "column", "row-reverse", "row"];
+  var WRAPS = ["nowrap", "wrap-reverse", "wrap"];
+  var GRID_SIZES = ["auto", true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  var gridClasses = generateUtilityClasses("MuiGrid", [
+    "root",
+    "container",
+    "item",
+    "zeroMinWidth",
+    ...SPACINGS.map((spacing2) => `spacing-xs-${spacing2}`),
+    ...DIRECTIONS.map((direction) => `direction-xs-${direction}`),
+    ...WRAPS.map((wrap2) => `wrap-xs-${wrap2}`),
+    ...GRID_SIZES.map((size) => `grid-xs-${size}`),
+    ...GRID_SIZES.map((size) => `grid-sm-${size}`),
+    ...GRID_SIZES.map((size) => `grid-md-${size}`),
+    ...GRID_SIZES.map((size) => `grid-lg-${size}`),
+    ...GRID_SIZES.map((size) => `grid-xl-${size}`)
+  ]);
+  var gridClasses_default = gridClasses;
+
+  // node_modules/@mui/material/esm/Grid/Grid.js
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime());
+  var _excluded15 = ["className", "columns", "columnSpacing", "component", "container", "direction", "item", "rowSpacing", "spacing", "wrap", "zeroMinWidth"];
+  function getOffset(val) {
+    const parse = parseFloat(val);
+    return `${parse}${String(val).replace(String(parse), "") || "px"}`;
+  }
+  function generateGrid({
+    theme,
+    ownerState
+  }) {
+    let size;
+    return theme.breakpoints.keys.reduce((globalStyles, breakpoint) => {
+      let styles = {};
+      if (ownerState[breakpoint]) {
+        size = ownerState[breakpoint];
+      }
+      if (!size) {
+        return globalStyles;
+      }
+      if (size === true) {
+        styles = {
+          flexBasis: 0,
+          flexGrow: 1,
+          maxWidth: "100%"
+        };
+      } else if (size === "auto") {
+        styles = {
+          flexBasis: "auto",
+          flexGrow: 0,
+          flexShrink: 0,
+          maxWidth: "none",
+          width: "auto"
+        };
+      } else {
+        const columnsBreakpointValues = resolveBreakpointValues({
+          values: ownerState.columns,
+          breakpoints: theme.breakpoints.values
+        });
+        const columnValue = typeof columnsBreakpointValues === "object" ? columnsBreakpointValues[breakpoint] : columnsBreakpointValues;
+        if (columnValue === void 0 || columnValue === null) {
+          return globalStyles;
+        }
+        const width2 = `${Math.round(size / columnValue * 1e8) / 1e6}%`;
+        let more = {};
+        if (ownerState.container && ownerState.item && ownerState.columnSpacing !== 0) {
+          const themeSpacing = theme.spacing(ownerState.columnSpacing);
+          if (themeSpacing !== "0px") {
+            const fullWidth = `calc(${width2} + ${getOffset(themeSpacing)})`;
+            more = {
+              flexBasis: fullWidth,
+              maxWidth: fullWidth
+            };
+          }
+        }
+        styles = _extends({
+          flexBasis: width2,
+          flexGrow: 0,
+          maxWidth: width2
+        }, more);
+      }
+      if (theme.breakpoints.values[breakpoint] === 0) {
+        Object.assign(globalStyles, styles);
+      } else {
+        globalStyles[theme.breakpoints.up(breakpoint)] = styles;
+      }
+      return globalStyles;
+    }, {});
+  }
+  function generateDirection({
+    theme,
+    ownerState
+  }) {
+    const directionValues = resolveBreakpointValues({
+      values: ownerState.direction,
+      breakpoints: theme.breakpoints.values
+    });
+    return handleBreakpoints({
+      theme
+    }, directionValues, (propValue) => {
+      const output = {
+        flexDirection: propValue
+      };
+      if (propValue.indexOf("column") === 0) {
+        output[`& > .${gridClasses_default.item}`] = {
+          maxWidth: "none"
+        };
+      }
+      return output;
+    });
+  }
+  function extractZeroValueBreakpointKeys({
+    breakpoints,
+    values: values3
+  }) {
+    let nonZeroKey = "";
+    Object.keys(values3).forEach((key) => {
+      if (nonZeroKey !== "") {
+        return;
+      }
+      if (values3[key] !== 0) {
+        nonZeroKey = key;
+      }
+    });
+    const sortedBreakpointKeysByValue = Object.keys(breakpoints).sort((a, b) => {
+      return breakpoints[a] - breakpoints[b];
+    });
+    return sortedBreakpointKeysByValue.slice(0, sortedBreakpointKeysByValue.indexOf(nonZeroKey));
+  }
+  function generateRowGap({
+    theme,
+    ownerState
+  }) {
+    const {
+      container,
+      rowSpacing
+    } = ownerState;
+    let styles = {};
+    if (container && rowSpacing !== 0) {
+      const rowSpacingValues = resolveBreakpointValues({
+        values: rowSpacing,
+        breakpoints: theme.breakpoints.values
+      });
+      let zeroValueBreakpointKeys;
+      if (typeof rowSpacingValues === "object") {
+        zeroValueBreakpointKeys = extractZeroValueBreakpointKeys({
+          breakpoints: theme.breakpoints.values,
+          values: rowSpacingValues
+        });
+      }
+      styles = handleBreakpoints({
+        theme
+      }, rowSpacingValues, (propValue, breakpoint) => {
+        var _zeroValueBreakpointK;
+        const themeSpacing = theme.spacing(propValue);
+        if (themeSpacing !== "0px") {
+          return {
+            marginTop: `-${getOffset(themeSpacing)}`,
+            [`& > .${gridClasses_default.item}`]: {
+              paddingTop: getOffset(themeSpacing)
+            }
+          };
+        }
+        if ((_zeroValueBreakpointK = zeroValueBreakpointKeys) != null && _zeroValueBreakpointK.includes(breakpoint)) {
+          return {};
+        }
+        return {
+          marginTop: 0,
+          [`& > .${gridClasses_default.item}`]: {
+            paddingTop: 0
+          }
+        };
+      });
+    }
+    return styles;
+  }
+  function generateColumnGap({
+    theme,
+    ownerState
+  }) {
+    const {
+      container,
+      columnSpacing
+    } = ownerState;
+    let styles = {};
+    if (container && columnSpacing !== 0) {
+      const columnSpacingValues = resolveBreakpointValues({
+        values: columnSpacing,
+        breakpoints: theme.breakpoints.values
+      });
+      let zeroValueBreakpointKeys;
+      if (typeof columnSpacingValues === "object") {
+        zeroValueBreakpointKeys = extractZeroValueBreakpointKeys({
+          breakpoints: theme.breakpoints.values,
+          values: columnSpacingValues
+        });
+      }
+      styles = handleBreakpoints({
+        theme
+      }, columnSpacingValues, (propValue, breakpoint) => {
+        var _zeroValueBreakpointK2;
+        const themeSpacing = theme.spacing(propValue);
+        if (themeSpacing !== "0px") {
+          return {
+            width: `calc(100% + ${getOffset(themeSpacing)})`,
+            marginLeft: `-${getOffset(themeSpacing)}`,
+            [`& > .${gridClasses_default.item}`]: {
+              paddingLeft: getOffset(themeSpacing)
+            }
+          };
+        }
+        if ((_zeroValueBreakpointK2 = zeroValueBreakpointKeys) != null && _zeroValueBreakpointK2.includes(breakpoint)) {
+          return {};
+        }
+        return {
+          width: "100%",
+          marginLeft: 0,
+          [`& > .${gridClasses_default.item}`]: {
+            paddingLeft: 0
+          }
+        };
+      });
+    }
+    return styles;
+  }
+  function resolveSpacingStyles(spacing2, breakpoints, styles = {}) {
+    if (!spacing2 || spacing2 <= 0) {
+      return [];
+    }
+    if (typeof spacing2 === "string" && !Number.isNaN(Number(spacing2)) || typeof spacing2 === "number") {
+      return [styles[`spacing-xs-${String(spacing2)}`]];
+    }
+    const spacingStyles = [];
+    breakpoints.forEach((breakpoint) => {
+      const value = spacing2[breakpoint];
+      if (Number(value) > 0) {
+        spacingStyles.push(styles[`spacing-${breakpoint}-${String(value)}`]);
+      }
+    });
+    return spacingStyles;
+  }
+  var GridRoot = styled_default("div", {
+    name: "MuiGrid",
+    slot: "Root",
+    overridesResolver: (props, styles) => {
+      const {
+        ownerState
+      } = props;
+      const {
+        container,
+        direction,
+        item,
+        spacing: spacing2,
+        wrap: wrap2,
+        zeroMinWidth,
+        breakpoints
+      } = ownerState;
+      let spacingStyles = [];
+      if (container) {
+        spacingStyles = resolveSpacingStyles(spacing2, breakpoints, styles);
+      }
+      const breakpointsStyles = [];
+      breakpoints.forEach((breakpoint) => {
+        const value = ownerState[breakpoint];
+        if (value) {
+          breakpointsStyles.push(styles[`grid-${breakpoint}-${String(value)}`]);
+        }
+      });
+      return [styles.root, container && styles.container, item && styles.item, zeroMinWidth && styles.zeroMinWidth, ...spacingStyles, direction !== "row" && styles[`direction-xs-${String(direction)}`], wrap2 !== "wrap" && styles[`wrap-xs-${String(wrap2)}`], ...breakpointsStyles];
+    }
+  })(({
+    ownerState
+  }) => _extends({
+    boxSizing: "border-box"
+  }, ownerState.container && {
+    display: "flex",
+    flexWrap: "wrap",
+    width: "100%"
+  }, ownerState.item && {
+    margin: 0
+  }, ownerState.zeroMinWidth && {
+    minWidth: 0
+  }, ownerState.wrap !== "wrap" && {
+    flexWrap: ownerState.wrap
+  }), generateDirection, generateRowGap, generateColumnGap, generateGrid);
+  function resolveSpacingClasses(spacing2, breakpoints) {
+    if (!spacing2 || spacing2 <= 0) {
+      return [];
+    }
+    if (typeof spacing2 === "string" && !Number.isNaN(Number(spacing2)) || typeof spacing2 === "number") {
+      return [`spacing-xs-${String(spacing2)}`];
+    }
+    const classes = [];
+    breakpoints.forEach((breakpoint) => {
+      const value = spacing2[breakpoint];
+      if (Number(value) > 0) {
+        const className = `spacing-${breakpoint}-${String(value)}`;
+        classes.push(className);
+      }
+    });
+    return classes;
+  }
+  var useUtilityClasses4 = (ownerState) => {
+    const {
+      classes,
+      container,
+      direction,
+      item,
+      spacing: spacing2,
+      wrap: wrap2,
+      zeroMinWidth,
+      breakpoints
+    } = ownerState;
+    let spacingClasses = [];
+    if (container) {
+      spacingClasses = resolveSpacingClasses(spacing2, breakpoints);
+    }
+    const breakpointsClasses = [];
+    breakpoints.forEach((breakpoint) => {
+      const value = ownerState[breakpoint];
+      if (value) {
+        breakpointsClasses.push(`grid-${breakpoint}-${String(value)}`);
+      }
+    });
+    const slots = {
+      root: ["root", container && "container", item && "item", zeroMinWidth && "zeroMinWidth", ...spacingClasses, direction !== "row" && `direction-xs-${String(direction)}`, wrap2 !== "wrap" && `wrap-xs-${String(wrap2)}`, ...breakpointsClasses]
+    };
+    return composeClasses(slots, getGridUtilityClass, classes);
+  };
+  var Grid = /* @__PURE__ */ React18.forwardRef(function Grid2(inProps, ref) {
+    const themeProps = useThemeProps2({
+      props: inProps,
+      name: "MuiGrid"
+    });
+    const {
+      breakpoints
+    } = useTheme4();
+    const props = extendSxProp(themeProps);
+    const {
+      className,
+      columns: columnsProp,
+      columnSpacing: columnSpacingProp,
+      component = "div",
+      container = false,
+      direction = "row",
+      item = false,
+      rowSpacing: rowSpacingProp,
+      spacing: spacing2 = 0,
+      wrap: wrap2 = "wrap",
+      zeroMinWidth = false
+    } = props, other = _objectWithoutPropertiesLoose(props, _excluded15);
+    const rowSpacing = rowSpacingProp || spacing2;
+    const columnSpacing = columnSpacingProp || spacing2;
+    const columnsContext = React18.useContext(GridContext_default);
+    const columns = container ? columnsProp || 12 : columnsContext;
+    const breakpointsValues = {};
+    const otherFiltered = _extends({}, other);
+    breakpoints.keys.forEach((breakpoint) => {
+      if (other[breakpoint] != null) {
+        breakpointsValues[breakpoint] = other[breakpoint];
+        delete otherFiltered[breakpoint];
+      }
+    });
+    const ownerState = _extends({}, props, {
+      columns,
+      container,
+      direction,
+      item,
+      rowSpacing,
+      columnSpacing,
+      wrap: wrap2,
+      zeroMinWidth,
+      spacing: spacing2
+    }, breakpointsValues, {
+      breakpoints: breakpoints.keys
+    });
+    const classes = useUtilityClasses4(ownerState);
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(GridContext_default.Provider, {
+      value: columns,
+      children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(GridRoot, _extends({
+        ownerState,
+        className: clsx_m_default(classes.root, className),
+        as: component,
+        ref
+      }, otherFiltered))
+    });
+  });
+  true ? Grid.propTypes = {
+    children: import_prop_types11.default.node,
+    classes: import_prop_types11.default.object,
+    className: import_prop_types11.default.string,
+    columns: import_prop_types11.default.oneOfType([import_prop_types11.default.arrayOf(import_prop_types11.default.number), import_prop_types11.default.number, import_prop_types11.default.object]),
+    columnSpacing: import_prop_types11.default.oneOfType([import_prop_types11.default.arrayOf(import_prop_types11.default.oneOfType([import_prop_types11.default.number, import_prop_types11.default.string])), import_prop_types11.default.number, import_prop_types11.default.object, import_prop_types11.default.string]),
+    component: import_prop_types11.default.elementType,
+    container: import_prop_types11.default.bool,
+    direction: import_prop_types11.default.oneOfType([import_prop_types11.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types11.default.arrayOf(import_prop_types11.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types11.default.object]),
+    item: import_prop_types11.default.bool,
+    lg: import_prop_types11.default.oneOfType([import_prop_types11.default.oneOf(["auto"]), import_prop_types11.default.number, import_prop_types11.default.bool]),
+    md: import_prop_types11.default.oneOfType([import_prop_types11.default.oneOf(["auto"]), import_prop_types11.default.number, import_prop_types11.default.bool]),
+    rowSpacing: import_prop_types11.default.oneOfType([import_prop_types11.default.arrayOf(import_prop_types11.default.oneOfType([import_prop_types11.default.number, import_prop_types11.default.string])), import_prop_types11.default.number, import_prop_types11.default.object, import_prop_types11.default.string]),
+    sm: import_prop_types11.default.oneOfType([import_prop_types11.default.oneOf(["auto"]), import_prop_types11.default.number, import_prop_types11.default.bool]),
+    spacing: import_prop_types11.default.oneOfType([import_prop_types11.default.arrayOf(import_prop_types11.default.oneOfType([import_prop_types11.default.number, import_prop_types11.default.string])), import_prop_types11.default.number, import_prop_types11.default.object, import_prop_types11.default.string]),
+    sx: import_prop_types11.default.oneOfType([import_prop_types11.default.arrayOf(import_prop_types11.default.oneOfType([import_prop_types11.default.func, import_prop_types11.default.object, import_prop_types11.default.bool])), import_prop_types11.default.func, import_prop_types11.default.object]),
+    wrap: import_prop_types11.default.oneOf(["nowrap", "wrap-reverse", "wrap"]),
+    xl: import_prop_types11.default.oneOfType([import_prop_types11.default.oneOf(["auto"]), import_prop_types11.default.number, import_prop_types11.default.bool]),
+    xs: import_prop_types11.default.oneOfType([import_prop_types11.default.oneOf(["auto"]), import_prop_types11.default.number, import_prop_types11.default.bool]),
+    zeroMinWidth: import_prop_types11.default.bool
+  } : void 0;
+  if (true) {
+    const requireProp = requirePropFactory_default("Grid", Grid);
+    Grid["propTypes"] = _extends({}, Grid.propTypes, {
+      direction: requireProp("container"),
+      lg: requireProp("item"),
+      md: requireProp("item"),
+      sm: requireProp("item"),
+      spacing: requireProp("container"),
+      wrap: requireProp("container"),
+      xs: requireProp("item"),
+      zeroMinWidth: requireProp("item")
+    });
+  }
+  var Grid_default = Grid;
+
+  // node_modules/@mui/material/esm/Stack/Stack.js
+  var React19 = __toESM(require_react());
+  var import_prop_types12 = __toESM(require_prop_types());
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime());
+  var _excluded16 = ["component", "direction", "spacing", "divider", "children"];
+  function joinChildren(children, separator) {
+    const childrenArray = React19.Children.toArray(children).filter(Boolean);
+    return childrenArray.reduce((output, child, index2) => {
+      output.push(child);
+      if (index2 < childrenArray.length - 1) {
+        output.push(/* @__PURE__ */ React19.cloneElement(separator, {
+          key: `separator-${index2}`
+        }));
+      }
+      return output;
+    }, []);
+  }
+  var getSideFromDirection = (direction) => {
+    return {
+      row: "Left",
+      "row-reverse": "Right",
+      column: "Top",
+      "column-reverse": "Bottom"
+    }[direction];
+  };
+  var style3 = ({
+    ownerState,
+    theme
+  }) => {
+    let styles = _extends({
+      display: "flex",
+      flexDirection: "column"
+    }, handleBreakpoints({
+      theme
+    }, resolveBreakpointValues({
+      values: ownerState.direction,
+      breakpoints: theme.breakpoints.values
+    }), (propValue) => ({
+      flexDirection: propValue
+    })));
+    if (ownerState.spacing) {
+      const transformer = createUnarySpacing(theme);
+      const base = Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
+        if (typeof ownerState.spacing === "object" && ownerState.spacing[breakpoint] != null || typeof ownerState.direction === "object" && ownerState.direction[breakpoint] != null) {
+          acc[breakpoint] = true;
+        }
+        return acc;
+      }, {});
+      const directionValues = resolveBreakpointValues({
+        values: ownerState.direction,
+        base
+      });
+      const spacingValues = resolveBreakpointValues({
+        values: ownerState.spacing,
+        base
+      });
+      if (typeof directionValues === "object") {
+        Object.keys(directionValues).forEach((breakpoint, index2, breakpoints) => {
+          const directionValue = directionValues[breakpoint];
+          if (!directionValue) {
+            const previousDirectionValue = index2 > 0 ? directionValues[breakpoints[index2 - 1]] : "column";
+            directionValues[breakpoint] = previousDirectionValue;
+          }
+        });
+      }
+      const styleFromPropValue = (propValue, breakpoint) => {
+        return {
+          "& > :not(style) + :not(style)": {
+            margin: 0,
+            [`margin${getSideFromDirection(breakpoint ? directionValues[breakpoint] : ownerState.direction)}`]: getValue2(transformer, propValue)
+          }
+        };
+      };
+      styles = deepmerge(styles, handleBreakpoints({
+        theme
+      }, spacingValues, styleFromPropValue));
+    }
+    styles = mergeBreakpointsInOrder(theme.breakpoints, styles);
+    return styles;
+  };
+  var StackRoot = styled_default("div", {
+    name: "MuiStack",
+    slot: "Root",
+    overridesResolver: (props, styles) => {
+      return [styles.root];
+    }
+  })(style3);
+  var Stack = /* @__PURE__ */ React19.forwardRef(function Stack2(inProps, ref) {
+    const themeProps = useThemeProps2({
+      props: inProps,
+      name: "MuiStack"
+    });
+    const props = extendSxProp(themeProps);
+    const {
+      component = "div",
+      direction = "column",
+      spacing: spacing2 = 0,
+      divider,
+      children
+    } = props, other = _objectWithoutPropertiesLoose(props, _excluded16);
+    const ownerState = {
+      direction,
+      spacing: spacing2
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(StackRoot, _extends({
+      as: component,
+      ownerState,
+      ref
+    }, other, {
+      children: divider ? joinChildren(children, divider) : children
+    }));
+  });
+  true ? Stack.propTypes = {
+    children: import_prop_types12.default.node,
+    component: import_prop_types12.default.elementType,
+    direction: import_prop_types12.default.oneOfType([import_prop_types12.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types12.default.arrayOf(import_prop_types12.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types12.default.object]),
+    divider: import_prop_types12.default.node,
+    spacing: import_prop_types12.default.oneOfType([import_prop_types12.default.arrayOf(import_prop_types12.default.oneOfType([import_prop_types12.default.number, import_prop_types12.default.string])), import_prop_types12.default.number, import_prop_types12.default.object, import_prop_types12.default.string]),
+    sx: import_prop_types12.default.oneOfType([import_prop_types12.default.arrayOf(import_prop_types12.default.oneOfType([import_prop_types12.default.func, import_prop_types12.default.object, import_prop_types12.default.bool])), import_prop_types12.default.func, import_prop_types12.default.object])
+  } : void 0;
+  var Stack_default = Stack;
+
   // app/javascript/components/FileUploader/FileUploader.jsx
   var FileUploader = class extends import_react5.Component {
     state = {
@@ -39981,10 +40760,19 @@ Please use another name.` : formatMuiErrorMessage(18));
       }
     };
     render() {
-      return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h1", null, "Fightin Aggies"), /* @__PURE__ */ import_react5.default.createElement("h3", null, "Upload File Here"), /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("input", {
+      return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h1", null, "Fightin Aggies Analytics Platform"), /* @__PURE__ */ import_react5.default.createElement("h3", null, "Upload File Here"), /* @__PURE__ */ import_react5.default.createElement(Stack_default, {
+        direction: "row",
+        spacing: 2,
+        style: { flex: 1 },
+        justifyContent: "space-around"
+      }, /* @__PURE__ */ import_react5.default.createElement(Button_default, {
+        variant: "contained",
+        component: "label"
+      }, ".zip Folder", /* @__PURE__ */ import_react5.default.createElement("input", {
         type: "file",
+        hidden: true,
         onChange: this.onFileChange
-      }), /* @__PURE__ */ import_react5.default.createElement(Button_default, {
+      })), /* @__PURE__ */ import_react5.default.createElement(Button_default, {
         variant: "contained",
         onClick: (e) => this.onFileUpload
       }, "Upload!")), this.fileData());
@@ -39997,7 +40785,7 @@ Please use another name.` : formatMuiErrorMessage(18));
 
   // node_modules/react-router/esm/react-router.js
   var import_react7 = __toESM(require_react());
-  var import_prop_types10 = __toESM(require_prop_types());
+  var import_prop_types14 = __toESM(require_prop_types());
 
   // node_modules/resolve-pathname/esm/resolve-pathname.js
   function isAbsolute(pathname) {
@@ -40848,7 +41636,7 @@ Please use another name.` : formatMuiErrorMessage(18));
 
   // node_modules/mini-create-react-context/dist/esm/index.js
   var import_react6 = __toESM(require_react());
-  var import_prop_types9 = __toESM(require_prop_types());
+  var import_prop_types13 = __toESM(require_prop_types());
   var MAX_SIGNED_31_BIT_INT = 1073741823;
   var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : {};
   function getUniqueId() {
@@ -40927,7 +41715,7 @@ Please use another name.` : formatMuiErrorMessage(18));
       };
       return Provider3;
     }(import_react6.Component);
-    Provider2.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = import_prop_types9.default.object.isRequired, _Provider$childContex);
+    Provider2.childContextTypes = (_Provider$childContex = {}, _Provider$childContex[contextProp] = import_prop_types13.default.object.isRequired, _Provider$childContex);
     var Consumer2 = /* @__PURE__ */ function(_Component2) {
       _inheritsLoose(Consumer3, _Component2);
       function Consumer3() {
@@ -40975,7 +41763,7 @@ Please use another name.` : formatMuiErrorMessage(18));
       };
       return Consumer3;
     }(import_react6.Component);
-    Consumer2.contextTypes = (_Consumer$contextType = {}, _Consumer$contextType[contextProp] = import_prop_types9.default.object, _Consumer$contextType);
+    Consumer2.contextTypes = (_Consumer$contextType = {}, _Consumer$contextType[contextProp] = import_prop_types13.default.object, _Consumer$contextType);
     return {
       Provider: Provider2,
       Consumer: Consumer2
@@ -41061,9 +41849,9 @@ Please use another name.` : formatMuiErrorMessage(18));
   }(import_react7.default.Component);
   if (true) {
     Router2.propTypes = {
-      children: import_prop_types10.default.node,
-      history: import_prop_types10.default.object.isRequired,
-      staticContext: import_prop_types10.default.object
+      children: import_prop_types14.default.node,
+      history: import_prop_types14.default.object.isRequired,
+      staticContext: import_prop_types14.default.object
     };
     Router2.prototype.componentDidUpdate = function(prevProps) {
       true ? tiny_warning_esm_default(prevProps.history === this.props.history, "You cannot change <Router history>") : void 0;
@@ -41091,11 +41879,11 @@ Please use another name.` : formatMuiErrorMessage(18));
   }(import_react7.default.Component);
   if (true) {
     MemoryRouter.propTypes = {
-      initialEntries: import_prop_types10.default.array,
-      initialIndex: import_prop_types10.default.number,
-      getUserConfirmation: import_prop_types10.default.func,
-      keyLength: import_prop_types10.default.number,
-      children: import_prop_types10.default.node
+      initialEntries: import_prop_types14.default.array,
+      initialIndex: import_prop_types14.default.number,
+      getUserConfirmation: import_prop_types14.default.func,
+      keyLength: import_prop_types14.default.number,
+      children: import_prop_types14.default.node
     };
     MemoryRouter.prototype.componentDidMount = function() {
       true ? tiny_warning_esm_default(!this.props.history, "<MemoryRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { MemoryRouter as Router }`.") : void 0;
@@ -41149,9 +41937,9 @@ Please use another name.` : formatMuiErrorMessage(18));
     });
   }
   if (true) {
-    messageType = import_prop_types10.default.oneOfType([import_prop_types10.default.func, import_prop_types10.default.string]);
+    messageType = import_prop_types14.default.oneOfType([import_prop_types14.default.func, import_prop_types14.default.string]);
     Prompt.propTypes = {
-      when: import_prop_types10.default.bool,
+      when: import_prop_types14.default.bool,
       message: messageType.isRequired
     };
   }
@@ -41211,9 +41999,9 @@ Please use another name.` : formatMuiErrorMessage(18));
   }
   if (true) {
     Redirect.propTypes = {
-      push: import_prop_types10.default.bool,
-      from: import_prop_types10.default.string,
-      to: import_prop_types10.default.oneOfType([import_prop_types10.default.string, import_prop_types10.default.object]).isRequired
+      push: import_prop_types14.default.bool,
+      from: import_prop_types14.default.string,
+      to: import_prop_types14.default.oneOfType([import_prop_types14.default.string, import_prop_types14.default.object]).isRequired
     };
   }
   var cache$1 = {};
@@ -41312,18 +42100,18 @@ Please use another name.` : formatMuiErrorMessage(18));
   }(import_react7.default.Component);
   if (true) {
     Route.propTypes = {
-      children: import_prop_types10.default.oneOfType([import_prop_types10.default.func, import_prop_types10.default.node]),
+      children: import_prop_types14.default.oneOfType([import_prop_types14.default.func, import_prop_types14.default.node]),
       component: function component(props, propName) {
         if (props[propName] && !(0, import_react_is2.isValidElementType)(props[propName])) {
           return new Error("Invalid prop 'component' supplied to 'Route': the prop is not a valid React component");
         }
       },
-      exact: import_prop_types10.default.bool,
-      location: import_prop_types10.default.object,
-      path: import_prop_types10.default.oneOfType([import_prop_types10.default.string, import_prop_types10.default.arrayOf(import_prop_types10.default.string)]),
-      render: import_prop_types10.default.func,
-      sensitive: import_prop_types10.default.bool,
-      strict: import_prop_types10.default.bool
+      exact: import_prop_types14.default.bool,
+      location: import_prop_types14.default.object,
+      path: import_prop_types14.default.oneOfType([import_prop_types14.default.string, import_prop_types14.default.arrayOf(import_prop_types14.default.string)]),
+      render: import_prop_types14.default.func,
+      sensitive: import_prop_types14.default.bool,
+      strict: import_prop_types14.default.bool
     };
     Route.prototype.componentDidMount = function() {
       true ? tiny_warning_esm_default(!(this.props.children && !isEmptyChildren(this.props.children) && this.props.component), "You should not use <Route component> and <Route children> in the same route; <Route component> will be ignored") : void 0;
@@ -41419,9 +42207,9 @@ Please use another name.` : formatMuiErrorMessage(18));
   }(import_react7.default.Component);
   if (true) {
     StaticRouter.propTypes = {
-      basename: import_prop_types10.default.string,
-      context: import_prop_types10.default.object,
-      location: import_prop_types10.default.oneOfType([import_prop_types10.default.string, import_prop_types10.default.object])
+      basename: import_prop_types14.default.string,
+      context: import_prop_types14.default.object,
+      location: import_prop_types14.default.oneOfType([import_prop_types14.default.string, import_prop_types14.default.object])
     };
     StaticRouter.prototype.componentDidMount = function() {
       true ? tiny_warning_esm_default(!this.props.history, "<StaticRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { StaticRouter as Router }`.") : void 0;
@@ -41458,8 +42246,8 @@ Please use another name.` : formatMuiErrorMessage(18));
   }(import_react7.default.Component);
   if (true) {
     Switch.propTypes = {
-      children: import_prop_types10.default.node,
-      location: import_prop_types10.default.object
+      children: import_prop_types14.default.node,
+      location: import_prop_types14.default.object
     };
     Switch.prototype.componentDidUpdate = function(prevProps) {
       true ? tiny_warning_esm_default(!(this.props.location && !prevProps.location), '<Switch> elements should not change from uncontrolled to controlled (or vice versa). You initially used no "location" prop and then provided one on a subsequent render.') : void 0;
@@ -41481,12 +42269,12 @@ Please use another name.` : formatMuiErrorMessage(18));
     C.WrappedComponent = Component8;
     if (true) {
       C.propTypes = {
-        wrappedComponentRef: import_prop_types10.default.oneOfType([import_prop_types10.default.string, import_prop_types10.default.func, import_prop_types10.default.object])
+        wrappedComponentRef: import_prop_types14.default.oneOfType([import_prop_types14.default.string, import_prop_types14.default.func, import_prop_types14.default.object])
       };
     }
     return (0, import_hoist_non_react_statics.default)(C, Component8);
   }
-  var useContext3 = import_react7.default.useContext;
+  var useContext4 = import_react7.default.useContext;
   if (true) {
     if (typeof window !== "undefined") {
       global2 = window;
@@ -41512,7 +42300,7 @@ Please use another name.` : formatMuiErrorMessage(18));
 
   // node_modules/react-router-dom/esm/react-router-dom.js
   var import_react8 = __toESM(require_react());
-  var import_prop_types11 = __toESM(require_prop_types());
+  var import_prop_types15 = __toESM(require_prop_types());
   var BrowserRouter = /* @__PURE__ */ function(_React$Component) {
     _inheritsLoose(BrowserRouter2, _React$Component);
     function BrowserRouter2() {
@@ -41535,11 +42323,11 @@ Please use another name.` : formatMuiErrorMessage(18));
   }(import_react8.default.Component);
   if (true) {
     BrowserRouter.propTypes = {
-      basename: import_prop_types11.default.string,
-      children: import_prop_types11.default.node,
-      forceRefresh: import_prop_types11.default.bool,
-      getUserConfirmation: import_prop_types11.default.func,
-      keyLength: import_prop_types11.default.number
+      basename: import_prop_types15.default.string,
+      children: import_prop_types15.default.node,
+      forceRefresh: import_prop_types15.default.bool,
+      getUserConfirmation: import_prop_types15.default.func,
+      keyLength: import_prop_types15.default.number
     };
     BrowserRouter.prototype.componentDidMount = function() {
       true ? tiny_warning_esm_default(!this.props.history, "<BrowserRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { BrowserRouter as Router }`.") : void 0;
@@ -41567,10 +42355,10 @@ Please use another name.` : formatMuiErrorMessage(18));
   }(import_react8.default.Component);
   if (true) {
     HashRouter.propTypes = {
-      basename: import_prop_types11.default.string,
-      children: import_prop_types11.default.node,
-      getUserConfirmation: import_prop_types11.default.func,
-      hashType: import_prop_types11.default.oneOf(["hashbang", "noslash", "slash"])
+      basename: import_prop_types15.default.string,
+      children: import_prop_types15.default.node,
+      getUserConfirmation: import_prop_types15.default.func,
+      hashType: import_prop_types15.default.oneOf(["hashbang", "noslash", "slash"])
     };
     HashRouter.prototype.componentDidMount = function() {
       true ? tiny_warning_esm_default(!this.props.history, "<HashRouter> ignores the history prop. To use a custom history, use `import { Router }` instead of `import { HashRouter as Router }`.") : void 0;
@@ -41585,14 +42373,14 @@ Please use another name.` : formatMuiErrorMessage(18));
   var forwardRefShim = function forwardRefShim2(C) {
     return C;
   };
-  var forwardRef5 = import_react8.default.forwardRef;
-  if (typeof forwardRef5 === "undefined") {
-    forwardRef5 = forwardRefShim;
+  var forwardRef8 = import_react8.default.forwardRef;
+  if (typeof forwardRef8 === "undefined") {
+    forwardRef8 = forwardRefShim;
   }
   function isModifiedEvent(event) {
     return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
   }
-  var LinkAnchor = forwardRef5(function(_ref, forwardedRef) {
+  var LinkAnchor = forwardRef8(function(_ref, forwardedRef) {
     var innerRef = _ref.innerRef, navigate = _ref.navigate, _onClick = _ref.onClick, rest = _objectWithoutPropertiesLoose(_ref, ["innerRef", "navigate", "onClick"]);
     var target = rest.target;
     var props = _extends({}, rest, {
@@ -41610,7 +42398,7 @@ Please use another name.` : formatMuiErrorMessage(18));
         }
       }
     });
-    if (forwardRefShim !== forwardRef5) {
+    if (forwardRefShim !== forwardRef8) {
       props.ref = forwardedRef || innerRef;
     } else {
       props.ref = innerRef;
@@ -41620,7 +42408,7 @@ Please use another name.` : formatMuiErrorMessage(18));
   if (true) {
     LinkAnchor.displayName = "LinkAnchor";
   }
-  var Link = forwardRef5(function(_ref2, forwardedRef) {
+  var Link = forwardRef8(function(_ref2, forwardedRef) {
     var _ref2$component = _ref2.component, component = _ref2$component === void 0 ? LinkAnchor : _ref2$component, replace = _ref2.replace, to = _ref2.to, innerRef = _ref2.innerRef, rest = _objectWithoutPropertiesLoose(_ref2, ["component", "replace", "to", "innerRef"]);
     return import_react8.default.createElement(context.Consumer, null, function(context2) {
       !context2 ? true ? invariant(false, "You should not use <Link> outside a <Router>") : invariant(false) : void 0;
@@ -41635,7 +42423,7 @@ Please use another name.` : formatMuiErrorMessage(18));
           method(location3);
         }
       });
-      if (forwardRefShim !== forwardRef5) {
+      if (forwardRefShim !== forwardRef8) {
         props.ref = forwardedRef || innerRef;
       } else {
         props.innerRef = innerRef;
@@ -41644,16 +42432,16 @@ Please use another name.` : formatMuiErrorMessage(18));
     });
   });
   if (true) {
-    toType = import_prop_types11.default.oneOfType([import_prop_types11.default.string, import_prop_types11.default.object, import_prop_types11.default.func]);
-    refType2 = import_prop_types11.default.oneOfType([import_prop_types11.default.string, import_prop_types11.default.func, import_prop_types11.default.shape({
-      current: import_prop_types11.default.any
+    toType = import_prop_types15.default.oneOfType([import_prop_types15.default.string, import_prop_types15.default.object, import_prop_types15.default.func]);
+    refType2 = import_prop_types15.default.oneOfType([import_prop_types15.default.string, import_prop_types15.default.func, import_prop_types15.default.shape({
+      current: import_prop_types15.default.any
     })]);
     Link.displayName = "Link";
     Link.propTypes = {
       innerRef: refType2,
-      onClick: import_prop_types11.default.func,
-      replace: import_prop_types11.default.bool,
-      target: import_prop_types11.default.string,
+      onClick: import_prop_types15.default.func,
+      replace: import_prop_types15.default.bool,
+      target: import_prop_types15.default.string,
       to: toType.isRequired
     };
   }
@@ -41707,18 +42495,18 @@ Please use another name.` : formatMuiErrorMessage(18));
   });
   if (true) {
     NavLink.displayName = "NavLink";
-    ariaCurrentType = import_prop_types11.default.oneOf(["page", "step", "location", "date", "time", "true"]);
+    ariaCurrentType = import_prop_types15.default.oneOf(["page", "step", "location", "date", "time", "true"]);
     NavLink.propTypes = _extends({}, Link.propTypes, {
       "aria-current": ariaCurrentType,
-      activeClassName: import_prop_types11.default.string,
-      activeStyle: import_prop_types11.default.object,
-      className: import_prop_types11.default.string,
-      exact: import_prop_types11.default.bool,
-      isActive: import_prop_types11.default.func,
-      location: import_prop_types11.default.object,
-      sensitive: import_prop_types11.default.bool,
-      strict: import_prop_types11.default.bool,
-      style: import_prop_types11.default.object
+      activeClassName: import_prop_types15.default.string,
+      activeStyle: import_prop_types15.default.object,
+      className: import_prop_types15.default.string,
+      exact: import_prop_types15.default.bool,
+      isActive: import_prop_types15.default.func,
+      location: import_prop_types15.default.object,
+      sensitive: import_prop_types15.default.bool,
+      strict: import_prop_types15.default.bool,
+      style: import_prop_types15.default.object
     });
   }
   var ariaCurrentType;
@@ -49659,195 +50447,61 @@ Please use another name.` : formatMuiErrorMessage(18));
 
   // app/javascript/components/Results/Results.jsx
   var import_react12 = __toESM(require_react());
-  var Results = class extends import_react12.Component {
-    render() {
-      return /* @__PURE__ */ import_react12.default.createElement("div", null, "Results Pane");
-    }
-  };
-  var Results_default = Results;
 
   // app/javascript/components/Export/Export.jsx
   var import_react13 = __toESM(require_react());
-  var Export = class extends import_react13.Component {
-    render() {
-      return /* @__PURE__ */ import_react13.default.createElement("div", null, "Export Pane");
-    }
-  };
-  var Export_default = Export;
 
   // app/javascript/pages/home/Home.jsx
   var import_react14 = __toESM(require_react());
-
-  // node_modules/@mui/material/esm/Box/Box.js
-  var import_prop_types12 = __toESM(require_prop_types());
-  var defaultTheme2 = createTheme_default2();
-  var Box = createBox({
-    defaultTheme: defaultTheme2,
-    defaultClassName: "MuiBox-root",
-    generateClassName: ClassNameGenerator_default.generate
-  });
-  true ? Box.propTypes = {
-    children: import_prop_types12.default.node,
-    component: import_prop_types12.default.elementType,
-    sx: import_prop_types12.default.oneOfType([import_prop_types12.default.arrayOf(import_prop_types12.default.oneOfType([import_prop_types12.default.func, import_prop_types12.default.object, import_prop_types12.default.bool])), import_prop_types12.default.func, import_prop_types12.default.object])
-  } : void 0;
-  var Box_default = Box;
-
-  // node_modules/@mui/material/esm/Stack/Stack.js
-  var React24 = __toESM(require_react());
-  var import_prop_types13 = __toESM(require_prop_types());
-  var import_jsx_runtime8 = __toESM(require_jsx_runtime());
-  var _excluded14 = ["component", "direction", "spacing", "divider", "children"];
-  function joinChildren(children, separator) {
-    const childrenArray = React24.Children.toArray(children).filter(Boolean);
-    return childrenArray.reduce((output, child, index2) => {
-      output.push(child);
-      if (index2 < childrenArray.length - 1) {
-        output.push(/* @__PURE__ */ React24.cloneElement(separator, {
-          key: `separator-${index2}`
-        }));
-      }
-      return output;
-    }, []);
-  }
-  var getSideFromDirection = (direction) => {
-    return {
-      row: "Left",
-      "row-reverse": "Right",
-      column: "Top",
-      "column-reverse": "Bottom"
-    }[direction];
-  };
-  var style3 = ({
-    ownerState,
-    theme
-  }) => {
-    let styles = _extends({
-      display: "flex",
-      flexDirection: "column"
-    }, handleBreakpoints({
-      theme
-    }, resolveBreakpointValues({
-      values: ownerState.direction,
-      breakpoints: theme.breakpoints.values
-    }), (propValue) => ({
-      flexDirection: propValue
-    })));
-    if (ownerState.spacing) {
-      const transformer = createUnarySpacing(theme);
-      const base = Object.keys(theme.breakpoints.values).reduce((acc, breakpoint) => {
-        if (typeof ownerState.spacing === "object" && ownerState.spacing[breakpoint] != null || typeof ownerState.direction === "object" && ownerState.direction[breakpoint] != null) {
-          acc[breakpoint] = true;
-        }
-        return acc;
-      }, {});
-      const directionValues = resolveBreakpointValues({
-        values: ownerState.direction,
-        base
-      });
-      const spacingValues = resolveBreakpointValues({
-        values: ownerState.spacing,
-        base
-      });
-      if (typeof directionValues === "object") {
-        Object.keys(directionValues).forEach((breakpoint, index2, breakpoints) => {
-          const directionValue = directionValues[breakpoint];
-          if (!directionValue) {
-            const previousDirectionValue = index2 > 0 ? directionValues[breakpoints[index2 - 1]] : "column";
-            directionValues[breakpoint] = previousDirectionValue;
-          }
-        });
-      }
-      const styleFromPropValue = (propValue, breakpoint) => {
-        return {
-          "& > :not(style) + :not(style)": {
-            margin: 0,
-            [`margin${getSideFromDirection(breakpoint ? directionValues[breakpoint] : ownerState.direction)}`]: getValue2(transformer, propValue)
-          }
-        };
-      };
-      styles = deepmerge(styles, handleBreakpoints({
-        theme
-      }, spacingValues, styleFromPropValue));
-    }
-    styles = mergeBreakpointsInOrder(theme.breakpoints, styles);
-    return styles;
-  };
-  var StackRoot = styled_default("div", {
-    name: "MuiStack",
-    slot: "Root",
-    overridesResolver: (props, styles) => {
-      return [styles.root];
-    }
-  })(style3);
-  var Stack = /* @__PURE__ */ React24.forwardRef(function Stack2(inProps, ref) {
-    const themeProps = useThemeProps2({
-      props: inProps,
-      name: "MuiStack"
-    });
-    const props = extendSxProp(themeProps);
-    const {
-      component = "div",
-      direction = "column",
-      spacing: spacing2 = 0,
-      divider,
-      children
-    } = props, other = _objectWithoutPropertiesLoose(props, _excluded14);
-    const ownerState = {
-      direction,
-      spacing: spacing2
-    };
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(StackRoot, _extends({
-      as: component,
-      ownerState,
-      ref
-    }, other, {
-      children: divider ? joinChildren(children, divider) : children
-    }));
-  });
-  true ? Stack.propTypes = {
-    children: import_prop_types13.default.node,
-    component: import_prop_types13.default.elementType,
-    direction: import_prop_types13.default.oneOfType([import_prop_types13.default.oneOf(["column-reverse", "column", "row-reverse", "row"]), import_prop_types13.default.arrayOf(import_prop_types13.default.oneOf(["column-reverse", "column", "row-reverse", "row"])), import_prop_types13.default.object]),
-    divider: import_prop_types13.default.node,
-    spacing: import_prop_types13.default.oneOfType([import_prop_types13.default.arrayOf(import_prop_types13.default.oneOfType([import_prop_types13.default.number, import_prop_types13.default.string])), import_prop_types13.default.number, import_prop_types13.default.object, import_prop_types13.default.string]),
-    sx: import_prop_types13.default.oneOfType([import_prop_types13.default.arrayOf(import_prop_types13.default.oneOfType([import_prop_types13.default.func, import_prop_types13.default.object, import_prop_types13.default.bool])), import_prop_types13.default.func, import_prop_types13.default.object])
-  } : void 0;
-  var Stack_default = Stack;
-
-  // app/javascript/pages/home/Home.jsx
   var Home = () => {
+    const UploaderTile = styled_default(Paper_default)(({ theme }) => ({
+      backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+      ...theme.typography.body2,
+      padding: theme.spacing(1),
+      textAlign: "center",
+      color: theme.palette.text.secondary,
+      height: "50vh"
+    }));
+    const SettingsTile = styled_default(Paper_default)(({ theme }) => ({
+      backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+      ...theme.typography.body2,
+      padding: theme.spacing(1),
+      textAlign: "center",
+      color: theme.palette.text.secondary,
+      height: "40vh"
+    }));
+    const ReportTile = styled_default(Paper_default)(({ theme }) => ({
+      backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+      ...theme.typography.body2,
+      padding: theme.spacing(1),
+      textAlign: "center",
+      color: theme.palette.text.secondary,
+      height: "40vh"
+    }));
     return /* @__PURE__ */ import_react14.default.createElement(Box_default, {
-      style: { flex: 1 },
-      flexDirection: "column"
-    }, /* @__PURE__ */ import_react14.default.createElement(Stack_default, {
-      direction: "row",
-      spacing: 2,
-      bgcolor: "skyblue",
-      style: { flex: 1 }
+      sx: { flexGrow: 1 }
+    }, /* @__PURE__ */ import_react14.default.createElement(Grid_default, {
+      container: true,
+      spacing: 2
+    }, /* @__PURE__ */ import_react14.default.createElement(Grid_default, {
+      item: true,
+      xs: 4
     }, /* @__PURE__ */ import_react14.default.createElement(Stack_default, {
       direction: "column",
-      spacing: 2,
-      bgcolor: "skyblue",
-      justifyContent: "space-around"
-    }, /* @__PURE__ */ import_react14.default.createElement(Box_default, {
-      bgcolor: "red",
-      sx: { flexGrow: 1 }
-    }, /* @__PURE__ */ import_react14.default.createElement(FileUploader_default, null)), /* @__PURE__ */ import_react14.default.createElement(Box_default, {
-      bgcolor: "red",
-      sx: { flexGrow: 4 }
-    }, /* @__PURE__ */ import_react14.default.createElement(ReportSettings_default, null))), /* @__PURE__ */ import_react14.default.createElement(Stack_default, {
-      direction: "column",
-      spacing: 2,
-      bgcolor: "skyblue",
-      justifyContent: "space-around"
-    }, /* @__PURE__ */ import_react14.default.createElement(Box_default, {
-      bgcolor: "red",
-      sx: { flexGrow: 1 }
-    }, /* @__PURE__ */ import_react14.default.createElement(Results_default, null)), /* @__PURE__ */ import_react14.default.createElement(Box_default, {
-      bgcolor: "red",
-      sx: { flexGrow: 1 }
-    }, /* @__PURE__ */ import_react14.default.createElement(Export_default, null)))));
+      spacing: 2
+    }, /* @__PURE__ */ import_react14.default.createElement(UploaderTile, {
+      variant: "elevation",
+      elevation: 8
+    }, /* @__PURE__ */ import_react14.default.createElement(FileUploader_default, null)), /* @__PURE__ */ import_react14.default.createElement(SettingsTile, {
+      variant: "elevation",
+      elevation: 8
+    }, /* @__PURE__ */ import_react14.default.createElement(ReportSettings_default, null)))), /* @__PURE__ */ import_react14.default.createElement(Grid_default, {
+      item: true,
+      xs: 8
+    }, /* @__PURE__ */ import_react14.default.createElement(ReportTile, {
+      variant: "elevation",
+      elevation: 8
+    }, "xs=4"))));
   };
   var Home_default = Home;
 

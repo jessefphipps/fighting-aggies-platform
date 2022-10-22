@@ -63,6 +63,8 @@ Rails.application.configure do
 
   config.hosts << "3bd605c3f5cc4c4d8558806a2c799593.vfs.cloud9.us-east-2.amazonaws.com"
   
+  config.hosts << "f01a7c74ddb749f6b723649d2d62c6f3.vfs.cloud9.us-east-2.amazonaws.com"
+  
   
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
