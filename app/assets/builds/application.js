@@ -32611,13 +32611,9 @@
     onFileUpload = (e) => {
       const formData = new FormData();
       e.preventDefault();
-      formData.append(
-        "myFile",
-        this.state.selectedFile,
-        this.state.selectedFile.name
-      );
+      formData.append("data", this.state.selectedFile);
       console.log(this.state.selectedFile);
-      axios_default2.post("api/uploadfile", formData);
+      axios_default2.post("/videos/create", formData);
     };
     fileData = () => {
       if (this.state.selectedFile) {
@@ -32632,7 +32628,7 @@
         onChange: this.onFileChange
       }), /* @__PURE__ */ import_react.default.createElement("button", {
         type: "submit",
-        onClick: (e) => this.onFileUpload
+        onClick: this.onFileUpload
       }, "Upload!")), this.fileData());
     }
   };
