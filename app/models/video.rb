@@ -6,17 +6,6 @@ class Video < ApplicationRecord
         super({ :video_path => video_path, :thumbnail_path => thumbnail_path, :resolution => resolution, :size => size, :duration => duration, :frame_rate => frame_rate })
     end
 
-    def to_dict()
-        {
-            "videopath": self.video_path,
-            "thumbnailpath": self.thumbnail_path,
-            "resolution": self.resolution,
-            "size": self.size,
-            "duration": self.duration,
-            "frame_rate": self.frame_rate
-        }
-    end
-
     private
     def process_video(video_path)
         raise "video file does not exist" unless video_path and File.exist?(video_path)
