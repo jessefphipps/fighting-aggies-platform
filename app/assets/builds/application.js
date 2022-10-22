@@ -49592,7 +49592,7 @@ Please use another name.` : formatMuiErrorMessage(18));
       const { email, password } = this.state;
       this.props.firebase.doSignInWithEmailAndPassword(email, password).then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push("/");
+        this.props.history.push("/dashboard");
       }).catch((error2) => {
         this.setState({ error: error2 });
       });
@@ -49855,11 +49855,11 @@ Please use another name.` : formatMuiErrorMessage(18));
   var App = () => {
     return /* @__PURE__ */ import_react15.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react15.default.createElement("div", null, /* @__PURE__ */ import_react15.default.createElement(Route, {
       exact: true,
-      path: "/",
+      path: "/dashboard",
       component: Home_default
     }), /* @__PURE__ */ import_react15.default.createElement(Route, {
       exact: true,
-      path: "/login",
+      path: "/",
       component: Login_default
     })));
   };
