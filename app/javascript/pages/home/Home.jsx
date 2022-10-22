@@ -58,7 +58,7 @@ const Home = () => {
             <UploaderTile variant="elevation" elevation={8}>
               {user && 
                 <div>
-                  <span> {user} </span>
+                  <span id='login_user'> {user} </span>
                   <button id='logout-button'>
                           Log Out
                   </button>
