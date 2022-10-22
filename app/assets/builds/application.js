@@ -40744,13 +40744,11 @@ Please use another name.` : formatMuiErrorMessage(18));
     onFileUpload = (e) => {
       const formData = new FormData();
       e.preventDefault();
-      formData.append(
-        "myFile",
-        this.state.selectedFile,
-        this.state.selectedFile.name
-      );
+      formData.append("data", this.state.selectedFile);
       console.log(this.state.selectedFile);
-      axios_default2.post("api/uploadfile", formData);
+      axios_default2.post("/api/v1/videos/create", formData).then((res) => {
+        alert("File uploaded successfully");
+      });
     };
     fileData = () => {
       if (this.state.selectedFile) {
@@ -40768,13 +40766,13 @@ Please use another name.` : formatMuiErrorMessage(18));
       }, /* @__PURE__ */ import_react5.default.createElement(Button_default, {
         variant: "contained",
         component: "label"
-      }, ".zip Folder", /* @__PURE__ */ import_react5.default.createElement("input", {
+      }, "Video File", /* @__PURE__ */ import_react5.default.createElement("input", {
         type: "file",
         hidden: true,
         onChange: this.onFileChange
       })), /* @__PURE__ */ import_react5.default.createElement(Button_default, {
         variant: "contained",
-        onClick: (e) => this.onFileUpload
+        onClick: this.onFileUpload
       }, "Upload!")), this.fileData());
     }
   };

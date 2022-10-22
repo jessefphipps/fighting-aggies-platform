@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root 'login#loginPage'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-#   # root "articles#index"
-#   root 'welcome#index'
+  namespace :api do
+    namespace :v1 do
+      get 'videos/index'
+      post 'videos/create'
+      get 'videos/show'
+      delete 'videos/destroy'
+    end
+  end
   
-  get 'login', to: 'login#loginPage'
   get 'dashboard', to: 'pages#home'
 end
