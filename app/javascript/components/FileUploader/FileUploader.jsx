@@ -36,7 +36,7 @@ class FileUploader extends Component {
     
       // Request made to the backend api
       // Send formData object
-      axios.post("/videos/create", formData);
+      axios.post("/api/v1/videos/create", formData);
     };
     
     // File content to be displayed after

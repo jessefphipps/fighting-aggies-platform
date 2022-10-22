@@ -1,4 +1,6 @@
-class VideosController < ApplicationController
+class Api::V1::VideosController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  
   def index
     videos = Video.all.order(created_at: :desc)
     render json: videos
@@ -8,13 +10,12 @@ class VideosController < ApplicationController
     uploaded_file = params[:data]
     
     file_path = Rails.root.join('storage', 'uploads', uploaded_file.original_filename)
-    puts "File path: " + file_path
     
     File.open(file_path, 'wb') do |file|
       file.write(uploaded_file.read)
     end
     
-    video = Video.create!(file_path)
+    video = Video.create!(file_path.to_s)
     if video
       render json: video
     else
@@ -44,3 +45,4 @@ class VideosController < ApplicationController
     @video ||= Video.find(params[:id])
   end
 end
+

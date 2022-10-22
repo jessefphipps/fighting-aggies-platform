@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      get 'videos/index'
+      post 'videos/create'
+      get 'videos/show'
+      delete 'videos/destroy'
+    end
+  end
   get 'videos/index'
   post 'videos/create'
   get '/show/:id', to: 'videos#show'
