@@ -13,7 +13,7 @@ export default class extends Controller {
     const app = document.getElementById("app");
     createRoot(app).render(
     <FirebaseContext.Provider value={new Firebase()}>
-       <Home />
+       <App />
     </FirebaseContext.Provider>,
     );
   }
