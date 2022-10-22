@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter} from 'react-router-dom';
+import { Link, withRouter, Redirect} from 'react-router-dom';
 
 import { withFirebase } from './Firebase';
 
@@ -36,6 +36,7 @@ class LogInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         // alert('success');
+        sessionStorage.setItem('user', email);
         this.setState({ ...INITIAL_STATE });
         this.props.history.push('/dashboard');
       })
@@ -55,7 +56,10 @@ class LogInFormBase extends Component {
     const { email, password, error } = this.state;
     
     const isInvalid = password === '' || email === '';
+    
+    const user = sessionStorage.getItem('user');
 
+    if(user) return <Redirect to='/dashboard' />;
     return (
       <div className='container mt-5'>
         <div className='row'>
