@@ -50379,6 +50379,7 @@ Please use another name.` : formatMuiErrorMessage(18));
     onSubmit = (event) => {
       const { email, password } = this.state;
       this.props.firebase.doSignInWithEmailAndPassword(email, password).then(() => {
+        sessionStorage.setItem("user", email);
         this.setState({ ...INITIAL_STATE });
         this.props.history.push("/dashboard");
       }).catch((error2) => {
@@ -50392,6 +50393,11 @@ Please use another name.` : formatMuiErrorMessage(18));
     render() {
       const { email, password, error: error2 } = this.state;
       const isInvalid = password === "" || email === "";
+      const user = sessionStorage.getItem("user");
+      if (user)
+        return /* @__PURE__ */ import_react10.default.createElement(Redirect, {
+          to: "/dashboard"
+        });
       return /* @__PURE__ */ import_react10.default.createElement("div", {
         className: "container mt-5"
       }, /* @__PURE__ */ import_react10.default.createElement("div", {
@@ -50498,6 +50504,11 @@ Please use another name.` : formatMuiErrorMessage(18));
       color: theme.palette.text.secondary,
       height: "30vh"
     }));
+    const user = sessionStorage.getItem("user");
+    if (!user)
+      return /* @__PURE__ */ import_react14.default.createElement(Redirect, {
+        to: "/"
+      });
     return /* @__PURE__ */ import_react14.default.createElement(Box_default, {
       sx: { flexGrow: 1 }
     }, /* @__PURE__ */ import_react14.default.createElement(Grid_default, {
@@ -50512,7 +50523,9 @@ Please use another name.` : formatMuiErrorMessage(18));
     }, /* @__PURE__ */ import_react14.default.createElement(UploaderTile, {
       variant: "elevation",
       elevation: 8
-    }, /* @__PURE__ */ import_react14.default.createElement(FileUploader_default, null)), /* @__PURE__ */ import_react14.default.createElement(SettingsTile, {
+    }, user && /* @__PURE__ */ import_react14.default.createElement("div", null, /* @__PURE__ */ import_react14.default.createElement("span", null, " ", user, " "), /* @__PURE__ */ import_react14.default.createElement("button", {
+      id: "logout-button"
+    }, "Log Out")), /* @__PURE__ */ import_react14.default.createElement(FileUploader_default, null)), /* @__PURE__ */ import_react14.default.createElement(SettingsTile, {
       variant: "elevation",
       elevation: 8
     }, /* @__PURE__ */ import_react14.default.createElement(ReportSettings_default, null)))), /* @__PURE__ */ import_react14.default.createElement(Grid_default, {
