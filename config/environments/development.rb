@@ -65,6 +65,9 @@ Rails.application.configure do
   
   config.hosts << "49fef5f7dfa4451eb83c853d80999ec4.vfs.cloud9.us-east-2.amazonaws.com"
   
+  config.web_console.permissions = '50.24.124.59'
+
+  
   
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

@@ -32613,7 +32613,7 @@
       e.preventDefault();
       formData.append("data", this.state.selectedFile);
       console.log(this.state.selectedFile);
-      axios_default2.post("/videos/create", formData);
+      axios_default2.post("/api/v1/videos/create", formData);
     };
     fileData = () => {
       if (this.state.selectedFile) {
