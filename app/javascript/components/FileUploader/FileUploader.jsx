@@ -87,11 +87,11 @@ class FileUploader extends Component {
             </h3>
             <div>
                 <input type="file" onChange={this.onFileChange} />
-                <button type="submit" onClick={(e) =>
+                <Button variant="contained" onClick={(e) =>
                     this.onFileUpload
                 }>
                   Upload!
-                </button>
+                </Button>
             </div>
           {this.fileData()}
         </div>
