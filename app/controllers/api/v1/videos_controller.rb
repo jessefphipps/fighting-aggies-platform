@@ -11,6 +11,9 @@ class Api::V1::VideosController < ApplicationController
     
     file_path = Rails.root.join('storage', 'uploads', uploaded_file.original_filename)
     
+    file_dir = File.dirname(file_path)
+    FileUtils.mkdir_p(file_dir) unless File.directory?(file_dir)
+    
     File.open(file_path, 'wb') do |file|
       file.write(uploaded_file.read)
     end
