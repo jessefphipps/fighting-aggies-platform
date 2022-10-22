@@ -2,16 +2,16 @@ import React,{Component} from 'react';
 
 import Button from '@mui/material/Button';
  
-class Export extends Component {
+class Results extends Component {
     
     render() {
     
       return (
         <div>
-            Export Pane
+            Results Pane
         </div>
       );
     }
   }
  
-  export default Export;
+  export default Results;

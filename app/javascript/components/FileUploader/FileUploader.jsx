@@ -3,6 +3,8 @@ import axios from 'axios';
 import React,{Component} from 'react';
 
 import Button from '@mui/material/Button';
+
+import { Box, createTheme, Stack, ThemeProvider, Grid } from "@mui/material";
  
 class FileUploader extends Component {
   
@@ -36,7 +38,10 @@ class FileUploader extends Component {
     
       // Request made to the backend api
       // Send formData object
-      axios.post("/api/v1/videos/create", formData);
+      axios.post("/api/v1/videos/create", formData)
+      .then(res => {
+        alert("File uploaded successfully");
+      });
     };
     
     // File content to be displayed after
@@ -76,17 +81,28 @@ class FileUploader extends Component {
       return (
         <div>
             <h1>
-              Fightin Aggies
+              Fightin Aggies Analytics Platform
             </h1>
             <h3>
               Upload File Here
             </h3>
-            <div>
-                <input type="file" onChange={this.onFileChange} />
-                <button type="submit" onClick={this.onFileUpload}>
+            <Stack direction="row" spacing={2}  style={{ flex: 1  }} justifyContent="space-around">
+                <Button
+                  variant="contained"
+                  component="label"
+                >
+                  Video File
+                  <input
+                    type="file"
+                    hidden
+                    onChange={this.onFileChange}
+                  />
+                </Button>
+                <Button variant="contained" onClick={this.onFileUpload}>
                   Upload!
-                </button>
-            </div>
+                </Button>
+            </Stack>
+                
           {this.fileData()}
         </div>
       );
