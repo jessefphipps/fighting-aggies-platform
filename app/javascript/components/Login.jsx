@@ -37,7 +37,7 @@ class LogInFormBase extends Component {
       .then(() => {
         // alert('success');
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push('/');
+        this.props.history.push('/dashboard');
       })
       .catch(error => {
         // alert('error');
