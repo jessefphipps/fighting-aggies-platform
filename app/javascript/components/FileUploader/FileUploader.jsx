@@ -24,25 +24,24 @@ class FileUploader extends Component {
     
     // On file upload (click the upload button)
     onFileUpload = (e) => {
-        
+
 
     
       // Create an object of formData
       const formData = new FormData();
         e.preventDefault();
       // Update the formData object
-      formData.append(
-        "myFile",
-        this.state.selectedFile,
-        this.state.selectedFile.name
-      );
+      formData.append('data', this.state.selectedFile);
     
       // Details of the uploaded file
       console.log(this.state.selectedFile);
     
       // Request made to the backend api
       // Send formData object
-      axios.post("api/uploadfile", formData);
+      axios.post("/api/v1/videos/create", formData)
+      .then(res => {
+        alert("File uploaded successfully");
+      });
     };
     
     // File content to be displayed after
@@ -92,19 +91,18 @@ class FileUploader extends Component {
                   variant="contained"
                   component="label"
                 >
-                  .zip Folder
+                  Video File
                   <input
                     type="file"
                     hidden
                     onChange={this.onFileChange}
                   />
                 </Button>
-                <Button variant="contained" onClick={(e) =>
-                    this.onFileUpload
-                }>
+                <Button variant="contained" onClick={this.onFileUpload}>
                   Upload!
                 </Button>
             </Stack>
+                
           {this.fileData()}
         </div>
       );
