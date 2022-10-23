@@ -59,7 +59,7 @@ class LogInFormBase extends Component {
     
     const user = sessionStorage.getItem('user');
 
-    if(user) return <Redirect to='/dashboard' />;
+    if (user != null) return <Redirect to='/dashboard' />;
     return (
       <div className='container mt-5'>
         <div className='row'>
