@@ -40736,29 +40736,59 @@ Please use another name.` : formatMuiErrorMessage(18));
   // app/javascript/components/FileUploader/FileUploader.jsx
   var FileUploader = class extends import_react5.Component {
     state = {
-      selectedFile: null
+      selectedFile: null,
+      uploadedFile: null,
+      errors: null
     };
     onFileChange = (event) => {
-      this.setState({ selectedFile: event.target.files[0] });
+      this.setState({
+        selectedFile: event.target.files[0],
+        uploadedFile: null,
+        errors: null
+      });
     };
     onFileUpload = (e) => {
+      if (!this.state.selectedFile) {
+        return;
+      }
       const formData = new FormData();
       e.preventDefault();
       formData.append("data", this.state.selectedFile);
       console.log(this.state.selectedFile);
-      axios_default2.post("/api/v1/videos/create", formData).then((res) => {
-        alert("File uploaded successfully");
+      const successHandler = (response) => this.setState({
+        selectedFile: this.state.selectedFile,
+        uploadedFile: response.data,
+        errors: null
+      });
+      const errorHandler = (error2) => this.setState({
+        selectedFile: this.state.selectedFile,
+        uploadedFile: null,
+        errors: error2.data.errormessage
+      });
+      axios_default2.post("/api/v1/videos/create", formData).then((response) => {
+        console.log(response);
+        successHandler(response);
+      }).catch((error2) => {
+        console.log(error2);
+        errorHandler(error2.response);
       });
     };
     fileData = () => {
-      if (this.state.selectedFile) {
-        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h2", null, "File Details:"), /* @__PURE__ */ import_react5.default.createElement("p", null, "File Name: ", this.state.selectedFile.name), /* @__PURE__ */ import_react5.default.createElement("p", null, "File Size: ", this.state.selectedFile.size, " Bytes"), /* @__PURE__ */ import_react5.default.createElement("p", null, "Last Modified:", " ", this.state.selectedFile.lastModifiedDate.toDateString()));
-      } else {
-        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Choose before Pressing the Upload button"));
+      if (this.state.errors) {
+        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Upload failed"), /* @__PURE__ */ import_react5.default.createElement("p", null, "Error: ", this.state.errors));
       }
+      if (this.state.selectedFile && !this.state.uploadedFile) {
+        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Click the upload button to proceed"));
+      }
+      if (this.state.selectedFile && this.state.uploadedFile) {
+        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h4", null, "Uploaded File Details:"), /* @__PURE__ */ import_react5.default.createElement("ul", {
+          style: { "listStyle": "none", "padding": 0 }
+        }, /* @__PURE__ */ import_react5.default.createElement("li", null, "Name: ", this.state.selectedFile.name), /* @__PURE__ */ import_react5.default.createElement("li", null, "Size: ", this.state.selectedFile.size, " bytes"), /* @__PURE__ */ import_react5.default.createElement("li", null, "Resolution: ", this.state.uploadedFile.resolution, " px"), /* @__PURE__ */ import_react5.default.createElement("li", null, "Duration: ", this.state.uploadedFile.duration, " seconds"), /* @__PURE__ */ import_react5.default.createElement("li", null, "Frame rate: ", this.state.uploadedFile.frame_rate, " fps")));
+      }
+      return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Choose a video file"));
     };
     render() {
-      return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h1", null, "Fightin Aggies Analytics Platform"), /* @__PURE__ */ import_react5.default.createElement("h3", null, "Upload File Here"), /* @__PURE__ */ import_react5.default.createElement(Stack_default, {
+      return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h1", null, "Fightin Aggies Analytics Platform"), /* @__PURE__ */ import_react5.default.createElement(Stack_default, {
         direction: "row",
         spacing: 2,
         style: { flex: 1 },
@@ -40766,14 +40796,15 @@ Please use another name.` : formatMuiErrorMessage(18));
       }, /* @__PURE__ */ import_react5.default.createElement(Button_default, {
         variant: "contained",
         component: "label"
-      }, "Video File", /* @__PURE__ */ import_react5.default.createElement("input", {
+      }, "Select Video File", /* @__PURE__ */ import_react5.default.createElement("input", {
         type: "file",
         hidden: true,
         onChange: this.onFileChange
       })), /* @__PURE__ */ import_react5.default.createElement(Button_default, {
         variant: "contained",
-        onClick: this.onFileUpload
-      }, "Upload!")), this.fileData());
+        onClick: this.onFileUpload,
+        disabled: !this.state.selectedFile
+      }, "Upload")), this.fileData());
     }
   };
   var FileUploader_default = FileUploader;
