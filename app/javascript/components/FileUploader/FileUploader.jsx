@@ -51,7 +51,7 @@ class FileUploader extends Component {
       const errorHandler = error => this.setState({
         selectedFile: this.state.selectedFile,
         uploadedFile: null,
-        errors: error.data
+        errors: error.data.errormessage
       });
     
       // Request made to the backend api
@@ -65,7 +65,7 @@ class FileUploader extends Component {
       .catch((error) => {
         // handle error
         console.log(error);
-        errorHandler(error);
+        errorHandler(error.response);
       });
 
     };
@@ -79,7 +79,8 @@ class FileUploader extends Component {
         return (
           <div>
             <br />
-            <h4>Upload failed. Server error {this.state.errors}</h4>
+            <h4>Upload failed</h4>
+            <p>Error: {this.state.errors}</p>
           </div>
         );
       }
