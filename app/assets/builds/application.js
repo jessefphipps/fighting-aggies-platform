@@ -40763,19 +40763,19 @@ Please use another name.` : formatMuiErrorMessage(18));
       const errorHandler = (error2) => this.setState({
         selectedFile: this.state.selectedFile,
         uploadedFile: null,
-        errors: error2.data
+        errors: error2.data.errormessage
       });
       axios_default2.post("/api/v1/videos/create", formData).then((response) => {
         console.log(response);
         successHandler(response);
       }).catch((error2) => {
         console.log(error2);
-        errorHandler(error2);
+        errorHandler(error2.response);
       });
     };
     fileData = () => {
       if (this.state.errors) {
-        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Upload failed. Server error ", this.state.errors));
+        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Upload failed"), /* @__PURE__ */ import_react5.default.createElement("p", null, "Error: ", this.state.errors));
       }
       if (this.state.selectedFile && !this.state.uploadedFile) {
         return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Click the upload button to proceed"));
