@@ -9,71 +9,115 @@ import { Box, createTheme, Stack, ThemeProvider, Grid } from "@mui/material";
 class FileUploader extends Component {
   
     state = {
- 
       // Initially, no file is selected
-      selectedFile: null
+      selectedFile: null,
+      uploadedFile: null,
+      errors: null
     };
     
     // On file select (from the pop up)
     onFileChange = event => {
     
       // Update the state
-      this.setState({ selectedFile: event.target.files[0] });
+      this.setState({ selectedFile: event.target.files[0], 
+                      uploadedFile: null, 
+                      errors: null });
     
     };
     
     // On file upload (click the upload button)
     onFileUpload = (e) => {
-
-
-    
+      
+      // Only move forward if video file is selected
+      if (!this.state.selectedFile){
+        return;
+      }
+      
       // Create an object of formData
       const formData = new FormData();
-        e.preventDefault();
+      e.preventDefault();
       // Update the formData object
       formData.append('data', this.state.selectedFile);
     
       // Details of the uploaded file
       console.log(this.state.selectedFile);
+      
+      const successHandler = response => this.setState({
+        selectedFile: this.state.selectedFile,
+        uploadedFile: response.data,
+        errors: null
+      });
+      
+      const errorHandler = error => this.setState({
+        selectedFile: this.state.selectedFile,
+        uploadedFile: null,
+        errors: error.data
+      });
     
       // Request made to the backend api
       // Send formData object
       axios.post("/api/v1/videos/create", formData)
-      .then(res => {
-        alert("File uploaded successfully");
+      .then((response) => {
+        // handle success
+        console.log(response);
+        successHandler(response);
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+        errorHandler(error);
       });
+
     };
     
     // File content to be displayed after
     // file upload is complete
     fileData = () => {
-    
-      if (this.state.selectedFile) {
-         
-        return (
-          <div>
-            <h2>File Details:</h2>
-             
-<p>File Name: {this.state.selectedFile.name}</p>
-
-<p>File Size: {this.state.selectedFile.size} Bytes</p>
- 
-             
-<p>
-              Last Modified:{" "}
-              {this.state.selectedFile.lastModifiedDate.toDateString()}
-            </p>
- 
-          </div>
-        );
-      } else {
+      
+      // Show any errors to the user
+      if (this.state.errors){
         return (
           <div>
             <br />
-            <h4>Choose before Pressing the Upload button</h4>
+            <h4>Upload failed. Server error {this.state.errors}</h4>
           </div>
         );
       }
+      
+      // Selected file, but hasn't successfully uploaded it yet
+      if (this.state.selectedFile && !this.state.uploadedFile) {
+        return (
+          <div>
+            <br />
+            <h4>Click the upload button to proceed</h4>
+          </div>
+        );
+      }
+      
+      // File has been uploaded
+      if (this.state.selectedFile && this.state.uploadedFile){
+        return (
+          <div>
+            <h4>Uploaded File Details:</h4>
+            <ul style={{'listStyle' : 'none', 'padding': 0}}>
+              <li>Name: {this.state.selectedFile.name}</li>
+              <li>Size: {this.state.selectedFile.size} bytes</li>
+              <li>Resolution: {this.state.uploadedFile.resolution} px</li>
+              <li>Duration: {this.state.uploadedFile.duration} seconds</li>
+              <li>Frame rate: {this.state.uploadedFile.frame_rate} fps</li>
+            </ul>
+          </div>
+        );
+      }
+      
+      
+      // No file selected (nor uploaded)
+      return (
+          <div>
+            <br />
+            <h4>Choose a video file</h4>
+          </div>
+      );
     };
     
     render() {
