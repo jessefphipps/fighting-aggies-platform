@@ -21,9 +21,13 @@ Feature: user login
     When they click the login button
     Then they should get a negative feedback --bad email
   
-  @login_correct
   Scenario: user login correct path
     Given the user is on the login page
     Given the user provides correct email and password
     When they click the login button
     Then they should be redirected to dashboard and see their username and a logout button
+
+  Scenario: user logout
+    Given the user is logged in and on dashboard
+    When they click the logout button
+    Then they should be logged out and redirected to login page
