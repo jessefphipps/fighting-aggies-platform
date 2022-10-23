@@ -127,23 +127,20 @@ class FileUploader extends Component {
             <h1>
               Fightin Aggies Analytics Platform
             </h1>
-            <h3>
-              Upload File Here
-            </h3>
             <Stack direction="row" spacing={2}  style={{ flex: 1  }} justifyContent="space-around">
                 <Button
                   variant="contained"
                   component="label"
                 >
-                  Video File
+                  Select Video File
                   <input
                     type="file"
                     hidden
                     onChange={this.onFileChange}
                   />
                 </Button>
-                <Button variant="contained" onClick={this.onFileUpload}>
-                  Upload!
+                <Button variant="contained" onClick={this.onFileUpload} disabled={!this.state.selectedFile}>
+                  Upload
                 </Button>
             </Stack>
                 
