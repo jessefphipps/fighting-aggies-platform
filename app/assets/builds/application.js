@@ -40788,7 +40788,7 @@ Please use another name.` : formatMuiErrorMessage(18));
       return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Choose a video file"));
     };
     render() {
-      return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h1", null, "Fightin Aggies Analytics Platform"), /* @__PURE__ */ import_react5.default.createElement("h3", null, "Upload File Here"), /* @__PURE__ */ import_react5.default.createElement(Stack_default, {
+      return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h1", null, "Fightin Aggies Analytics Platform"), /* @__PURE__ */ import_react5.default.createElement(Stack_default, {
         direction: "row",
         spacing: 2,
         style: { flex: 1 },
@@ -40796,14 +40796,15 @@ Please use another name.` : formatMuiErrorMessage(18));
       }, /* @__PURE__ */ import_react5.default.createElement(Button_default, {
         variant: "contained",
         component: "label"
-      }, "Video File", /* @__PURE__ */ import_react5.default.createElement("input", {
+      }, "Select Video File", /* @__PURE__ */ import_react5.default.createElement("input", {
         type: "file",
         hidden: true,
         onChange: this.onFileChange
       })), /* @__PURE__ */ import_react5.default.createElement(Button_default, {
         variant: "contained",
-        onClick: this.onFileUpload
-      }, "Upload!")), this.fileData());
+        onClick: this.onFileUpload,
+        disabled: !this.state.selectedFile
+      }, "Upload")), this.fileData());
     }
   };
   var FileUploader_default = FileUploader;
