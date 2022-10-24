@@ -1,6 +1,4 @@
 Feature: user login
-
-
   
   # test bad path first because logout is not done
   Scenario: user login bad path 1
