@@ -15,7 +15,7 @@ end
 
 When ('user clicks the upload button') do
     @browser.find_element(:id, "file_upload_button").click()
-    sleep(1)
+    sleep(3)
 end
 
 Then ('user should get negative feeback --incompatible upload type') do
