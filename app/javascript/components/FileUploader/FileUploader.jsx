@@ -80,7 +80,7 @@ class FileUploader extends Component {
           <div>
             <br />
             <h4>Upload failed</h4>
-            <p>Error: {this.state.errors}</p>
+            <p id="upload_error">Error: {this.state.errors}</p>
           </div>
         );
       }
@@ -99,7 +99,7 @@ class FileUploader extends Component {
       if (this.state.selectedFile && this.state.uploadedFile){
         return (
           <div>
-            <h4>Uploaded File Details:</h4>
+            <h4 id="file_details">Uploaded File Details:</h4>
             <ul style={{'listStyle' : 'none', 'padding': 0}}>
               <li>Name: {this.state.selectedFile.name}</li>
               <li>Size: {this.state.selectedFile.size} bytes</li>
@@ -135,12 +135,13 @@ class FileUploader extends Component {
                 >
                   Select Video File
                   <input
+                    id="file_select_button"
                     type="file"
                     hidden
                     onChange={this.onFileChange}
                   />
                 </Button>
-                <Button variant="contained" onClick={this.onFileUpload} disabled={!this.state.selectedFile}>
+                <Button variant="contained" onClick={this.onFileUpload} disabled={!this.state.selectedFile} id="file_upload_button">
                   Upload
                 </Button>
             </Stack>
