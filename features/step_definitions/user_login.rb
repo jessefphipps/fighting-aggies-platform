@@ -23,7 +23,10 @@ Given ('the user provides bad email') do
 end
 
 Given ('the user is logged in and on dashboard') do
-    # do nothing, already logged in and on dashboard
+    @browser.navigate.to(@login_url)
+    @browser.find_element(:id, "username").send_keys("admin@example.com")
+    @browser.find_element(:id, "password").send_keys("123456")
+    @browser.find_element(:id, "login-button").click()
     sleep(1)
 end
 
