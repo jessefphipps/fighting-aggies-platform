@@ -35,6 +35,7 @@ browser = Selenium::WebDriver.for :chrome, switches: %w[--headless --no-sandbox 
 Before do |scenario|
 	@browser = browser
 	@login_url = "https://fightin-aggies.herokuapp.com/"
+	@dashboard_url = "https://fightin-aggies.herokuapp.com/dashboard"
 end
 
 # at_exit do
