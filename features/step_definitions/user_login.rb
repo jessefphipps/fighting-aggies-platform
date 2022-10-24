@@ -22,8 +22,18 @@ Given ('the user provides bad email') do
     @browser.find_element(:id, "password").send_keys("123456")
 end
 
+Given ('the user is logged in and on dashboard') do
+    # do nothing, already logged in and on dashboard
+    sleep(1)
+end
+
 When ('they click the login button') do
     @browser.find_element(:id, "login-button").click()
+    sleep(1)
+end
+
+When ('they click the logout button') do
+    @browser.find_element(:id, "logout-button").click()
     sleep(1)
 end
 
@@ -41,4 +51,8 @@ end
 
 Then ('they should get a negative feedback --bad email') do
     raise "Fail" if @browser.find_element(:id, "error-message").text != "Firebase: The email address is badly formatted. (auth/invalid-email)."
+end
+
+Then ('they should be logged out and redirected to login page') do
+    raise "Fail" if not @browser.find_element(:id, "password")
 end
