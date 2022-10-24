@@ -132,10 +132,10 @@ class FileUploader extends Component {
                 <Button
                   variant="contained"
                   component="label"
-                  id="file_select_button"
                 >
                   Select Video File
                   <input
+                    id="file_select_button"
                     type="file"
                     hidden
                     onChange={this.onFileChange}

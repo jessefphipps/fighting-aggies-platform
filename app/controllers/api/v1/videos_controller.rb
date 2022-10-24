@@ -7,7 +7,11 @@ class Api::V1::VideosController < ApplicationController
   end
 
   def create
-    uploaded_file = params[:data]
+    uploaded_file = video_params[:data]
+    
+    if !uploaded_file
+      render status: 400, json: {:errormessage => "No video provided"}.to_json and return
+    end
     
     file_path = Rails.root.join('storage', 'uploads', uploaded_file.original_filename)
     
@@ -28,32 +32,43 @@ class Api::V1::VideosController < ApplicationController
       render status: 400, json: {:errormessage => e}.to_json and return
     end
     
-    render json: video
+    render status: 201, json: video
   end
+
   
-  # TODO
   def show
-    if video
-      render json: video
-    else
-      render json: video.errors
+    unless video_params[:id]
+      render status: 400, json: {:errormessage => "No ID was provided"}.to_json and return
     end
+    
+    begin
+      video ||= Video.find(video_params[:id])
+    rescue
+      render status: 400, json: {:errormessage => "Video with requested ID not found in DB"}.to_json and return
+    end
+    
+    render status: 200, json: video and return
   end
   
-  # TODO
+  
   def destroy
+    unless video_params[:id]
+      render status: 400, json: {:errormessage => "No ID was provided"}.to_json and return
+    end
+    
+    begin
+      video ||= Video.find(video_params[:id])
+    rescue
+      render status: 400, json: {:errormessage => "Video with requested ID not found in DB"}.to_json and return
+    end
+    
     video&.destroy
-    render json: { message: 'Video deleted' }
+    render status: 200, json: video and return
   end
   
   private
   def video_params
-    params.permit(:data)
+    params.permit(:data, :id)
   end
-  
-  def video
-    @video ||= Video.find(params[:id])
-  end
-
 end
 

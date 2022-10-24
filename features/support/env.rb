@@ -31,23 +31,30 @@ require 'fileutils'
 
 # options = Selenium::WebDriver::Chrome::Options.new(args: args)
 # @browser = Selenium::WebDriver.for :chrome, options: options
-browser = Selenium::WebDriver.for :chrome, switches: %w[--headless --no-sandbox --disable-gpu --remote-debugin-port=9222 --screen-size=1200x800]
 
-dummy_video_path = Rails.root.join("storage", "dummy_video.mp4").to_s
+
+current_dir = FileUtils.pwd()
+dummy_video_path = File.join(current_dir, "storage", "dummy_video.mp4")
 
 Before do |scenario|
-	@browser = browser
-	@login_url = "https://fightin-aggies.herokuapp.com/"
-	@dashboard_url = "https://fightin-aggies.herokuapp.com/dashboard"
-	@bad_file_type_loc = Rails.root.join("storage", "supplementary_video.jpg").to_s
+	@browser = Selenium::WebDriver.for :chrome, switches: %w[--headless --no-sandbox --disable-gpu --remote-debugin-port=9222 --screen-size=1200x800]
+	@login_url = "http://127.0.0.1:8080"
+	@bad_file_type_loc = File.join(current_dir, "storage", "supplementary_video.jpg")
 	@dummy_file_loc = dummy_video_path
-	@good_file_loc = Rails.root.join("storage", "supplementary_video.mp4").to_s
+	@good_file_loc = File.join(current_dir, "storage", "supplementary_video.mp4")
 	FileUtils.touch(dummy_video_path)
 end
 
 After do |scenario|
+	@browser.quit
 	FileUtils.rm(dummy_video_path)
 end
-# at_exit do
-# 	browser.quit
+
+# TODO only create and delete dummy file for corrupted test case
+# Before(@file_upload_corrupted) do 
+# 	FileUtils.touch(dummy_video_path)
+# end
+
+# After(@file_upload_corrupted) do 
+# 	FileUtils.rm(dummy_video_path)
 # end
