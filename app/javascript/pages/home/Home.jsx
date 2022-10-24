@@ -2,7 +2,7 @@ import FileUploader from "../../components/FileUploader/FileUploader"
 import ReportSettings from "../../components/ReportSettings/ReportSettings"
 import Results from "../../components/Results/Results"
 import Export from "../../components/Export/Export"
-import React from "react"
+import React, { Component }  from "react"
 import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import App from "../../components/App"
 import { Box, createTheme, Stack, ThemeProvider, Grid, Paper} from "@mui/material";
@@ -10,7 +10,12 @@ import { styled } from '@mui/material/styles';
 
 
 
-const Home = () => {
+class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  render() {
   
   const UploaderTile = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -49,7 +54,8 @@ const Home = () => {
   }));
   
   const user = sessionStorage.getItem('user');
-  if(!user) return <Redirect to='/' />
+  
+  if (user == null) return <Redirect to='/' />
   return (
   <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
@@ -59,7 +65,10 @@ const Home = () => {
               {user && 
                 <div>
                   <span id='login_user'> {user} </span>
-                  <button id='logout-button'>
+                  <button id='logout-button' onClick = { () => {
+                    sessionStorage.removeItem('user');
+                    this.props.history.push('/');
+                  }}>
                           Log Out
                   </button>
                 </div>} 
@@ -82,7 +91,7 @@ const Home = () => {
         </Grid>
       </Grid>
     </Box>
-  );
+  );}
 };
 
 export default Home;
