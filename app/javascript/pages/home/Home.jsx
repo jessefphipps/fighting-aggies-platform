@@ -26,22 +26,13 @@ class Home extends Component {
     height: "50vh"
   }));
   
-  const SettingsTile = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height: "40vh"
-  }));
-  
   const ReportTile = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: "60vh"
+    height: "93vh"
   }));
   
   const ExportTile = styled(Paper)(({ theme }) => ({
@@ -50,7 +41,7 @@ class Home extends Component {
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: "30vh"
+    height: "40vh"
   }));
   
   const user = sessionStorage.getItem('user');
@@ -74,9 +65,9 @@ class Home extends Component {
                 </div>} 
               <FileUploader />
             </UploaderTile>
-            <SettingsTile variant="elevation" elevation={8}>
-              <ReportSettings />
-            </SettingsTile>
+            <ExportTile variant="elevation" elevation={8}>
+              <Export/>
+            </ExportTile>
           </Stack>
         </Grid>
         <Grid item xs={8}>
@@ -84,9 +75,6 @@ class Home extends Component {
             <ReportTile variant="elevation" elevation={8}>
               <Results/>
             </ReportTile>
-            <ExportTile variant="elevation" elevation={8}>
-              <Export/>
-            </ExportTile>
           </Stack>
         </Grid>
       </Grid>
