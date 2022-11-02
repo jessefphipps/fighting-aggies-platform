@@ -48,37 +48,39 @@ class Home extends Component {
   
   if (user == null) return <Redirect to='/' />
   return (
-  <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Stack direction="column" spacing={2}>
-            <UploaderTile variant="elevation" elevation={8}>
-              {user && 
-                <div>
-                  <span id='login_user'> {user} </span>
-                  <button id='logout-button' onClick = { () => {
-                    sessionStorage.removeItem('user');
-                    this.props.history.push('/');
-                  }}>
-                          Log Out
-                  </button>
-                </div>} 
-              <FileUploader />
-            </UploaderTile>
-            <ExportTile variant="elevation" elevation={8}>
-              <Export/>
-            </ExportTile>
-          </Stack>
+    <div style={{padding: '10px'}}>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <Stack direction="column" spacing={2}>
+              <UploaderTile variant="elevation" elevation={8}>
+                {user && 
+                  <div>
+                    <span id='login_user'> {user} </span>
+                    <button id='logout-button' onClick = { () => {
+                      sessionStorage.removeItem('user');
+                      this.props.history.push('/');
+                    }}>
+                            Log Out
+                    </button>
+                  </div>} 
+                <FileUploader />
+              </UploaderTile>
+              <ExportTile variant="elevation" elevation={8}>
+                <Export/>
+              </ExportTile>
+            </Stack>
+          </Grid>
+          <Grid item xs={8}>
+            <Stack direction="column" spacing={2}>
+              <ReportTile variant="elevation" elevation={8}>
+                <Results/>
+              </ReportTile>
+            </Stack>
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
-          <Stack direction="column" spacing={2}>
-            <ReportTile variant="elevation" elevation={8}>
-              <Results/>
-            </ReportTile>
-          </Stack>
-        </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </div>
   );}
 };
 
