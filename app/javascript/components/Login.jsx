@@ -64,7 +64,7 @@ class LogInFormBase extends Component {
           <div className='col-12 col-md-6 offset-md-3' id='loginPanel'>
             <div className='row' id='platformName'>
               <div id='logoBox'>
-                <img id='platformImage' src='/assets/tam_white.png' />
+                <img id='platformImage' src='https://github.com/jessefphipps/fighting-aggies-platform/blob/main/app/assets/images/tam_white.png?raw=true' />
               </div>
               <h2><i><strong>Fightin Aggies Analytics Platform</strong></i></h2>
             </div>

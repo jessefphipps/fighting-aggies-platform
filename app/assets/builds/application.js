@@ -52070,7 +52070,7 @@ Please use another name.` : formatMuiErrorMessage(18));
         id: "logoBox"
       }, /* @__PURE__ */ import_react10.default.createElement("img", {
         id: "platformImage",
-        src: "/assets/tam_white.png"
+        src: "https://github.com/jessefphipps/fighting-aggies-platform/blob/main/app/assets/images/tam_white.png?raw=true"
       })), /* @__PURE__ */ import_react10.default.createElement("h2", null, /* @__PURE__ */ import_react10.default.createElement("i", null, /* @__PURE__ */ import_react10.default.createElement("strong", null, "Fightin Aggies Analytics Platform")))), /* @__PURE__ */ import_react10.default.createElement("div", {
         id: "loginForm"
       }, /* @__PURE__ */ import_react10.default.createElement("h3", {
