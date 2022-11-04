@@ -15,14 +15,26 @@ class FileUploader extends Component {
       errors: null
     };
     
+    allowed_exts = new Set(['avi', 'flv', 'mkv', 'mov', 'mp4']);
+    
     // On file select (from the pop up)
     onFileChange = event => {
+      
+      // Check for file extension
+      const filename = event.target.files[0].name;
+      const ext = filename.split('.').pop();
+      if (!this.allowed_exts.has(ext)){
+        // Update the state with errors
+        this.setState({ selectedFile: null, 
+                      uploadedFile: null, 
+                      errors: "selected file type is not supported. Try again."});
+        return;
+      }
     
-      // Update the state
+      // Update the state with correct file
       this.setState({ selectedFile: event.target.files[0], 
                       uploadedFile: null, 
                       errors: null });
-    
     };
     
     // On file upload (click the upload button)
@@ -61,6 +73,16 @@ class FileUploader extends Component {
         // handle success
         console.log(response);
         successHandler(response);
+        
+        // call nested GET request to request reports
+        // axios.get("/api/v1/videos/index") // Dummy request to validate it for now
+        // .then((response) => {
+        //   console.log(response);
+        // })
+        // .catch((error) => {
+        //   // handle error
+        //   console.log(error);
+        // });
       })
       .catch((error) => {
         // handle error
@@ -74,8 +96,19 @@ class FileUploader extends Component {
     // file upload is complete
     fileData = () => {
       
-      // Show any errors to the user
-      if (this.state.errors){
+      // Show selection errors to the user
+      if (!this.state.selectedFile && this.state.errors){
+        return (
+          <div>
+            <br />
+            <h4>Incorrect file type</h4>
+            <p id="select_error">Error: {this.state.errors}</p>
+          </div>
+        );
+      }
+      
+      // Show upload errors to the user
+      if (this.state.selectedFile && this.state.errors){
         return (
           <div>
             <br />
@@ -90,6 +123,7 @@ class FileUploader extends Component {
         return (
           <div>
             <br />
+            <p>Selected file: {this.state.selectedFile.name}</p>
             <h4>Click the upload button to proceed</h4>
           </div>
         );
