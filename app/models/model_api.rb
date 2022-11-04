@@ -1,0 +1,3 @@
+class ModelApi < ApplicationRecord
+    
+end
