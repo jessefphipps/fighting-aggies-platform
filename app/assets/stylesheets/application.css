@@ -13,3 +13,75 @@
  *= require_tree .
  *= require_self
  */
+#loginPageBody{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+#loginPanel{
+    margin-top: 80px; 
+}
+
+#platformImage{
+    height: 120px;
+    width: 120px;
+}
+
+#platformName{
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#loginForm{
+    max-width: 75rem;
+    width: 30rem;
+    /*height: 23rem;*/
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #e6e0d0;
+    box-shadow: 1px 3px 9px rgba(136, 120, 84, 0.6);
+    position: relative;
+    z-index: 2;
+    font-family: "OpenSans-Medium", "Verdana", sans-serif;
+    font-style: normal;
+}
+
+.btn-primary{
+    background-color: #500000;
+    border-color: #370000;
+    margin-top: 8px;
+    padding: 0.6em 0.85em;
+    font-weight: bold;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
+    border-radius: 1.75rem;
+}
+
+.btn-primary:hover{
+    background-color: #1d0000;
+    border-color: #000000;
+}
+
+.btn-primary:disabled{
+    background-color: gray;
+    border-color: gray;
+}
+
+.form-control{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-label{
+    margin: 2px;
+}
