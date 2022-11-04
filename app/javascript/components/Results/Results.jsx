@@ -15,48 +15,64 @@ const data = {
         _uid: "BUY6Drn9e1",
         component: "barchart",
         headline: "bar",
-        title: "test",
+        title: "Performance by group - Offense",
+        data: [
+          {
+            "name": "Receivers",
+            "1st": 4000,
+            "2nd": 2400,
+          },
+          {
+            "name": "QB",
+            "1st": 5000,
+          },
+          {
+            "name": "Running Backs",
+            "1st": 2000,
+            "2nd": 1500,
+          },
+          {
+            "name": "Tight Ends",
+            "1st": 2780,
+            "2nd": 2900,
+          },
+          {
+            "name": "O-Line",
+            "1st": 8000,
+            "2nd": 3312,
+          },
+        ]
       },
       {
-        _uid: "BUY6Drn9e5",
+        _uid: "BUY6Drn9ade1",
         component: "barchart",
         headline: "bar",
-        title: "tes2",
+        title: "Performance by group - Defense",
+        data: [
+          {
+            "name": "D-Line",
+            "1st": 6000,
+            "2nd": 2400,
+          },
+          {
+            "name": "LB",
+            "1st": 5000,
+            "2nd": 6500,
+          },
+          {
+            "name": "Safety",
+            "1st": 1313,
+            "2nd": 2251,
+          },
+          {
+            "name": "Corners",
+            "1st": 6251,
+            "2nd": 4361,
+          },
+        ]
       }
       ]
     },
-    offense: {
-      figures: [
-      {
-        _uid: "BUY6Drn9e1",
-        component: "barchart",
-        headline: "bar",
-        title: "test3",
-      },
-      {
-        _uid: "BUY6Drn9e5",
-        component: "barchart",
-        headline: "bar",
-        title: "test4",
-      }
-      ]
-    },
-    defense: {
-      figures: [
-      {
-        _uid: "BUY6Drn9e1",
-        component: "barchart",
-        headline: "bar",
-        title: "test4",
-      },
-      {
-        _uid: "BUY6Drn9e5",
-        component: "barchart",
-        headline: "bar",
-        title: "test5",
-      }
-      ]
-    }
   }
 };
 
