@@ -18,11 +18,11 @@ When ('user clicks the upload button') do
     sleep(3)
 end
 
-Then ('user should get negative feeback --incompatible upload type') do
-    raise "Fail" if @browser.find_element(:id, "upload_error").text != "Error: Uploaded file is not a video"
+Then ('user should get negative feedback --incompatible upload type') do
+    raise "Fail" if @browser.find_element(:id, "select_error").text != "Error: selected file type is not supported. Try again."
 end
 
-Then ('user should get negative feeback --incompatible upload file') do
+Then ('user should get negative feedback --incompatible upload file') do
     raise "Fail" if @browser.find_element(:id, "upload_error").text != "Error: Cannot read the video file"
 end
 
