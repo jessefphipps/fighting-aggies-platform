@@ -40740,7 +40740,18 @@ Please use another name.` : formatMuiErrorMessage(18));
       uploadedFile: null,
       errors: null
     };
+    allowed_exts = /* @__PURE__ */ new Set(["avi", "flv", "mkv", "mov", "mp4"]);
     onFileChange = (event) => {
+      const filename = event.target.files[0].name;
+      const ext = filename.split(".").pop();
+      if (!this.allowed_exts.has(ext)) {
+        this.setState({
+          selectedFile: null,
+          uploadedFile: null,
+          errors: "selected file type is not supported. Try again."
+        });
+        return;
+      }
       this.setState({
         selectedFile: event.target.files[0],
         uploadedFile: null,
@@ -40774,13 +40785,18 @@ Please use another name.` : formatMuiErrorMessage(18));
       });
     };
     fileData = () => {
-      if (this.state.errors) {
+      if (!this.state.selectedFile && this.state.errors) {
+        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Incorrect file type"), /* @__PURE__ */ import_react5.default.createElement("p", {
+          id: "select_error"
+        }, "Error: ", this.state.errors));
+      }
+      if (this.state.selectedFile && this.state.errors) {
         return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Upload failed"), /* @__PURE__ */ import_react5.default.createElement("p", {
           id: "upload_error"
         }, "Error: ", this.state.errors));
       }
       if (this.state.selectedFile && !this.state.uploadedFile) {
-        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Click the upload button to proceed"));
+        return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("br", null), /* @__PURE__ */ import_react5.default.createElement("p", null, "Selected file: ", this.state.selectedFile.name), /* @__PURE__ */ import_react5.default.createElement("h4", null, "Click the upload button to proceed"));
       }
       if (this.state.selectedFile && this.state.uploadedFile) {
         return /* @__PURE__ */ import_react5.default.createElement("div", null, /* @__PURE__ */ import_react5.default.createElement("h4", {
