@@ -1,5 +1,6 @@
 import React from "react";
 import Barchart from "./results_components/Barchart";
+import Linechart from "./results_components/Linechart";
 import { Paper} from "@mui/material";
 import { styled } from '@mui/material/styles';
 
@@ -14,7 +15,8 @@ const FigureTile = styled(Paper)(({ theme }) => ({
   }));
 
 const Components = {
-  barchart: Barchart
+  barchart: Barchart,
+  linechart: Linechart,
 };
 
 export default (block) => {

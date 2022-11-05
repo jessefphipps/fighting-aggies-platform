@@ -7,12 +7,56 @@ import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom
 import App from "../../components/App"
 import { Box, createTheme, Stack, ThemeProvider, Grid, Paper} from "@mui/material";
 import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+
+
 
 
 
 class Home extends Component {
   constructor(props) {
     super(props);
+  }
+  
+  state = {
+      // Initially, no file is selected
+      fileUploaded: true,
+      results: {
+          content: {}
+        }
+    };
+  
+  fetchResults = (event) => {
+    let fetched_results = {
+      content: {
+        "overview": [{
+          component: "barchart",
+          title: "test",
+          _uid: "akjhd891hd",
+          data:[
+            {
+              "name": "Quarterback",
+              "1st": 3183,
+              "2nd": 1322,
+            }
+            ]
+          
+        }]
+      }
+    }
+    this.setState({
+      fileUploaded: true,
+      results: fetched_results,
+    })
+  };
+  
+  fileUploadSuccessful = (event) => {
+    this.setState({
+      fileUploaded: true,
+      results: {
+          content: {}
+        }
+    })
   }
   
   render() {
@@ -64,7 +108,10 @@ class Home extends Component {
                             Log Out
                     </button>
                   </div>} 
-                <FileUploader />
+                <FileUploader fileSuccessHandler={()=>this.fileUploadSuccessful}/>
+                <Button variant="contained" onClick={this.fetchResults} disabled={!this.state.fileUploaded} id="fetch_results_button">
+                  Generate Report
+                </Button>
               </UploaderTile>
               <ExportTile variant="elevation" elevation={8}>
                 <Export/>
@@ -74,7 +121,7 @@ class Home extends Component {
           <Grid item xs={8}>
             <Stack direction="column" spacing={2}>
               <ReportTile variant="elevation" elevation={8}>
-                <Results/>
+                <Results data={this.state.results}/>
               </ReportTile>
             </Stack>
           </Grid>
