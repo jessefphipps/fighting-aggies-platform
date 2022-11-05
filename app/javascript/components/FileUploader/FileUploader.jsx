@@ -151,6 +151,7 @@ class FileUploader extends Component {
       
       // File has been uploaded
       if (this.state.selectedFile && this.state.uploadedFile){
+        this.props.fileSuccessHandler();
         return (
           <div>
             <h4 id="file_details">Uploaded File Details:</h4>

@@ -7,58 +7,6 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-const data = {
-  content: {
-    overview: {
-      figures: [
-      {
-        _uid: "BUY6Drn9e1",
-        component: "barchart",
-        headline: "bar",
-        title: "test",
-      },
-      {
-        _uid: "BUY6Drn9e5",
-        component: "barchart",
-        headline: "bar",
-        title: "tes2",
-      }
-      ]
-    },
-    offense: {
-      figures: [
-      {
-        _uid: "BUY6Drn9e1",
-        component: "barchart",
-        headline: "bar",
-        title: "test3",
-      },
-      {
-        _uid: "BUY6Drn9e5",
-        component: "barchart",
-        headline: "bar",
-        title: "test4",
-      }
-      ]
-    },
-    defense: {
-      figures: [
-      {
-        _uid: "BUY6Drn9e1",
-        component: "barchart",
-        headline: "bar",
-        title: "test4",
-      },
-      {
-        _uid: "BUY6Drn9e5",
-        component: "barchart",
-        headline: "bar",
-        title: "test5",
-      }
-      ]
-    }
-  }
-};
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -91,7 +39,7 @@ function TabPanelBuilder(json_object, value){
       return (
           <TabPanel value={value} index={i} key={i}>
             <div>
-              {data.content[category].figures.map((block) => results_handler(block))}
+              {json_object.content[category].map((block) => results_handler(block))}
             </div>
           </TabPanel>
         );
@@ -111,35 +59,29 @@ function a11yProps(index) {
   };
 }
 
+function getReport(){
+  
+}
 
-function Results () {
-  
-  
+
+const Results = (props) => {
+
   const [value, setValue] = React.useState(0);
     
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-    
   
-
-      
-      
-      return (
+  return (
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            {TabBuilder(data)}
+            {TabBuilder(props.data)}
           </Tabs>
         </Box>
-        {TabPanelBuilder(data, value)}
+        {TabPanelBuilder(props.data, value)}
       </Box>
       );
   }
  
   export default Results;
-  
-  
-  // <div>
-  //           {data.content[this.state.currentCategory].figures.map((block) => results_handler(block))}
-  //       </div>
