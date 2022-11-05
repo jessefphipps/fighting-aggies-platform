@@ -3,6 +3,7 @@ import axios from 'axios';
 import React,{Component} from 'react';
 
 import Button from '@mui/material/Button';
+import LinearProgress from '@mui/material/LinearProgress';
 
 import { Box, createTheme, Stack, ThemeProvider, Grid } from "@mui/material";
  
@@ -12,7 +13,8 @@ class FileUploader extends Component {
       // Initially, no file is selected
       selectedFile: null,
       uploadedFile: null,
-      errors: null
+      errors: null,
+      progress: 0,
     };
     
     allowed_exts = new Set(['avi', 'flv', 'mkv', 'mov', 'mp4']);
@@ -34,7 +36,8 @@ class FileUploader extends Component {
       // Update the state with correct file
       this.setState({ selectedFile: event.target.files[0], 
                       uploadedFile: null, 
-                      errors: null });
+                      errors: null,
+                      progress: 0});
     };
     
     // On file upload (click the upload button)
@@ -57,18 +60,35 @@ class FileUploader extends Component {
       const successHandler = response => this.setState({
         selectedFile: this.state.selectedFile,
         uploadedFile: response.data,
-        errors: null
+        errors: null,
+        progress: this.state.progress,
       });
       
       const errorHandler = error => this.setState({
         selectedFile: this.state.selectedFile,
         uploadedFile: null,
-        errors: error.data.errormessage
+        errors: error.data.errormessage,
+        progress: this.state.progress,
+      });
+      
+      const setProgress = progress => this.setState({
+        selectedFile: this.state.selectedFile,
+        uploadedFile: null,
+        errors: null,
+        progress: progress,
       });
     
       // Request made to the backend api
       // Send formData object
-      axios.post("/api/v1/videos/create", formData)
+      axios.post("/api/v1/videos/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        onUploadProgress: (progressEvent) => {
+          const progress = (progressEvent.loaded / progressEvent.total) * 100;
+          setProgress(progress);
+        }}
+      )
       .then((response) => {
         // handle success
         console.log(response);
@@ -179,6 +199,7 @@ class FileUploader extends Component {
                   Upload
                 </Button>
             </Stack>
+            <LinearProgress variant="determinate" value={this.state.progress} />
                 
           {this.fileData()}
         </div>
