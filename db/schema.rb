@@ -10,35 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_04_134822) do
-  create_table "model_apis", force: :cascade do |t|
-    t.string "home_team"
-    t.string "away_team"
-    t.integer "home_score"
-    t.integer "away_score"
-    t.integer "quarter"
-    t.string "time"
-    t.string "possession"
-    t.integer "play_down"
-    t.integer "yard_to_10"
-    t.string "play_name"
-    t.string "qb_name"
-    t.string "wr1_name"
-    t.string "wr1_route"
-    t.boolean "wr1_good_route"
-    t.string "wr2_name"
-    t.string "wr2_route"
-    t.boolean "wr2_good_route"
-    t.string "te_name"
-    t.string "te_route"
-    t.boolean "te_good_route"
-    t.string "rb_name"
-    t.string "rb_route"
-    t.boolean "rb_good_route"
-    t.string "received_by"
-    t.integer "yards_gained"
+ActiveRecord::Schema[7.0].define(version: 2022_11_04_232147) do
+  create_table "analyses", force: :cascade do |t|
+    t.json "report"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "video_id"
+    t.index ["video_id"], name: "index_analyses_on_video_id"
   end
 
   create_table "videos", force: :cascade do |t|
@@ -52,4 +30,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_04_134822) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "analyses", "videos"
 end

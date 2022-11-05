@@ -6,10 +6,11 @@ Rails.application.routes.draw do
       post 'videos/create'
       get 'videos/show'
       delete 'videos/destroy'
-      get 'model_api/index'
-      post 'model_api/create'
-      get 'model_api/show'
-      delete 'model_api/destroy'
+      
+      get 'analyses/index'
+      post 'analyses/create'
+      get 'analyses/show'
+      delete 'analyses/destroy'
     end
   end
   

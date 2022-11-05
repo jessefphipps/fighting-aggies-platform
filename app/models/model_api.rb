@@ -1,3 +1,0 @@
-class ModelApi < ApplicationRecord
-    
-end
