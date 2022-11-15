@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 
 import { resultsAtom } from '../../recoil/atoms/resultsAtom';
-import { fileUploadedAtom } from '../../recoil/atoms/fileUploadedAtom';
+import { uploadedFileAtom } from '../../recoil/atoms/uploadedFileAtom';
 
 import {
   useRecoilState,
@@ -98,22 +98,24 @@ function generate_random_report(){
 function  Home () {
   
   
-const [fileUploaded, setFileUploaded] = useRecoilState(fileUploadedAtom)
+const [uploadedFile, setuploadedFile] = useRecoilState(uploadedFileAtom)
 const [results, setResults] = useRecoilState(resultsAtom)
 
 const generateReport = (event) => {
-  // axios.post("/api/v1/analyses/create", {'id': 1}).then((response)=>{
-  //   console.log(response)
-  //   setResults(response.data.report);
-  // }).catch((error) => {
-  //     // handle error
-  //     console.log(error.errormessage);
-  //   });
-    console.log(generate_random_report())
+  axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
+    const report = JSON.parse(response.data.report);
     setResults({
-      content: generate_random_report(),
-      
+      content: report,
     })
+  }).catch((error) => {
+      // handle error
+      console.log(error.errormessage);
+    });
+    // console.log(generate_random_report())
+    // setResults({
+    //   content: generate_random_report(),
+      
+    // })
   };
   
 // const fetchResults = (event) => {
@@ -158,6 +160,8 @@ const ExportTile = styled(Paper)(({ theme }) => ({
 
 const user = sessionStorage.getItem('user');
 
+// console.log('UploadedFile: ', uploadedFile)
+
 if (user == null) return <Redirect to='/' />
 return (
     <div style={{padding: '10px'}}>
@@ -177,7 +181,7 @@ return (
                     </button>
                   </div>} 
                 <FileUploader/>
-                <Button variant="contained" onClick={generateReport} disabled={!fileUploaded} id="fetch_results_button">
+                <Button variant="contained" onClick={generateReport} disabled={!uploadedFile} id="fetch_results_button">
                   Generate Report
                 </Button>
               </UploaderTile>

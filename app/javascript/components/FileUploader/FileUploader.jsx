@@ -7,7 +7,6 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 import { Box, createTheme, Stack, ThemeProvider, Grid } from "@mui/material";
 
-import {fileUploadedAtom} from "../../recoil/atoms/fileUploadedAtom";
 import {fileUploadErrorAtom} from "../../recoil/atoms/fileUploadErrorAtom";
 import {uploadedFileAtom} from "../../recoil/atoms/uploadedFileAtom";
 import {selectedFileAtom} from "../../recoil/atoms/selectedFileAtom";
@@ -23,7 +22,6 @@ import {
  
 function FileUploader() {
   
-  const [_, setFileUploaded] = useRecoilState(fileUploadedAtom);
   const [selectedFile, setSelectedFile] = useRecoilState(selectedFileAtom);
   const [uploadedFile, setUploadedFile] = useRecoilState(uploadedFileAtom);
   const [errors, setErrors] = useRecoilState(fileUploadErrorAtom);
@@ -190,7 +188,6 @@ function FileUploader() {
       // File has been uploaded
       if (selectedFile && uploadedFile){
         // this.props.fileSuccessHandler();
-        setFileUploaded(true)
         return (
           <div>
             <h4 id="file_details">Uploaded File Details:</h4>
