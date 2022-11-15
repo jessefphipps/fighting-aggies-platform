@@ -39,19 +39,19 @@ function generate_random_report(){
                 'title': 'Point Distribution',
                 'data': [{
                     'name': 'Passing Touchdown Points',
-                    'value': getRandomSubarray([0,6,12,18,24,30], 1)[0]
+                    'value': getRandomSubarray([6,12,18,24,30], 1)[0]
                 },
                 {
                     'name': 'Rushing Touchdown Points',
-                    'value': getRandomSubarray([0,6,12,18,24,30], 1)[0]
+                    'value': getRandomSubarray([6,12,18,24,30], 1)[0]
                 },
                 {
                     'name': 'Field Goal Points',
-                    'value': getRandomSubarray([0,3,6,9,12,15,18,21], 1)[0]
+                    'value': getRandomSubarray([3,6,9,12,15,18,21], 1)[0]
                 },
                 {
                     'name': 'Extra Points',
-                    'value': getRandomSubarray([0,1,2,3,4,5], 1)[0]
+                    'value': getRandomSubarray([1,2,3,4,5], 1)[0]
                 }],
             }, {
                 'component': 'barchart',
@@ -101,27 +101,28 @@ function generate_random_report(){
 function  Home () {
   
   
-const [uploadedFile, setuploadedFile] = useRecoilState(uploadedFileAtom)
-const [results, setResults] = useRecoilState(resultsAtom)
+const [uploadedFile, setuploadedFile] = useRecoilState(uploadedFileAtom);
+const [results, setResults] = useRecoilState(resultsAtom);
 const [selectedFile, setSelectedFile] = useRecoilState(selectedFileAtom);
 
 const generateReport = (event) => {
-  axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
-    const report = JSON.parse(response.data.report);
+  // axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
+  //   const report = JSON.parse(response.data.report);
+  //   setResults({
+  //     content: report,
+  //   })
+  //   setuploadedFile(false)
+  //   setSelectedFile(null)
+  // }).catch((error) => {
+  //     // handle error
+  //     console.log(error.errormessage);
+  //   });
+    console.log(generate_random_report())
     setResults({
-      content: report,
+      content: generate_random_report(),
     })
     setuploadedFile(false)
     setSelectedFile(null)
-  }).catch((error) => {
-      // handle error
-      console.log(error.errormessage);
-    });
-    // console.log(generate_random_report())
-    // setResults({
-    //   content: generate_random_report(),
-      
-    // })
   };
   
 // const fetchResults = (event) => {
