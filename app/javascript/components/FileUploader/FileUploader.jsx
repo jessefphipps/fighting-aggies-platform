@@ -11,6 +11,7 @@ import {fileUploadErrorAtom} from "../../recoil/atoms/fileUploadErrorAtom";
 import {uploadedFileAtom} from "../../recoil/atoms/uploadedFileAtom";
 import {selectedFileAtom} from "../../recoil/atoms/selectedFileAtom";
 import {uploadProgressAtom} from "../../recoil/atoms/uploadProgressAtom";
+import {resultsAtom} from "../../recoil/atoms/resultsAtom";
 
 import {
   RecoilRoot,
@@ -26,6 +27,7 @@ function FileUploader() {
   const [uploadedFile, setUploadedFile] = useRecoilState(uploadedFileAtom);
   const [errors, setErrors] = useRecoilState(fileUploadErrorAtom);
   const [progress, setProgress] = useRecoilState(uploadProgressAtom);
+  const [results, setResults] = useRecoilState(resultsAtom);
   
     // state = {
     //   // Initially, no file is selected
@@ -43,6 +45,9 @@ function FileUploader() {
       // Check for file extension
       const filename = event.target.files[0].name;
       const ext = filename.split('.').pop();
+      
+      setResults({content: {}});
+      
       if (!allowed_exts.has(ext)){
         // Update the state with errors
         setSelectedFile(null)
@@ -176,6 +181,7 @@ function FileUploader() {
       
       // Selected file, but hasn't successfully uploaded it yet
       if (selectedFile && !uploadedFile) {
+        
         return (
           <div>
             <br />
