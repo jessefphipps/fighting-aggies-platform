@@ -12,6 +12,9 @@ import axios from 'axios';
 
 import { resultsAtom } from '../../recoil/atoms/resultsAtom';
 import { uploadedFileAtom } from '../../recoil/atoms/uploadedFileAtom';
+import { selectedFileAtom } from '../../recoil/atoms/selectedFileAtom';
+
+import { useHistory } from "react-router";
 
 import {
   useRecoilState,
@@ -100,6 +103,7 @@ function  Home () {
   
 const [uploadedFile, setuploadedFile] = useRecoilState(uploadedFileAtom)
 const [results, setResults] = useRecoilState(resultsAtom)
+const [selectedFile, setSelectedFile] = useRecoilState(selectedFileAtom);
 
 const generateReport = (event) => {
   axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
@@ -107,6 +111,8 @@ const generateReport = (event) => {
     setResults({
       content: report,
     })
+    setuploadedFile(false)
+    setSelectedFile(null)
   }).catch((error) => {
       // handle error
       console.log(error.errormessage);
@@ -160,6 +166,8 @@ const ExportTile = styled(Paper)(({ theme }) => ({
 
 const user = sessionStorage.getItem('user');
 
+const history = useHistory();
+
 // console.log('UploadedFile: ', uploadedFile)
 
 if (user == null) return <Redirect to='/' />
@@ -175,7 +183,7 @@ return (
                     <span id='login_user'> {user} </span>
                     <button id='logout-button' onClick = { () => {
                       sessionStorage.removeItem('user');
-                      // this.props.history.push('/');
+                      history.push('/');
                     }}>
                             Log Out
                     </button>

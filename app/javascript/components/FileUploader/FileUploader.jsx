@@ -240,7 +240,7 @@ function FileUploader() {
                 Upload
               </Button>
           </Stack>
-          <LinearProgress variant="determinate" value={progress} />
+          <LinearProgress sx={{ m: 4 }} variant="determinate" value={progress} />
               
         {fileData()}
       </div>
