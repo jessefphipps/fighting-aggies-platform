@@ -1,6 +1,6 @@
 Given ('the user has uploaded a good file') do
     @browser.find_element(:id, "file_select_button").send_keys(@good_file_loc)
-    sleep(1)
+    sleep(3)
 end
 
 When ('user selects incorrect file type') do

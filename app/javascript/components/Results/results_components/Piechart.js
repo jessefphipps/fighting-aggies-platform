@@ -1,8 +1,12 @@
 import React from "react";
-import {BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar} from 'recharts';
+import {PieChart, Pie} from 'recharts';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+let renderLabel = function(entry) {
+    return entry.name + ` (${entry.value})`;
+}
 
 export default props => (
   <div className="bar" style={{
@@ -20,14 +24,9 @@ export default props => (
               alignItems: 'center',
               justifyContent: 'center',
           }}>
-          <BarChart width={600} height={200} data={props.block.data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="value" fill="#8884d8" />
-          </BarChart>
+         <PieChart width={730} height={300}>
+          <Pie data={props.block.data} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={90} fill="#8884d8" label={renderLabel}/>
+        </PieChart>
         </div>
       </Row>
     </Container>

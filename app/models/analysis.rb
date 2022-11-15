@@ -15,7 +15,7 @@ class Analysis < ApplicationRecord
     private
     def generate_random_report()
         # fixed report for now
-        report = [
+        report = {
             'Offense' => [{
                 'component' => 'piechart',
                 'title' => 'Point Distribution',
@@ -73,7 +73,7 @@ class Analysis < ApplicationRecord
                     'value' => rand(0..30)
                 }]
             }]
-        ]
+        }
         
         return report.to_json
     end
