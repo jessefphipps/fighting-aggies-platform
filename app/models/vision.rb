@@ -17,6 +17,7 @@ class Vision < ApplicationRecord
         when 1..60 then rand(0..20)
         when 60..90 then rand(20..60)
         when 90..100 then rand(60..90)
+        end
     end
     
     def generate_random_report()
