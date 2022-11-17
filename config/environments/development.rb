@@ -67,6 +67,8 @@ Rails.application.configure do
   
   config.hosts << "f01a7c74ddb749f6b723649d2d62c6f3.vfs.cloud9.us-east-2.amazonaws.com"
   
+  config.hosts << "87304fe082084245acb3c50ba6a71fee.vfs.cloud9.us-east-2.amazonaws.com"
+  
   config.web_console.permissions = ['50.24.124.59', '128.194.2.169']
   
   
