@@ -26,7 +26,7 @@ class Vision < ApplicationRecord
         update = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Devon Achane','Ainias Smith']
         success = rand(0..1)
         play_type = ['pass','rush'].sample
-        play_name = play_type == 'pass' ? ['PA Y-Cross','PA Y-Drag Wheel','Four Verticals'].sample : ['HB Stretch','HB ']
+        play_name = play_type == 'pass' ? ['PA Y-Cross','PA Y-Drag Wheel','Four Verticals'].sample : ['HB Stretch','HB Toss MTN', 'Inside Run'].sample
         yards_gained = success==1 ? get_rand_yards : 0
         received_by = play_type == 'pass' ? players.sample : rbs.sample
         report = {
