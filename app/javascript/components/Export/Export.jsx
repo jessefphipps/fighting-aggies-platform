@@ -63,23 +63,43 @@ class Export extends Component {
 //     "RB_route": "Fade",
 //     "RB_good_route": 1
 // }
-    var id = sessionStorage.getItem('reportId');
-    var analysisId = sessionStorage.getItem('analysisId');
-    console.log(analysisId);
-    axios.get('/api/v1/visions/show?id=' + id).then((dataJson) => {
-        this.setState({error: false});
-        // console.log(dataJson);
-        const report = dataJson.data.report;
-        // console.log(report);
-        // console.log(typeof report);
-        const parsedReport = JSON.parse(report);
-        console.log(typeof parsedReport);
-        console.log(parsedReport);
-        console.log(parsedReport.home_team);
+//     var id = sessionStorage.getItem('reportId');
+//     var analysisId = sessionStorage.getItem('analysisId');
+//     console.log(analysisId);
+//     axios.get('/api/v1/visions/show?id=' + id).then((dataJson) => {
+//         this.setState({error: false});
+//         // console.log(dataJson);
+//         const report = dataJson.data.report;
+//         // console.log(report);
+//         // console.log(typeof report);
+//         const parsedReport = JSON.parse(report);
+//         console.log(typeof parsedReport);
+//         console.log(parsedReport);
+//         console.log(parsedReport.home_team);
+//         const arr = []
+//         Object.keys(parsedReport).forEach(key => arr.push({name: key, value: parsedReport[key]}));
+// // Object.keys(parsedReport).forEach(key => arr.push({name: key, value: parsedReport[key]}));
+//         // console.log(arr[0].name, arr[0].value);
+//         console.log(arr);
+//         this.setState({
+//           data: arr,
+//         }, () => {
+//           // click the CSVLink component to trigger the CSV download
+//           this.csvLink.link.click();
+//         });
+//       }).catch((e) => {
+//         this.setState({data: [], error: true});
+//         console.log(e);
+//       });
+//     console.log(111);
+      var raw_data = sessionStorage.getItem('rawData');
+      if (raw_data == null) {
+        this.setState({data: [], error: true});
+      } else {
+        console.log(raw_data);
+        const parsedReport = JSON.parse(raw_data);
         const arr = []
         Object.keys(parsedReport).forEach(key => arr.push({name: key, value: parsedReport[key]}));
-// Object.keys(parsedReport).forEach(key => arr.push({name: key, value: parsedReport[key]}));
-        // console.log(arr[0].name, arr[0].value);
         console.log(arr);
         this.setState({
           data: arr,
@@ -87,11 +107,7 @@ class Export extends Component {
           // click the CSVLink component to trigger the CSV download
           this.csvLink.link.click();
         });
-      }).catch((e) => {
-        this.setState({data: [], error: true});
-        console.log(e);
-      });
-    console.log(111);
+      }
   };
   
   createVision() {

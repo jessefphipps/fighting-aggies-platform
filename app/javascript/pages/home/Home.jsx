@@ -106,13 +106,15 @@ const [results, setResults] = useRecoilState(resultsAtom);
 const [selectedFile, setSelectedFile] = useRecoilState(selectedFileAtom);
 
 const generateReport = (event) => {
-  axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
+  axios.post("/api/v1/analyses/create", {'id': uploadedFile['id'], 'include_raw_data': true}).then((response)=>{
     const report = JSON.parse(response.data.report);
+    console.log(111);
     console.log(response);
     setResults({
-      content: report,
+      content: report.frontend_report,
     })
-    sessionStorage.setItem('analysisId', response.data.id);
+    console.log(report.raw_data);
+    sessionStorage.setItem('rawData', JSON.stringify(report.raw_data));
     setuploadedFile(false)
     setSelectedFile(null)
   }).catch((error) => {

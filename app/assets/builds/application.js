@@ -87599,16 +87599,12 @@ This is currently a DEV-only warning but will become a thrown exception in the n
       };
     }
     download(event) {
-      var id = sessionStorage.getItem("reportId");
-      var analysisId = sessionStorage.getItem("analysisId");
-      console.log(analysisId);
-      axios_default2.get("/api/v1/visions/show?id=" + id).then((dataJson) => {
-        this.setState({ error: false });
-        const report = dataJson.data.report;
-        const parsedReport = JSON.parse(report);
-        console.log(typeof parsedReport);
-        console.log(parsedReport);
-        console.log(parsedReport.home_team);
+      var raw_data = sessionStorage.getItem("rawData");
+      if (raw_data == null) {
+        this.setState({ data: [], error: true });
+      } else {
+        console.log(raw_data);
+        const parsedReport = JSON.parse(raw_data);
         const arr = [];
         Object.keys(parsedReport).forEach((key) => arr.push({ name: key, value: parsedReport[key] }));
         console.log(arr);
@@ -87617,11 +87613,7 @@ This is currently a DEV-only warning but will become a thrown exception in the n
         }, () => {
           this.csvLink.link.click();
         });
-      }).catch((e) => {
-        this.setState({ data: [], error: true });
-        console.log(e);
-      });
-      console.log(111);
+      }
     }
     createVision() {
       var id = sessionStorage.getItem("videoId");
@@ -87658,13 +87650,15 @@ This is currently a DEV-only warning but will become a thrown exception in the n
     const [results, setResults] = Recoil_index_22(resultsAtom);
     const [selectedFile, setSelectedFile] = Recoil_index_22(selectedFileAtom);
     const generateReport = (event) => {
-      axios_default2.post("/api/v1/analyses/create", { "id": uploadedFile["id"] }).then((response) => {
+      axios_default2.post("/api/v1/analyses/create", { "id": uploadedFile["id"], "include_raw_data": true }).then((response) => {
         const report = JSON.parse(response.data.report);
+        console.log(111);
         console.log(response);
         setResults({
-          content: report
+          content: report.frontend_report
         });
-        sessionStorage.setItem("analysisId", response.data.id);
+        console.log(report.raw_data);
+        sessionStorage.setItem("rawData", JSON.stringify(report.raw_data));
         setuploadedFile(false);
         setSelectedFile(null);
       }).catch((error2) => {

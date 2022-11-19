@@ -7,6 +7,8 @@ class Api::V1::AnalysesController < ApplicationController
   end
 
   def create
+    p analysis_params
+    
     unless analysis_params[:id]
       render status: 400, json: {:errormessage => "No ID was provided"}.to_json and return
     end
@@ -26,7 +28,7 @@ class Api::V1::AnalysesController < ApplicationController
       analysis.report = {
         'frontend_report' => JSON.parse(analysis.report),
         'raw_data' => JSON.parse(vision.report),
-      }  
+      }.to_json
     end
     
     render status: 201, json: analysis
