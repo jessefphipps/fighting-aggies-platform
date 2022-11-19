@@ -90,7 +90,64 @@ function generate_random_report(){
                     'name': 'Zonal Coverage',
                     'value': getRandomSubarray([12, 14, 11], 1)[0]
                 }]
-            }]
+            }],
+            'Player Cards': [
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+
+            ]
         }
         
         return report;
@@ -204,11 +261,13 @@ return (
             </Stack>
           </Grid>
           <Grid item xs={8}>
+          <div styles={{ height: '100%', overflowY: 'scroll' }}>
             <Stack direction="column" spacing={2}>
               <ReportTile variant="elevation" elevation={8}>
-                <Results data={results}/>
+                  <Results data={results}/>
               </ReportTile>
             </Stack>
+            </div>
           </Grid>
         </Grid>
       </Box>

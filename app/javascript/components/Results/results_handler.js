@@ -2,6 +2,7 @@ import React from "react";
 import Barchart from "./results_components/Barchart";
 import Linechart from "./results_components/Linechart";
 import Piechart from "./results_components/Piechart";
+import PlayerCard from "./results_components/PlayerCard";
 import { Paper} from "@mui/material";
 import { styled } from '@mui/material/styles';
 
@@ -29,6 +30,7 @@ const Components = {
   barchart: Barchart,
   linechart: Linechart,
   piechart: Piechart,
+  card: PlayerCard,
 };
 
 export default (block) => {
