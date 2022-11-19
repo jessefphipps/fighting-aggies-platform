@@ -7,22 +7,33 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default props => (
-    <Card sx={{ minWidth: 275 }}>
+  
+    <Card sx={{ minWidth: 275 }} style={{
+          display: 'flex',
+          alignItems: 'left',
+          justifyContent: 'left',
+      }}>
+    <div className="bar" style={{
+          display: 'flex',
+          alignItems: 'left',
+          justifyContent: 'left',
+      }}>
       <CardContent>
         <Typography variant="h5" component="div">
-          props.block.name
+          {props.block.data.name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          props.block.position
+          {props.block.data.position}
         </Typography>
         <Typography variant="body2">
-          RATING:
+          RESULT:
           <br />
-          props.block.rating
+          {props.block.data.play_success}
         </Typography>
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
       </CardActions>
+      </div>
     </Card>
 )
