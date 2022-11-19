@@ -21,14 +21,18 @@ class Vision < ApplicationRecord
     end
     
     def generate_random_report()
-        players = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Devon Achane','Ainias Smith']
+        players = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         rbs = ['Devon Achane','Le\'Veon Moss', 'Ainias Smith']
-        update = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Devon Achane','Ainias Smith']
+        update = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         success = rand(0..1)
         play_type = ['pass','rush'].sample
-        play_name = play_type == 'pass' ? ['PA Y-Cross','PA Y-Drag Wheel','Four Verticals'].sample : ['HB Stretch','HB ']
+        play_name = play_type == 'pass' ? ['PA Y-Cross','PA Y-Drag Wheel','Four Verticals'].sample : ['HB Stretch','HB Toss MTN', 'Inside Run'].sample
         yards_gained = success==1 ? get_rand_yards : 0
-        received_by = play_type == 'pass' ? players.sample : rbs.sample
+        wr1_name = update.delete_at(rand(update.length))
+        wr2_name = update.delete_at(rand(update.length))
+        te_name = update.delete_at(rand(update.length))
+        rb_name = rbs.sample
+        received_by = play_type == 'pass' ? [wr1_name,wr2_name,te_name].sample : rb_name
         report = {
             'home_team' => 'Texas A&M',
             'away_team' => 'Alabama',
@@ -43,16 +47,16 @@ class Vision < ApplicationRecord
             'received_by' => received_by,
             'yards_gained' => yards_gained,
             'QB_name' => ['Conner Weigman','Haynes King','Max Johnson'].sample,
-            'WR1_name' => update.delete_at(rand(update.length)),
+            'WR1_name' => wr1_name,
             'WR1_route' => ['Slant','Drag','Post','Fade','Fly','Tackle'].sample,
             'WR1_good_route' => rand(0..1),
-            'WR2_name' => update.delete_at(rand(update.length)),
+            'WR2_name' => wr2_name,
             'WR2_route' => ['Slant','Drag','Post','Fade','Fly','Tackle'].sample,
             'WR2_good_route' => rand(0..1),
-            'TE_name' => update.delete_at(rand(update.length)),
+            'TE_name' => te_name,
             'TE_route' => ['Slant','Drag','Post','Fade','Fly','Tackle'].sample,
             'TE_good_route' => rand(0..1),
-            'RB_name' => update.delete_at(rand(update.length)),
+            'RB_name' => rb_name,
             'RB_route' => ['Slant','Drag','Post','Fade','Fly','Tackle'].sample,
             'RB_good_route' => success
         }
