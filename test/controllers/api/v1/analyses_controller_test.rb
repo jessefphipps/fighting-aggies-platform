@@ -48,6 +48,29 @@ class Api::V1::AnalysesControllerTest < ActionDispatch::IntegrationTest
     last_video.destroy # Remove temporary video
   end
   
+  test "show with valid id and raw_data flag" do
+    last_video = Video.create(@valid_video_path) # Add temporary video
+    last_vision = Vision.create(last_video.id) # Add temporary vision
+    last_analysis = Analysis.create(last_video.id)
+    
+    get api_v1_analyses_show_url, params: {id: last_analysis.id, include_raw_data: true}
+    assert_response :success
+    
+    response_body = JSON.parse(@response.body)
+    response_body_keys = response_body["report"].keys
+    
+    
+    assert_equal(response_body_keys[0], "frontend_report", "Analysis does not include frontend report")
+    assert_equal(response_body_keys[1], "raw_data", "Analysis does not include raw data as requested")
+    assert_equal(JSON.parse(last_vision.report), response_body["report"]["raw_data"], "Requested analysis does not include correct vision")
+    assert_equal(JSON.parse(last_analysis.report), response_body["report"]["frontend_report"], "Requested analysis does not match with query ID")
+    
+    
+    last_analysis.destroy
+    last_vision.destroy # Remove temporary vision
+    last_video.destroy # Remove temporary video
+  end
+  
   # Create operation (POST) tests
   test "create post no data" do
     post api_v1_analyses_create_url
@@ -81,6 +104,30 @@ class Api::V1::AnalysesControllerTest < ActionDispatch::IntegrationTest
     post api_v1_analyses_create_url, params: {id: last_video.id}
     assert_response :created
     
+    last_vision.destroy # Remove temporary vision
+    last_video.destroy # Remove temporary video
+  end
+  
+  test "create with correct video id after creating video with include_raw_data flag" do
+    last_video = Video.create(@valid_video_path) # Add temporary video
+    last_vision = Vision.create(last_video.id) # Add temporary vision
+    
+    post api_v1_analyses_create_url, params: {id: last_video.id, include_raw_data: true}
+    assert_response :created
+    
+    last_analysis = Analysis.order("created_at").last
+    
+    response_body = JSON.parse(@response.body)
+    response_body_keys = response_body["report"].keys
+    
+    
+    assert_equal(response_body_keys[0], "frontend_report", "Analysis does not include frontend report")
+    assert_equal(response_body_keys[1], "raw_data", "Analysis does not include raw data as requested")
+    assert_equal(JSON.parse(last_vision.report), response_body["report"]["raw_data"], "Requested analysis does not include correct vision")
+    assert_equal(JSON.parse(last_analysis.report), response_body["report"]["frontend_report"], "Requested analysis does not match with query ID")
+    
+    
+    last_analysis.destroy
     last_vision.destroy # Remove temporary vision
     last_video.destroy # Remove temporary video
   end
