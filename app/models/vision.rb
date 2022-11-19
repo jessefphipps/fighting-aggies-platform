@@ -21,9 +21,9 @@ class Vision < ApplicationRecord
     end
     
     def generate_random_report()
-        players = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Devon Achane','Ainias Smith']
+        players = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         rbs = ['Devon Achane','Le\'Veon Moss', 'Ainias Smith']
-        update = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Devon Achane','Ainias Smith']
+        update = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         success = rand(0..1)
         play_type = ['pass','rush'].sample
         play_name = play_type == 'pass' ? ['PA Y-Cross','PA Y-Drag Wheel','Four Verticals'].sample : ['HB Stretch','HB Toss MTN', 'Inside Run'].sample
@@ -52,7 +52,7 @@ class Vision < ApplicationRecord
             'TE_name' => update.delete_at(rand(update.length)),
             'TE_route' => ['Slant','Drag','Post','Fade','Fly','Tackle'].sample,
             'TE_good_route' => rand(0..1),
-            'RB_name' => update.delete_at(rand(update.length)),
+            'RB_name' => rbs.sample,
             'RB_route' => ['Slant','Drag','Post','Fade','Fly','Tackle'].sample,
             'RB_good_route' => success
         }
