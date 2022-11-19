@@ -4,6 +4,9 @@ class Analysis < ApplicationRecord
         # Return if video does not exist
         raise "Video with id " + video_id.to_s + " does not exist" and return unless Video.exists?(id: video_id)
         
+        # Return if vision does not exist
+        raise "Vision for video with id " + video_id.to_s + " does not exist" and return unless Vision.exists?(video_id: video_id)
+        
         # Return if analysis exists for the requested video_id
         raise "Analysis for video with id " + video_id.to_s + " already exists" and return if Analysis.exists?(video_id: video_id)
         
