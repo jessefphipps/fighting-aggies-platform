@@ -87658,8 +87658,9 @@ This is currently a DEV-only warning but will become a thrown exception in the n
     const [results, setResults] = Recoil_index_22(resultsAtom);
     const [selectedFile, setSelectedFile] = Recoil_index_22(selectedFileAtom);
     const generateReport = (event) => {
-      axios_default2.post("/api/v1/analyses/create", { "id": uploadedFile["id"] }).then((response) => {
+      axios_default2.post("/api/v1/analyses/create", { "id": uploadedFile["id"], "include_raw_data": true }).then((response) => {
         const report = JSON.parse(response.data.report);
+        console.log(111);
         console.log(response);
         setResults({
           content: report
