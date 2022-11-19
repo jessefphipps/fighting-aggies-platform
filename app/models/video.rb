@@ -1,5 +1,6 @@
 class Video < ApplicationRecord
     has_one :analysis, dependent: :destroy
+    has_one :vision, dependent: :destroy
     def initialize(file_path)
         file_path = file_path.to_s # Any class that inherits from the base Object class should have to_s
         
