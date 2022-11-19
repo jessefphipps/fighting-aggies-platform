@@ -167,9 +167,11 @@ const generateReport = (event) => {
     const report = JSON.parse(response.data.report);
     console.log(111);
     console.log(response);
+    console.log("Frontend:");
+    console.log(report.frontend_report);
     setResults({
       content: report.frontend_report,
-    })
+    });
     console.log(report.raw_data);
     sessionStorage.setItem('rawData', JSON.stringify(report.raw_data));
     setuploadedFile(false)
