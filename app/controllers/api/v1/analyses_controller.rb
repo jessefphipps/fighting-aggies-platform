@@ -26,7 +26,7 @@ class Api::V1::AnalysesController < ApplicationController
       analysis.report = {
         'frontend_report' => JSON.parse(analysis.report),
         'raw_data' => JSON.parse(vision.report),
-      }  
+      }.to_json  
     end
     
     render status: 201, json: analysis
@@ -52,7 +52,7 @@ class Api::V1::AnalysesController < ApplicationController
       analysis.report = {
         'frontend_report' => JSON.parse(analysis.report),
         'raw_data' => JSON.parse(vision.report),
-      }  
+      }.to_json  
     end
     
     render status: 200, json: analysis
