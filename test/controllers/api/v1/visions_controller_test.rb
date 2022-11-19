@@ -7,30 +7,30 @@ class Api::V1::VisionsControllerTest < ActionDispatch::IntegrationTest
 
 # Read operation (GET) tests: index endpoint
   test "should get index" do
-    get api_v1_vision_index_url
+    get api_v1_visions_index_url
     assert_response :success
   end
 
   test "index returns all raw data present" do
-    get api_v1_vision_index_url
+    get api_v1_visions_index_url
     vision = @response.body
     assert_equal(vision, Vision.all.order(created_at: :desc).to_json, "Raw data coming from index request don't match db's raw data")
   end
   
   # READ operation given ID (GET) tests: show endpoint
   test "show no id" do
-    get api_v1_vision_show_url
+    get api_v1_visions_show_url
     assert_response :bad_request
   end
   
   test "show with invalid id: negative" do
-    get api_v1_vision_show_url, params: {id: -1}
+    get api_v1_visions_show_url, params: {id: -1}
     assert_response :bad_request
   end
   
   test "show with invalid id: not in database" do
     next_id = Vision.maximum(:id).to_i.next # Queries the next id in DB (non-existent)
-    get api_v1_vision_show_url, params: {id: next_id}
+    get api_v1_visions_show_url, params: {id: next_id}
     assert_response :bad_request
   end
   
@@ -38,7 +38,7 @@ class Api::V1::VisionsControllerTest < ActionDispatch::IntegrationTest
     last_video = Video.create(@valid_video_path) # Add temporary video
     last_vision = Vision.create(last_video.id)
     
-    get api_v1_vision_show_url, params: {id: last_vision.id}
+    get api_v1_visions_show_url, params: {id: last_vision.id}
     assert_response :success
     assert_equal(last_vision.to_json, @response.body, "Requested raw data does not match with query ID")
     
@@ -48,23 +48,23 @@ class Api::V1::VisionsControllerTest < ActionDispatch::IntegrationTest
   
   # Create operation (POST) tests
   test "create post no data" do
-    post api_v1_vision_create_url
+    post api_v1_visions_create_url
     assert_response :bad_request
   end
   
   test "create with inexistent video id" do
-    post api_v1_vision_create_url, params: {id: -1}
+    post api_v1_visions_create_url, params: {id: -1}
     assert_response :bad_request
   end
   
   test "create two raw data for same correct video id" do
     last_video = Video.create(@valid_video_path) # Add temporary video
     
-    post api_v1_vision_create_url, params: {id: last_video.id}
+    post api_v1_visions_create_url, params: {id: last_video.id}
     assert_response :created
     
     # Second raw data should fail if there's one already related to video
-    post api_v1_vision_create_url, params: {id: last_video.id}
+    post api_v1_visions_create_url, params: {id: last_video.id}
     assert_response :bad_request
     
     last_video.destroy # Remove temporary video
@@ -73,7 +73,7 @@ class Api::V1::VisionsControllerTest < ActionDispatch::IntegrationTest
   test "create with correct video id after creating video" do
     last_video = Video.create(@valid_video_path) # Add temporary video
     
-    post api_v1_vision_create_url, params: {id: last_video.id}
+    post api_v1_visions_create_url, params: {id: last_video.id}
     assert_response :created
     
     last_video.destroy # Remove temporary video
@@ -81,18 +81,18 @@ class Api::V1::VisionsControllerTest < ActionDispatch::IntegrationTest
   
   # Destroy operation given ID (DELETE) tests
   test "destroy no id" do
-    delete api_v1_vision_destroy_url
+    delete api_v1_visions_destroy_url
     assert_response :bad_request
   end
   
   test "destroy with invalid id: negative" do
-    delete api_v1_vision_destroy_url, params: {id: -1}
+    delete api_v1_visions_destroy_url, params: {id: -1}
     assert_response :bad_request
   end
   
   test "destroy with invalid id: not in database" do
     next_id = Vision.maximum(:id).to_i.next # Queries the next id in DB (non-existent)
-    delete api_v1_vision_destroy_url, params: {id: next_id}
+    delete api_v1_visions_destroy_url, params: {id: next_id}
     assert_response :bad_request
   end
   
@@ -100,7 +100,7 @@ class Api::V1::VisionsControllerTest < ActionDispatch::IntegrationTest
     last_video = Video.create(@valid_video_path) # Add temporary video
     last_vision = Vision.create(last_video.id)
     
-    delete api_v1_vision_destroy_url, params: {id: last_vision.id}
+    delete api_v1_visions_destroy_url, params: {id: last_vision.id}
     assert_response :success
     
     new_last_vision = Vision.all.order(created_at: :desc).first
