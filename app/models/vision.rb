@@ -21,7 +21,6 @@ class Vision < ApplicationRecord
     end
     
     def generate_random_report()
-        players = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         rbs = ['Devon Achane','Le\'Veon Moss', 'Ainias Smith']
         update = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         success = rand(0..1)
