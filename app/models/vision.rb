@@ -4,7 +4,7 @@ class Vision < ApplicationRecord
         # Return if video does not exist
         raise "Video with id " + video_id.to_s + " does not exist" and return unless Video.exists?(id: video_id)
         
-        # Return if analysis exists for the requested video_id
+        # Return if vision exists for the requested video_id
         raise "Raw data for video with id " + video_id.to_s + " already exists" and return if Vision.exists?(video_id: video_id)
         
         report = generate_random_report()
@@ -21,7 +21,6 @@ class Vision < ApplicationRecord
     end
     
     def generate_random_report()
-        players = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         rbs = ['Devon Achane','Le\'Veon Moss', 'Ainias Smith']
         update = ['Evan Stewart','Muhsin Muhammad III','Max Wright','Donovan Green']
         success = rand(0..1)
