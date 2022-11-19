@@ -31,9 +31,29 @@ class Analysis < ApplicationRecord
         wr2_yards_gained = parsed_raw_data['WR2_name'] == parsed_raw_data['received_by'] ? parsed_raw_data['yards_gained'] : 0
         te_yards_gained = parsed_raw_data['TE_name'] == parsed_raw_data['received_by'] ? parsed_raw_data['yards_gained'] : 0
         rb_yards_gained = parsed_raw_data['RB_name'] == parsed_raw_data['received_by'] ? parsed_raw_data['yards_gained'] : 0
+        
+        players_good_routes = 0
+        players_bad_routes = 0
+        for a in [parsed_raw_data['WR1_good_route'],parsed_raw_data['WR2_good_route'],parsed_raw_data['TE_good_route'],parsed_raw_data['RB_good_route']] do 
+            if a==1
+                players_good_routes += 1
+            else
+                players_bad_routes += 1
+            end
+        end
 
         frontend_report = {
             'Offense' => [{
+                'component' => 'piechart',
+                'title' => 'Success rate of play',
+                'data' => [{
+                    'name' => 'Pass',
+                    'value' => players_good_routes
+                },{
+                    'name' => 'Fail',
+                    'value' => players_bad_routes
+                }]
+            }, {
                 'component' => 'piechart',
                 'title' => 'Point Distribution',
                 'data' => [{
