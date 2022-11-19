@@ -111,9 +111,10 @@ const generateReport = (event) => {
     console.log(111);
     console.log(response);
     setResults({
-      content: report,
+      content: report.frontend_report,
     })
-    sessionStorage.setItem('analysisId', response.data.id);
+    console.log(report.raw_data);
+    sessionStorage.setItem('rawData', JSON.stringify(report.raw_data));
     setuploadedFile(false)
     setSelectedFile(null)
   }).catch((error) => {
