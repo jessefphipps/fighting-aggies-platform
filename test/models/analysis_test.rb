@@ -20,12 +20,9 @@ class AnalysisTest < ActiveSupport::TestCase
     last_video = Video.order("created_at").last
     last_video_id = last_video.id
     
-    # Tries to create analysis without having a vision
-    error = assert_raise(StandardError){
-      Analysis.new(last_video_id)
-    }
-    
-    assert_equal "Vision for video with id " + last_video_id.to_s + " does not exist", error.message
+    # Tries to create analysis without having a vision. Should not throw error.
+    Analysis.create(last_video_id)
+  
     
     # destroy dummy video from db.
     last_video.destroy
