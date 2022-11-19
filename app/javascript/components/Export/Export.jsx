@@ -64,6 +64,8 @@ class Export extends Component {
 //     "RB_good_route": 1
 // }
     var id = sessionStorage.getItem('reportId');
+    var analysisId = sessionStorage.getItem('analysisId');
+    console.log(analysisId);
     axios.get('/api/v1/visions/show?id=' + id).then((dataJson) => {
         this.setState({error: false});
         // console.log(dataJson);
@@ -107,7 +109,7 @@ class Export extends Component {
       return (
         <div>
           <div className="export-div">
-            <Button onClick={this.createVision}>Create</Button>
+            {/*<Button onClick={this.createVision}>Create</Button>*/}
             <Button variant="contained" onClick={this.download}>Export csv</Button>
             <CSVLink
               data={this.state.data}

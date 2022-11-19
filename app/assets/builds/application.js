@@ -59122,7 +59122,6 @@ This is currently a DEV-only warning but will become a thrown exception in the n
       ).then((response) => {
         console.log(response);
         console.log(response.data.id);
-        sessionStorage.setItem("videoId", response.data.id);
         successHandler(response);
       }).catch((error2) => {
         console.log(error2);
@@ -87601,6 +87600,8 @@ This is currently a DEV-only warning but will become a thrown exception in the n
     }
     download(event) {
       var id = sessionStorage.getItem("reportId");
+      var analysisId = sessionStorage.getItem("analysisId");
+      console.log(analysisId);
       axios_default2.get("/api/v1/visions/show?id=" + id).then((dataJson) => {
         this.setState({ error: false });
         const report = dataJson.data.report;
@@ -87635,8 +87636,6 @@ This is currently a DEV-only warning but will become a thrown exception in the n
       return /* @__PURE__ */ import_react53.default.createElement("div", null, /* @__PURE__ */ import_react53.default.createElement("div", {
         className: "export-div"
       }, /* @__PURE__ */ import_react53.default.createElement(Button_default, {
-        onClick: this.createVision
-      }, "Create"), /* @__PURE__ */ import_react53.default.createElement(Button_default, {
         variant: "contained",
         onClick: this.download
       }, "Export csv"), /* @__PURE__ */ import_react53.default.createElement(import_react_csv.CSVLink, {
@@ -87654,95 +87653,23 @@ This is currently a DEV-only warning but will become a thrown exception in the n
 
   // app/javascript/pages/home/Home.jsx
   var import_react54 = __toESM(require_react());
-  function getRandomSubarray(arr, size) {
-    var shuffled = arr.slice(0), i = arr.length, temp, index2;
-    while (i--) {
-      index2 = Math.floor((i + 1) * Math.random());
-      temp = shuffled[index2];
-      shuffled[index2] = shuffled[i];
-      shuffled[i] = temp;
-    }
-    return shuffled.slice(0, size);
-  }
-  function generate_random_report() {
-    const report = {
-      "Offense": [{
-        "component": "piechart",
-        "title": "Point Distribution",
-        "data": [
-          {
-            "name": "Passing Touchdown Points",
-            "value": getRandomSubarray([6, 12, 18, 24, 30], 1)[0]
-          },
-          {
-            "name": "Rushing Touchdown Points",
-            "value": getRandomSubarray([6, 12, 18, 24, 30], 1)[0]
-          },
-          {
-            "name": "Field Goal Points",
-            "value": getRandomSubarray([3, 6, 9, 12, 15, 18, 21], 1)[0]
-          },
-          {
-            "name": "Extra Points",
-            "value": getRandomSubarray([1, 2, 3, 4, 5], 1)[0]
-          }
-        ]
-      }, {
-        "component": "barchart",
-        "title": "Yards Gained per Play Type",
-        "data": [
-          {
-            "name": "Passing",
-            "value": getRandomSubarray([312, 412, 132], 1)[0]
-          },
-          {
-            "name": "Rushing",
-            "value": getRandomSubarray([221, 86, 211], 1)[0]
-          }
-        ]
-      }],
-      "Defense": [{
-        "component": "barchart",
-        "title": "Yards Allowed per Play Type",
-        "data": [{
-          "name": "Passing",
-          "value": getRandomSubarray([123, 333, 211], 1)[0]
-        }, {
-          "name": "Rushing",
-          "value": getRandomSubarray([42, 442, 86], 1)[0]
-        }]
-      }, {
-        "component": "piechart",
-        "title": "Successful Defensive Plays",
-        "data": [
-          {
-            "name": "Blitz",
-            "value": getRandomSubarray([12, 15, 24], 1)[0]
-          },
-          {
-            "name": "Man Coverage",
-            "value": getRandomSubarray([8, 16, 22], 1)[0]
-          },
-          {
-            "name": "Zonal Coverage",
-            "value": getRandomSubarray([12, 14, 11], 1)[0]
-          }
-        ]
-      }]
-    };
-    return report;
-  }
   function Home() {
     const [uploadedFile, setuploadedFile] = Recoil_index_22(uploadedFileAtom);
     const [results, setResults] = Recoil_index_22(resultsAtom);
     const [selectedFile, setSelectedFile] = Recoil_index_22(selectedFileAtom);
     const generateReport = (event) => {
-      console.log(generate_random_report());
-      setResults({
-        content: generate_random_report()
+      axios_default2.post("/api/v1/analyses/create", { "id": uploadedFile["id"] }).then((response) => {
+        const report = JSON.parse(response.data.report);
+        console.log(response);
+        setResults({
+          content: report
+        });
+        sessionStorage.setItem("analysisId", response.data.id);
+        setuploadedFile(false);
+        setSelectedFile(null);
+      }).catch((error2) => {
+        console.log(error2.errormessage);
       });
-      setuploadedFile(false);
-      setSelectedFile(null);
     };
     const UploaderTile = styled_default(Paper_default)(({ theme }) => ({
       backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

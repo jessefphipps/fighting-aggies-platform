@@ -106,23 +106,25 @@ const [results, setResults] = useRecoilState(resultsAtom);
 const [selectedFile, setSelectedFile] = useRecoilState(selectedFileAtom);
 
 const generateReport = (event) => {
-  // axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
-  //   const report = JSON.parse(response.data.report);
-  //   setResults({
-  //     content: report,
-  //   })
-  //   setuploadedFile(false)
-  //   setSelectedFile(null)
-  // }).catch((error) => {
-  //     // handle error
-  //     console.log(error.errormessage);
-  //   });
-    console.log(generate_random_report())
+  axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
+    const report = JSON.parse(response.data.report);
+    console.log(response);
     setResults({
-      content: generate_random_report(),
+      content: report,
     })
+    sessionStorage.setItem('analysisId', response.data.id);
     setuploadedFile(false)
     setSelectedFile(null)
+  }).catch((error) => {
+      // handle error
+      console.log(error.errormessage);
+    });
+    // console.log(generate_random_report())
+    // setResults({
+    //   content: generate_random_report(),
+    // })
+    // setuploadedFile(false)
+    // setSelectedFile(null)
   };
   
 // const fetchResults = (event) => {

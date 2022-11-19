@@ -134,7 +134,7 @@ function FileUploader() {
         // handle success
         console.log(response);
         console.log(response.data.id);
-        sessionStorage.setItem('videoId', response.data.id);
+        // sessionStorage.setItem('videoId', response.data.id);
         successHandler(response);
         
         // call nested GET request to request reports
