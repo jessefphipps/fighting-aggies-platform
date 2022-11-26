@@ -40,7 +40,7 @@ function TabPanelBuilder(json_object, value){
       return (
         <div key={i}>
           <TabPanel value={value} index={i} key={i}>
-            <div>
+            <div name="tab_results">
               {json_object.content[category].map((block) => results_handler(block))}
             </div>
           </TabPanel>
