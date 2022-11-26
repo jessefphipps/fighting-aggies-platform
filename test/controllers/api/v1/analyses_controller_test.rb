@@ -57,13 +57,14 @@ class Api::V1::AnalysesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     
     response_body = JSON.parse(@response.body)
-    response_body_keys = response_body["report"].keys
+    response_body_parsed = JSON.parse(response_body["report"])
+    response_body_keys = response_body_parsed.keys
     
     
     assert_equal(response_body_keys[0], "frontend_report", "Analysis does not include frontend report")
     assert_equal(response_body_keys[1], "raw_data", "Analysis does not include raw data as requested")
-    assert_equal(JSON.parse(last_vision.report), response_body["report"]["raw_data"], "Requested analysis does not include correct vision")
-    assert_equal(JSON.parse(last_analysis.report), response_body["report"]["frontend_report"], "Requested analysis does not match with query ID")
+    assert_equal(JSON.parse(last_vision.report), response_body_parsed["raw_data"], "Requested analysis does not include correct vision")
+    assert_equal(JSON.parse(last_analysis.report), response_body_parsed["frontend_report"], "Requested analysis does not match with query ID")
     
     
     last_analysis.destroy
@@ -104,6 +105,9 @@ class Api::V1::AnalysesControllerTest < ActionDispatch::IntegrationTest
     post api_v1_analyses_create_url, params: {id: last_video.id}
     assert_response :created
     
+    last_analysis = Analysis.order("created_at").last
+    assert_equal(last_analysis.to_json, @response.body, "Created analysis does not match with latest db entry")
+    
     last_vision.destroy # Remove temporary vision
     last_video.destroy # Remove temporary video
   end
@@ -118,13 +122,14 @@ class Api::V1::AnalysesControllerTest < ActionDispatch::IntegrationTest
     last_analysis = Analysis.order("created_at").last
     
     response_body = JSON.parse(@response.body)
-    response_body_keys = response_body["report"].keys
+    response_body_parsed = JSON.parse(response_body["report"])
+    response_body_keys = response_body_parsed.keys
     
     
     assert_equal(response_body_keys[0], "frontend_report", "Analysis does not include frontend report")
     assert_equal(response_body_keys[1], "raw_data", "Analysis does not include raw data as requested")
-    assert_equal(JSON.parse(last_vision.report), response_body["report"]["raw_data"], "Requested analysis does not include correct vision")
-    assert_equal(JSON.parse(last_analysis.report), response_body["report"]["frontend_report"], "Requested analysis does not match with query ID")
+    assert_equal(JSON.parse(last_vision.report), response_body_parsed["raw_data"], "Requested analysis does not include correct vision")
+    assert_equal(JSON.parse(last_analysis.report), response_body_parsed["frontend_report"], "Requested analysis does not match with query ID")
     
     
     last_analysis.destroy
