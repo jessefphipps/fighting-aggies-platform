@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -37,11 +38,13 @@ function TabBuilder(json_object){
 function TabPanelBuilder(json_object, value){
   return Object.keys(json_object.content).map((category, i)=>{
       return (
+        <div key={i}>
           <TabPanel value={value} index={i} key={i}>
-            <div>
+            <div name="tab_results">
               {json_object.content[category].map((block) => results_handler(block))}
             </div>
           </TabPanel>
+        </div>
         );
     });
 }
@@ -72,15 +75,25 @@ const Results = (props) => {
     setValue(newValue);
   };
   
+  
+  
   return (
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            {TabBuilder(props.data)}
-          </Tabs>
+      <div style={{
+          display: 'flex',
+          alignItems: 'left',
+          justifyContent: 'left',
+      }}>
+        <Box sx={{ width: '100%', height: 800 }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+              {TabBuilder(props.data)}
+            </Tabs>
+          </Box>
+          <div style={{ height: 'inherit', overflow: 'auto' }}>
+            {TabPanelBuilder(props.data, value)}
+            </div>
         </Box>
-        {TabPanelBuilder(props.data, value)}
-      </Box>
+      </div>
       );
   }
  

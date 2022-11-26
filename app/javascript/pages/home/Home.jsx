@@ -90,7 +90,64 @@ function generate_random_report(){
                     'name': 'Zonal Coverage',
                     'value': getRandomSubarray([12, 14, 11], 1)[0]
                 }]
-            }]
+            }],
+            'Player Cards': [
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+              {
+                'component': 'playercard',
+                'name': 'Conner Weigman',
+                'position': "Quarterback",
+                'result': "PASS"
+              },
+
+            ]
         }
         
         return report;
@@ -106,23 +163,29 @@ const [results, setResults] = useRecoilState(resultsAtom);
 const [selectedFile, setSelectedFile] = useRecoilState(selectedFileAtom);
 
 const generateReport = (event) => {
-  // axios.post("/api/v1/analyses/create", {'id': uploadedFile['id']}).then((response)=>{
-  //   const report = JSON.parse(response.data.report);
-  //   setResults({
-  //     content: report,
-  //   })
-  //   setuploadedFile(false)
-  //   setSelectedFile(null)
-  // }).catch((error) => {
-  //     // handle error
-  //     console.log(error.errormessage);
-  //   });
-    console.log(generate_random_report())
+  axios.post("/api/v1/analyses/create", {'id': uploadedFile['id'], 'include_raw_data': true}).then((response)=>{
+    const report = JSON.parse(response.data.report);
+    console.log(111);
+    console.log(response);
+    console.log("Frontend:");
+    console.log(report.frontend_report);
     setResults({
-      content: generate_random_report(),
-    })
+      content: report.frontend_report,
+    });
+    console.log(report.raw_data);
+    sessionStorage.setItem('rawData', JSON.stringify(report.raw_data));
     setuploadedFile(false)
     setSelectedFile(null)
+  }).catch((error) => {
+      // handle error
+      console.log(error.errormessage);
+    });
+    // console.log(generate_random_report())
+    // setResults({
+    //   content: generate_random_report(),
+    // })
+    // setuploadedFile(false)
+    // setSelectedFile(null)
   };
   
 // const fetchResults = (event) => {
@@ -195,16 +258,18 @@ return (
                 </Button>
               </UploaderTile>
               <ExportTile variant="elevation" elevation={8}>
-                <Export/>
+                <Export />
               </ExportTile>
             </Stack>
           </Grid>
           <Grid item xs={8}>
+          <div styles={{ height: '100%', overflowY: 'scroll' }}>
             <Stack direction="column" spacing={2}>
               <ReportTile variant="elevation" elevation={8}>
-                <Results data={results}/>
+                  <Results data={results}/>
               </ReportTile>
             </Stack>
+            </div>
           </Grid>
         </Grid>
       </Box>
