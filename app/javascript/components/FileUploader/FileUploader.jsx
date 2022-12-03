@@ -230,7 +230,7 @@ function FileUploader() {
                 variant="contained"
                 component="label"
               >
-                Select Video File
+                Select Game File
                 <input
                   id="file_select_button"
                   type="file"

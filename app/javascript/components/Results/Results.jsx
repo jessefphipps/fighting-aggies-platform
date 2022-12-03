@@ -38,6 +38,18 @@ function TabBuilder(json_object){
 
 function TabPanelBuilder(json_object, value){
   return Object.keys(json_object.content).map((category, i)=>{
+    if (category == "Players"){
+      let list_of_blocks = [...json_object.content[category]]
+      return (
+        <div key={i}>
+          <TabPanel value={value} index={i} key={i}>
+            <div name="tab_results">
+              {list_of_blocks.sort((a,b) => a["data"]["play_success_rate"] - b["data"]["play_success_rate"]).map((block) => results_handler(block))}
+            </div>
+          </TabPanel>
+        </div>
+        );
+    } else {
       return (
         <div key={i}>
           <TabPanel value={value} index={i} key={i}>
@@ -47,6 +59,8 @@ function TabPanelBuilder(json_object, value){
           </TabPanel>
         </div>
         );
+    }
+      
     });
 }
 

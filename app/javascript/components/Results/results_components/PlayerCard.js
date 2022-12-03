@@ -5,6 +5,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import chroma from 'chroma-js';
+
+const f = chroma.scale(['#fc8c88', '#77f7a2']);
 
 export default props => (
   
@@ -12,23 +15,22 @@ export default props => (
           display: 'flex',
           alignItems: 'left',
           justifyContent: 'left',
+          background: f((props.block.data.play_success_rate - 0.5)/(0.5))
       }}>
     <div className="bar" style={{
           display: 'flex',
           alignItems: 'left',
           justifyContent: 'left',
       }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
+      <CardContent style={{justifyContent: "left"}}>
+        <Typography variant="h5" component="div" style={{justifyContent: "left"}}>
           {props.block.data.name}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        <Typography sx={{ mb: 1.5 }} color="text.secondary" style={{justifyContent: "left"}}>
           {props.block.data.position}
         </Typography>
-        <Typography variant="body2">
-          RESULT:
-          <br />
-          {props.block.data.play_success}
+        <Typography variant="body2" style={{justifyContent: "left"}}>
+          PLAY SUCCESS RATE: {props.block.data.play_success_rate}
         </Typography>
       </CardContent>
       <CardActions>
