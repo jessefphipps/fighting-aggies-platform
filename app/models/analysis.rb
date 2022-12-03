@@ -45,16 +45,6 @@ class Analysis < ApplicationRecord
         frontend_report = {
             'Offense' => [{
                 'component' => 'piechart',
-                'title' => 'Success rate of play',
-                'data' => [{
-                    'name' => 'Pass',
-                    'value' => players_good_routes
-                },{
-                    'name' => 'Fail',
-                    'value' => players_bad_routes
-                }]
-            }, {
-                'component' => 'piechart',
                 'title' => 'Point Distribution',
                 'data' => [{
                     'name' => 'Passing Touchdown Points',
