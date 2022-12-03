@@ -7,7 +7,7 @@ class Vision < ApplicationRecord
         # Return if vision exists for the requested video_id
         raise "Raw data for video with id " + video_id.to_s + " already exists" and return if Vision.exists?(video_id: video_id)
         
-        report = generate_random_report()
+        report = final_report
 
         super({ :report => report, :video_id => video_id})
     end
@@ -60,6 +60,21 @@ class Vision < ApplicationRecord
             'RB_good_route' => success
         }
         
-        return report.to_json
+        return report
     end
+    
+    def final_report
+        plays = rand(50..100)
+        final = {}
+    
+        puts(plays)
+    
+        (0..plays).each do |i|
+            #play = generate_random_report
+            final[i] = generate_random_report()
+        end
+        
+        return final.to_json
+    end
+
 end
