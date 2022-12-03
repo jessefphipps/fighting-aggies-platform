@@ -147,7 +147,7 @@ class Analysis < ApplicationRecord
                 'data' => {
                     'name' => 'Donovan Green',
                     'position' => 'Wide Receiver',
-                    'play_success' => rand(0.6..0.9),
+                    'play_success_rate' => rand(0.6..0.9),
                     'route_success_rate' => rand(0.4..1.0),
                     'yards_gained' => 233
                 }
@@ -174,8 +174,8 @@ class Analysis < ApplicationRecord
                 'data' => {
                     'name' => 'Le\'Veon Moss',
                     'position' => 'Running Back',
-                    'play_success' => rand(0.6..1.0),
-                    'route_success' => rand(0.6..1.0),
+                    'play_success_rate' => rand(0.6..1.0),
+                    'route_success_rate' => rand(0.6..1.0),
                     'yards_gained' => 114
                 }
             },{
@@ -183,8 +183,8 @@ class Analysis < ApplicationRecord
                 'data' => {
                     'name' => 'Ainias Smith',
                     'position' => 'Running Back',
-                    'play_success' => rand(0.4..0.8),
-                    'route_success' => rand(0.4..0.8),
+                    'play_success_rate' => rand(0.4..0.8),
+                    'route_success_rate' => rand(0.4..0.8),
                     'yards_gained' => 302
                 }
             }]
