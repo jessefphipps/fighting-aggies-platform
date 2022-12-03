@@ -6,6 +6,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import {createTheme, Stack, ThemeProvider, Grid, Paper} from "@mui/material";
 
 
 
@@ -82,17 +83,20 @@ const Results = (props) => {
           display: 'flex',
           alignItems: 'left',
           justifyContent: 'left',
+          height: "100%",
       }}>
-        <Box sx={{ width: '100%', height: 800 }}>
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-              {TabBuilder(props.data)}
-            </Tabs>
+      <Stack sx={{height: "100%", width:"100%"}}>
+          <Box sx={{ width: '100%'}}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                {TabBuilder(props.data)}
+              </Tabs>
+            </Box>
           </Box>
-          <div style={{ height: 'inherit', overflow: 'auto' }}>
+          <Box sx={{overflowY:"scroll", height:"100%"}}>
             {TabPanelBuilder(props.data, value)}
-            </div>
-        </Box>
+          </Box>
+        </Stack>
       </div>
       );
   }

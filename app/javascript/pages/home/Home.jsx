@@ -205,27 +205,33 @@ const UploaderTile = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
+  // margin: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  height: "50vh"
+  // height: "60vh"
+  flex: 3
 }));
 
 const ReportTile = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
+  // margin: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  height: "93vh"
+  // height: "100vh",
+  height: "100%",
 }));
 
 const ExportTile = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
+  // margin: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  height: "40vh"
+  // height: "40vh"
+  flex: 2
 }));
 
 const user = sessionStorage.getItem('user');
@@ -236,11 +242,11 @@ const history = useHistory();
 
 if (user == null) return <Redirect to='/' />
 return (
-    <div style={{padding: '10px'}}>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <Stack direction="column" spacing={2}>
+    <div style={{height: "100vh", padding:4, overflow: "hidden"}}>
+      <Box sx={{height: "100%"}}>
+        <Grid container spacing={1} style={{ alignContent: "stretch", height: "100%"}}>
+          <Grid item xs={4} style={{height: "100%"}}>
+            <Stack direction="column" spacing={1} style={{height: "100%"}}>
               <UploaderTile variant="elevation" elevation={8}>
                 {user && 
                   <div>
@@ -262,14 +268,12 @@ return (
               </ExportTile>
             </Stack>
           </Grid>
-          <Grid item xs={8}>
-          <div styles={{ height: '100%', overflowY: 'scroll' }}>
-            <Stack direction="column" spacing={2}>
+          <Grid item xs={8} style={{height: "100%"}}>
+            <Stack direction="column" spacing={0} style={{height: "100%"}}>
               <ReportTile variant="elevation" elevation={8}>
                   <Results data={results}/>
               </ReportTile>
             </Stack>
-            </div>
           </Grid>
         </Grid>
       </Box>
