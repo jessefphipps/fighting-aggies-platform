@@ -2,7 +2,9 @@ import React,{Component} from 'react';
 
 import Button from '@mui/material/Button';
 
-import {CSVLink, CSVDownload} from 'react-csv';
+// import {CSVLink, CSVDownload} from 'react-csv';
+
+import * as XLSX from 'xlsx';
 
 import axios from 'axios';
  
@@ -96,16 +98,27 @@ class Export extends Component {
       if (raw_data == null) {
         this.setState({data: [], error: true});
       } else {
-        console.log(raw_data);
+        // console.log(raw_data);
         const parsedReport = JSON.parse(raw_data);
-        const arr = []
-        Object.keys(parsedReport).forEach(key => arr.push({name: key, value: parsedReport[key]}));
-        console.log(arr);
+        console.log("arr");
+        // console.log(parsedReport);
+        
+        const arr = [];
+        for(var i in parsedReport)
+          arr.push(parsedReport[i]);
+        
+        // console.log(arr);
+        const worksheet = XLSX.utils.json_to_sheet(arr);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+        XLSX.writeFile(workbook, "Report.xlsx");
+        // Object.keys(parsedReport).forEach(key => arr.push({name: key, value: parsedReport[key]}));
+        // console.log(arr);
         this.setState({
-          data: arr,
+          data: parsedReport,
         }, () => {
           // click the CSVLink component to trigger the CSV download
-          this.csvLink.link.click();
+          // this.csvLink.link.click();
         });
       }
   };
@@ -126,14 +139,14 @@ class Export extends Component {
         <div>
           <div className="export-div">
             {/*<Button onClick={this.createVision}>Create</Button>*/}
-            <Button variant="contained" onClick={this.download}>Export csv</Button>
-            <CSVLink
+            <Button variant="contained" onClick={this.download}>Export Excel</Button>
+            {/*<CSVLink
               data={this.state.data}
               filename="report.csv"
               className="hidden"
               ref={(r) => (this.csvLink = r)}
               target="_blank"
-            />
+            />*/}
             <div className="export-error-message">
               {this.state.error ? 'something went wrong...' : ''}
             </div>
