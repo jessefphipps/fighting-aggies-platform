@@ -35,7 +35,25 @@ Developing a analytical panel to generate insights that help facilitate the post
   ```bash
   sudo apt install ffmpeg
   ```
-
+- Cucumber
+  - For Ubuntu,
+  ```bash
+  sudo apt install cucumber
+  ```
+- ChromeDriver
+  - For Ubuntu,
+  ```bash
+  sudo wget sudo wget https://chromedriver.storage.googleapis.com/106.0.5249.61/chromedriver_linux64.zip
+  sudo unzip chromedriver_linux64.zip
+  sudo mv chromedriver /usr/bin/chromedriver
+  ```
+- Chrome
+  - For Ubuntu,
+  ```bash
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo apt install ./google-chrome-stable_current_amd64.deb
+  ```
+  
 ### Installation and Running Instructions
 ```bash
 git clone https://github.com/jessefphipps/fighting-aggies-platform.git
@@ -43,4 +61,9 @@ cd fighting-aggies-platform
 bundle install
 yarn install
 /bin/dev
+```
+### Testinf Instructions
+```bash
+cd fighting-aggies-platform
+cucumber
 ```
