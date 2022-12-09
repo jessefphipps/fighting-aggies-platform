@@ -53,7 +53,12 @@ Developing a analytical panel to generate insights that help facilitate the post
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   sudo apt install ./google-chrome-stable_current_amd64.deb
   ```
-  
+- Selenium WebDriver
+  - For Ubuntu, if the version of your Selenium WebDriver is higher than 3.142.7. Uninstall it, and install the older version with
+  ```bash
+  gem install selenium-webdriver -v 3.142.7
+  ```
+
 ### Installation and Running Instructions
 ```bash
 git clone https://github.com/jessefphipps/fighting-aggies-platform.git
