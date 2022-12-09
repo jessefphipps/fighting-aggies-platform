@@ -62,7 +62,7 @@ bundle install
 yarn install
 /bin/dev
 ```
-### Testinf Instructions
+### Testing Instructions
 ```bash
 cd fighting-aggies-platform
 cucumber
