@@ -40,6 +40,8 @@ Developing a analytical panel to generate insights that help facilitate the post
   ```bash
   sudo apt install cucumber
   ```
+- Minitests
+  - Minitest is a testing tool present in the Ruby environment, and its gem can be included in the Gemfile (already done).
 - ChromeDriver
   - For Ubuntu,
   ```bash
@@ -68,7 +70,8 @@ yarn install
 /bin/dev
 ```
 ### Testing Instructions
+Run the server in your local machine and use a new terminal to run the tests using the commands given below,
 ```bash
-cd fighting-aggies-platform
 cucumber
+rake test
 ```
